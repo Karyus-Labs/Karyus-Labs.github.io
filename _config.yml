@@ -1,0 +1,11 @@
+title: "Karyus Labs Blog"
+description: "Aerospace R&D and Simulation Projects"
+theme: minima
+markdown: kramdown
+
+plugins:
+  - jekyll-feed
+
+collections:
+  posts:
+    output: true
