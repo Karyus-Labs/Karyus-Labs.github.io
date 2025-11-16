@@ -70,11 +70,15 @@ They were nearly **identical**.
 
 ---
 
+This project changed the way I see engineering: models are not about perfection, but about understanding where simplicity is enough — and where it isn’t.
+
+---
+
 ## Repository
 I open-sourced everything — documentation (English), MATLAB scripts and Simulink model.
 
 **Full project repo:**  
-**[https://github.com/Karyus-Labs/cessna182-nonlinear-simulator](https://github.com/Karyus-Labs/cessna182-nonlinear-simulator)**
+**[Karyus-Labs / Cessna182 Non-Linear Flight Simulator](https://github.com/Karyus-Labs/cessna182-nonlinear-simulator)**
 
 If you're in aerospace simulation or autonomous systems, I’d love to hear feedback.
 
