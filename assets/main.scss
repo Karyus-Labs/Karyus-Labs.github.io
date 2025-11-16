@@ -1,0 +1,58 @@
+---
+// O front matter (os três traços acima) é essencial
+// para que o Jekyll processe este arquivo Sass.
+---
+
+// 1. Definição da sua paleta de cores Karyus-Labs
+$karyus-dark-blue: #002F45;
+$karyus-ash-gray: #BCD4CC;
+$karyus-earth: #E3A750;
+
+// 2. Mapeamento para as variáveis do tema 'minima'
+// Esta é a parte principal da customização.
+// O 'minima' usará estas cores em vez das padrão.
+
+$background-color: $karyus-ash-gray; // Fundo do blog
+$text-color: $karyus-dark-blue;   // Texto principal
+$link-color: $karyus-earth;       // Links e destaques
+
+// Cores "cinza" do tema, ajustadas para sua paleta
+$grey-color: lighten($karyus-dark-blue, 30%);
+$grey-color-light: lighten($karyus-ash-gray, 5%);
+$grey-color-dark: darken($karyus-dark-blue, 5%);
+
+// 3. Importar o restante dos estilos do 'minima'
+// IMPORTANTE: Isso deve vir *depois* das suas variáveis.
+@import "minima";
+
+// 4. (Recomendado) Sobrescritas Específicas
+// Para garantir que a marca fique forte, vamos forçar
+// o estilo do cabeçalho (header) e outros elementos.
+
+// Cabeçalho com o azul escuro de fundo
+.site-header {
+  background-color: $karyus-dark-blue;
+  border-top: 5px solid $karyus-earth; // Borda de destaque 'Earth'
+  border-bottom: 1px solid $karyus-earth;
+}
+
+// Título do site e links de navegação no header
+.site-title,
+.site-title:visited,
+.site-nav .page-link {
+  color: $karyus-ash-gray; // Cor clara para contrastar com o fundo escuro
+}
+
+// Efeito 'hover' nos links do header
+.site-nav .page-link:hover {
+  color: $karyus-earth;
+}
+
+// Títulos dos posts na página inicial
+.post-link {
+  color: $karyus-dark-blue;
+}
+
+.post-link:hover {
+  color: $karyus-earth;
+}
