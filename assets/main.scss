@@ -54,3 +54,24 @@ $grey-color-dark: darken($karyus-dark-blue, 5%);
 .post-link:hover {
   color: $karyus-earth;
 }
+
+// 5. Estilos do Logo Karyus-Labs
+
+.site-logo-link {
+  display: block;
+  float: left;
+}
+
+.site-logo {
+  // Você pode ajustar esta altura se necessário
+  max-height: 40px; 
+
+  // Alinha o logo verticalmente com os links de navegação
+  margin-top: 8px; // Ajuste fino
+  margin-bottom: 8px; // Ajuste fino
+}
+
+// Esconde o título de texto original que estava lá
+.site-title {
+  display: none;
+}
