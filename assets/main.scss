@@ -1,102 +1,136 @@
 ---
-# Somente para o Jekyll processar o SASS
 ---
 
-// 1. Importação de Fontes (Orbitron para títulos, Poppins para leitura)
+// 1. IMPORTAÇÃO DE FONTES E TEMA BASE
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap');
+@import "minima";
 
-// 2. Variáveis de Identidade Karyus Labs
+// 2. VARIÁVEIS DE MARCA KARYUS-LABS
 :root {
-  --karyus-blue: #002F45;   // Primary Dark
-  --karyus-ash: #BCD4CC;    // Secondary Text
-  --karyus-earth: #E3A750;  // Accent/Action
-  --bg-deep: #001a26;       // Background mais profundo
+  --karyus-blue: #002F45;   // Primary Navy
+  --karyus-earth: #E3A750;  // Accent Earth
+  --karyus-ash: #BCD4CC;    // Secondary Ash
+  --bg-deep: #00121a;       // Deep Space Background
   --font-primary: 'Orbitron', sans-serif;
   --font-secondary: 'Poppins', sans-serif;
-  --transition-speed: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-// 3. Reset e Estilo Global (Forçando Dark Mode)
+// 3. ESTILOS GLOBAIS (RESOLVENDO O VISUAL DE 1998)
 body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--karyus-blue);
-  color: var(--karyus-ash);
+  background-color: var(--bg-deep) !important;
+  color: var(--karyus-ash) !important;
   font-family: var(--font-secondary);
-  line-height: 1.6;
-  overflow-x: hidden;
+  margin: 0;
+  display: flex; // Coloca Sidebar e Conteúdo lado a lado
+  min-height: 100vh;
 }
 
-h1, h2, h3, h4 {
+// 4. SIDEBAR ESTRUTURAL (Comando Karyus)
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: var(--karyus-blue);
+  border-right: 2px solid var(--karyus-earth);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.2rem;
+  z-index: 1000;
+  transition: var(--transition);
+
+  // Logo fix: Resolve o problema do logo gigante
+  .nav-logo {
+    width: 100%;
+    max-width: 160px;
+    height: auto;
+    margin: 0 auto 2.5rem;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(227, 167, 80, 0.2));
+  }
+}
+
+// 5. NAVEGAÇÃO INTERATIVA
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--karyus-ash);
+    text-decoration: none;
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+
+    i { color: var(--karyus-earth); min-width: 20px; text-align: center; }
+
+    &:hover {
+      background: rgba(188, 212, 204, 0.05);
+      color: var(--karyus-earth);
+      border-left: 3px solid var(--karyus-earth);
+      transform: translateX(5px);
+    }
+  }
+}
+
+// 6. CONTEÚDO PRINCIPAL (MAIN CONTENT AREA)
+.main-content {
+  margin-left: 260px; // Espaço exato da Sidebar
+  padding: 4rem 5rem;
+  width: calc(100% - 260px);
+  
+  .wrapper { max-width: 900px; margin: 0; }
+}
+
+// 7. TIPOGRAFIA TÉCNICA
+h1, h2, h3 {
   font-family: var(--font-primary);
   color: var(--karyus-earth);
   text-transform: uppercase;
   letter-spacing: 2px;
+  margin-bottom: 1.5rem;
 }
 
-// 4. Sidebar Estilo "Jean-Cassiano" (Karyus Dashboard)
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 80px;
-  height: 100vh;
-  background-color: var(--bg-deep);
-  border-right: 1px solid var(--karyus-earth);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem 0;
-  z-index: 1000;
-  transition: width var(--transition-speed);
-  
-  &:hover {
-    width: 200px;
-    .sidebar-text { opacity: 1; visibility: visible; }
-  }
-}
-
-.sidebar-text {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s;
+.post-link {
+  color: var(--karyus-earth) !important;
   font-family: var(--font-primary);
-  font-size: 0.8rem;
-  margin-left: 10px;
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: 0.3s;
+  
+  &:hover { text-shadow: 0 0 15px rgba(227, 167, 80, 0.6); }
 }
 
-// 5. Ajuste do Conteúdo Principal
-.main-content {
-  margin-left: 80px; // Espaço para a sidebar
-  padding: 2rem;
-  max-width: 1100px;
+// 8. MATHJAX CUSTOM STYLING (Para P&D)
+.mjx-container {
+  color: var(--karyus-ash) !important;
+  margin: 2rem 0 !important;
+  font-size: 1.15rem !important;
 }
 
-// 6. Botão Futurista (Implementando o seu Storytelling de Ação)
+// 9. BOTÃO FUTURISTA (CV DOWNLOAD)
 .futuristic-btn {
   display: inline-block;
-  padding: 0.8rem 2rem;
+  padding: 1rem 2.5rem;
   border: 2px solid var(--karyus-earth);
-  color: var(--karyus-earth);
-  text-decoration: none;
+  color: var(--karyus-earth) !important;
   font-family: var(--font-primary);
+  text-decoration: none;
   font-weight: 700;
-  position: relative;
-  overflow: hidden;
-  transition: all var(--transition-speed);
-
+  transition: all 0.4s;
+  
   &:hover {
-    background-color: var(--karyus-earth);
-    color: var(--karyus-blue);
-    box-shadow: 0 0 20px rgba(227, 167, 80, 0.4);
+    background: var(--karyus-earth);
+    color: var(--karyus-blue) !important;
+    box-shadow: 0 0 20px var(--karyus-earth);
   }
 }
-
-// 7. Estilo para Equações MathJax (Garantindo contraste)
-.mjx-chtml {
-  color: var(--karyus-ash) !important;
-  font-size: 1.1rem !important;
-}
-
-// Importar o restante do Jekyll Minima (opcional, mas recomendado manter o básico)
-@import "minima";
