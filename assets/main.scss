@@ -16,9 +16,9 @@
   --text-primary: #BCD4CC;
   
   // HIERARQUIA TIPOGRÁFICA
-  --font-header: 'Orbitron', sans-serif;       // Títulos e Impacto
-  --font-body: 'Exo 2', sans-serif;           // Corpo de texto (Futurista + Legível)
-  --font-tech: 'JetBrains Mono', monospace;    // Dados técnicos e código
+  --font-header: 'Orbitron', sans-serif;
+  --font-body: 'Exo 2', sans-serif;           
+  --font-tech: 'JetBrains Mono', monospace;    
   
   --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1); 
 }
@@ -30,8 +30,8 @@ body {
   font-family: var(--font-body); 
   font-size: 1.1rem;
   font-weight: 400;
-  line-height: 1.8;      // Espaçamento generoso para conforto visual
-  letter-spacing: 0.3px; // Leve respiro entre as letras
+  line-height: 1.8;      
+  letter-spacing: 0.3px; 
   margin: 0;
   display: flex;
   min-height: 100vh;
@@ -65,7 +65,7 @@ body {
   }
 }
 
-// 4. LÓGICA DE LOGOS
+// 4. LÓGICA DE LOGOS (Ajuste no "K")
 .sidebar-logo {
   position: relative; 
   height: 140px;      
@@ -85,11 +85,15 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    
     font-family: var(--font-header);
     font-weight: 900;
     font-size: 3.5rem; 
     color: var(--karyus-earth);
-    text-shadow: 0 0 15px var(--karyus-earth-glow), 0 0 30px rgba(227, 167, 80, 0.2);
+    
+    // REMOVIDO O TEXT-SHADOW (Sem brilho, visual clean)
+    text-shadow: none; 
+    
     transition: var(--transition);
     z-index: 2;
     opacity: 1; 
@@ -224,7 +228,7 @@ body {
 
     p {
       margin-bottom: 1.8rem;
-      max-width: 900px; // Limite de largura para leitura confortável
+      max-width: 900px; 
     }
 }
 
@@ -243,7 +247,7 @@ body {
         line-height: 1.1;
     }
     .subtitle {
-        font-family: var(--font-tech); // Mantemos o estilo HUD aqui
+        font-family: var(--font-tech); 
         font-size: 0.9rem;
         color: var(--karyus-neon);
         letter-spacing: 3px;
@@ -252,11 +256,11 @@ body {
     }
 }
 
-// 9. PROJETOS (Ajuste de Imagem)
+// 9. PROJETOS
 .project-hero-img {
   width: 100%;
   height: 380px;      
-  object-fit: cover;  // Recorte inteligente para manter o foco no avião
+  object-fit: cover;  
   object-position: center;
   opacity: 0.5;
   transition: 0.5s;
@@ -312,7 +316,62 @@ a {
   }
 }
 
-// 11. RESPONSIVIDADE
+// 11. BACKGROUND BLUEPRINT (Ilusão de Ótica Sutil)
+// Apenas para Home e Contact
+#home, #contact {
+  position: relative;
+  overflow: hidden;
+
+  // Grade de Engenharia sutil
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    // Linhas douradas quase transparentes (3% de opacidade)
+    background-image: 
+      linear-gradient(rgba(227, 167, 80, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(227, 167, 80, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px; 
+    
+    // Vignette (Escurece nas bordas)
+    mask-image: radial-gradient(circle, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle, black 30%, transparent 80%);
+    
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  // Conteúdo acima do fundo
+  .hero-manifesto, .contact-grid, h2 {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// Linha de Scan para o Contact
+#contact::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--karyus-neon), transparent);
+  opacity: 0.1;
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scanline {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+
+// 12. RESPONSIVIDADE
 @media (max-width: 768px) {
   .sidebar { 
     width: 100%; height: auto; position: relative; 
@@ -325,57 +384,4 @@ a {
   .glitch-text { font-size: 2.5rem !important; letter-spacing: 2px !important; }
   .one-page-section { padding-top: 80px; }
   .project-hero-img { height: 250px; }
-}
-
-// 12. ELEMENTOS VISUAIS DE FUNDO (Blueprint Grid)
-#home, #contact {
-  position: relative;
-  overflow: hidden;
-
-  // Criando as linhas de fundo via Pseudo-elemento
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    
-    // Desenho das linhas (Grid de Engenharia)
-    background-image: 
-      linear-gradient(rgba(227, 167, 80, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(227, 167, 80, 0.03) 1px, transparent 1px);
-    background-size: 40px 40px; // Tamanho do quadrado da grade
-    
-    // Máscara para as linhas sumirem suavemente nas bordas (Vignette)
-    mask-image: radial-gradient(circle, black 30%, transparent 80%);
-    -webkit-mask-image: radial-gradient(circle, black 30%, transparent 80%);
-    
-    pointer-events: none; // Garante que as linhas não atrapalhem cliques
-    z-index: 0;
-  }
-
-  // Garante que o conteúdo fique acima das linhas
-  .hero-manifesto, .contact-grid, h2 {
-    position: relative;
-    z-index: 1;
-  }
-}
-
-// Detalhe extra para o Contact: uma linha de "scan" tecnológica
-#contact::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--karyus-neon), transparent);
-  opacity: 0.1;
-  animation: scanline 8s linear infinite;
-}
-
-@keyframes scanline {
-  0% { top: 0%; }
-  100% { top: 100%; }
 }
