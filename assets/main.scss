@@ -1,102 +1,113 @@
 ---
 ---
 
-// 1. FONTES E VARIÁVEIS HUD
+// 1. FONTES E VARIÁVEIS HUD (Deep Tech Only)
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;700&display=swap');
 @import "minima";
 
 :root {
-  --sidebar-collapsed: 85px;  
+  --sidebar-collapsed: 90px;   // Aumentei levemente para garantir que os ícones caibam
   --sidebar-expanded: 320px;   
   --karyus-blue: #002F45;   
   --karyus-earth: #E3A750;  
   --karyus-neon: #00f2ff;
   --karyus-earth-glow: rgba(227, 167, 80, 0.4);
-  --bg-primary: #01080b;    
+  --bg-primary: #01080b;       // Sempre Dark
   --text-primary: #BCD4CC;
   --font-header: 'Orbitron', sans-serif;
   --font-tech: 'JetBrains Mono', monospace;
-  --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  // Física da Animação (Mais fluida)
+  --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1); 
 }
 
 // 2. ESTRUTURA GLOBAL
 body {
   background-color: var(--bg-primary) !important;
   color: var(--text-primary) !important;
-  font-family: var(--font-tech); // Corpo do texto técnico
+  font-family: var(--font-tech);
   margin: 0;
   display: flex;
   min-height: 100vh;
-  transition: background-color var(--transition);
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
-// 3. SIDEBAR HUD ESTABILIZADA (Sem "Pulo")
+// 3. SIDEBAR HUD (Estabilizada)
 .sidebar {
   width: var(--sidebar-collapsed);
   height: 100vh;
   position: fixed;
   left: 0;
   top: 0;
-  background: rgba(0, 18, 26, 0.98);
+  background: rgba(0, 18, 26, 0.98); // Vidro escuro
   backdrop-filter: blur(15px);
-  border-right: 1px solid var(--karyus-blue);
+  border-right: 1px solid rgba(0, 242, 255, 0.1); // Borda sutil Neon
   z-index: 1000;
   transition: width var(--transition);
   display: flex;
   flex-direction: column;
   overflow: hidden;
 
+  // Estado Expandido (Hover)
   &:hover {
     width: var(--sidebar-expanded);
-    box-shadow: 10px 0 40px rgba(0,0,0,0.6);
+    box-shadow: 10px 0 50px rgba(0,0,0,0.8);
+    
     .nav-text { opacity: 1; transform: translateX(0); }
-    // Apenas controla a opacidade, não o display, para evitar pulos
-    .nav-logo-full { opacity: 1; } 
-    .nav-logo-small { opacity: 0; }
+    
+    // Troca de Logo Suave
+    .nav-logo-full { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    .nav-logo-small { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+
+    // Expande footer
+    .sidebar-footer .social-icons {
+        gap: 2rem;
+        a { font-size: 2.2rem; }
+    }
   }
 }
 
-// AQUI ESTÁ A CORREÇÃO DO PULO:
+// LÓGICA DE LOGO (Correção do "Pulo")
 .sidebar-logo {
-  position: relative; // Cria contexto para absolute
-  height: 120px;      // Altura fixa, nada empurra nada
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
+  position: relative; 
+  height: 140px;      // Altura fixa para nunca empurrar o menu
+  width: 100%;
   border-bottom: 1px solid rgba(227, 167, 80, 0.1);
-
+  margin-bottom: 1rem;
+  
+  // O link ocupa a área toda, mas as imagens são absolutas
   a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     width: 100%;
     height: 100%;
+    position: relative; 
   }
-  
+
   img {
-    position: absolute; // Sobreposição perfeita
-    transition: var(--transition);
+    position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); // Centralização absoluta
+    transform: translate(-50%, -50%); // Centralização perfeita
+    transition: var(--transition);
   }
 
   .nav-logo-small { 
-    width: 40px; 
-    opacity: 1;
+    width: 45px; 
+    opacity: 1; 
     z-index: 2;
+    filter: drop-shadow(0 0 5px var(--karyus-earth-glow));
   }
   
   .nav-logo-full { 
-    width: 180px; 
-    opacity: 0;
+    width: 200px; 
+    opacity: 0; 
     z-index: 1;
+    transform: translate(-50%, -50%) scale(0.9); // Efeito de zoom na entrada
   }
 }
 
+// NAVEGAÇÃO
 .sidebar-nav {
   display: flex;
   flex-direction: column;
@@ -105,27 +116,27 @@ body {
   a {
     display: flex;
     align-items: center;
-    padding: 22px 30px;
+    padding: 22px 32px; // Centraliza no eixo do ícone
     color: #8ba29a !important;
     text-decoration: none;
-    font-family: var(--font-header); // Volta a ser Orbitron nos menus
+    font-family: var(--font-header);
     white-space: nowrap;
     transition: var(--transition);
 
     i {
       min-width: 25px;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       color: var(--karyus-earth);
-      transition: 0.3s;
+      transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); // Efeito "Bounce"
       display: flex;
-      justify-content: center; // Centraliza ícone no espaço dele
+      justify-content: center;
     }
 
     .nav-text {
       margin-left: 25px;
       opacity: 0;
-      transform: translateX(-15px);
-      transition: all 0.3s ease;
+      transform: translateX(-20px);
+      transition: all 0.4s ease;
       font-size: 0.95rem;
       letter-spacing: 1px;
     }
@@ -133,25 +144,45 @@ body {
     &:hover {
       background: rgba(227, 167, 80, 0.05);
       color: var(--karyus-neon) !important;
-      i { transform: scale(1.2); filter: drop-shadow(0 0 10px var(--karyus-earth)); }
+      
+      // Ícone salta e brilha
+      i { 
+        transform: scale(1.3); 
+        filter: drop-shadow(0 0 10px var(--karyus-earth));
+        color: var(--karyus-neon);
+      }
     }
   }
 }
 
+// RODAPÉ (Correção dos Ícones Cortados)
 .sidebar-footer {
-  padding: 2.5rem 1.5rem;
-  border-top: 1px solid rgba(227, 167, 80, 0.2);
-  text-align: center;
-  
+  padding: 2rem 0; // Removi padding lateral para usar flex-center
+  border-top: 1px solid rgba(227, 167, 80, 0.1);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden; // Previne scroll horizontal na transição
+
   .social-icons {
     display: flex;
-    gap: 1.5rem;
     justify-content: center;
-    margin-bottom: 2rem;
-    a { 
-        font-size: 2.2rem; 
-        color: var(--karyus-earth) !important;
-        &:hover { transform: scale(1.2) translateY(-5px); filter: drop-shadow(0 0 12px var(--karyus-earth)); }
+    align-items: center;
+    // Estado Colapsado (Padrão)
+    gap: 1rem; // Gap menor para caber em 90px
+    transition: gap 0.5s ease;
+
+    a {
+      // Tamanho Colapsado
+      font-size: 1.6rem; 
+      color: var(--karyus-earth) !important;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); // Fluidez elástica
+      
+      &:hover {
+        color: var(--karyus-neon) !important;
+        transform: translateY(-5px) scale(1.2);
+        filter: drop-shadow(0 0 15px var(--karyus-neon));
+      }
     }
   }
 }
@@ -166,12 +197,12 @@ body {
   align-items: center;
 
   .wrapper {
-    max-width: 1000px; // Um pouco mais largo para a Hero Section brilhar
+    max-width: 1000px;
     width: 100%;
   }
 }
 
-// 5. RESGATE DA CAPA "FODA" (Tipografia Hero)
+// 5. SEÇÕES & TIPOGRAFIA
 .one-page-section {
     min-height: 100vh;
     padding: 100px 0;
@@ -179,7 +210,6 @@ body {
     flex-direction: column;
     justify-content: center;
 
-    // Garante que os títulos das seções sejam impactantes
     h2 {
         font-family: var(--font-header);
         font-size: 3rem;
@@ -187,27 +217,25 @@ body {
         margin-bottom: 3rem;
         text-transform: uppercase;
         letter-spacing: 2px;
+        text-shadow: 0 0 10px rgba(227, 167, 80, 0.2);
     }
 }
 
-// Estilos específicos para a HERO da Home
+// Hero Text Restoration
 .hero-manifesto {
     text-align: center;
-    
     .glitch-text {
-        font-family: var(--font-header); // FORÇA ORBITRON
-        font-size: 5.5rem; // TAMANHO GIGANTE
+        font-family: var(--font-header);
+        font-size: 5.5rem;
         font-weight: 900;
         color: var(--karyus-earth);
-        letter-spacing: 12px;
+        letter-spacing: 10px;
         margin-bottom: 1rem;
-        text-shadow: 0 0 20px rgba(227, 167, 80, 0.3); // Glow sutil
-        line-height: 1.1;
+        text-shadow: 0 0 20px rgba(227, 167, 80, 0.3);
     }
-
     .subtitle {
         font-family: var(--font-tech);
-        font-size: 1.1rem;
+        font-size: 1rem;
         color: var(--karyus-neon);
         letter-spacing: 3px;
         text-transform: uppercase;
@@ -215,11 +243,12 @@ body {
     }
 }
 
-// 6. LINKS E HUD
+// 6. LINKS & BOTÕES
 a {
     color: var(--karyus-neon) !important;
-    &:visited { color: var(--karyus-neon) !important; }
-    &:hover { text-shadow: 0 0 10px var(--karyus-neon); }
+    text-decoration: none;
+    transition: 0.3s;
+    &:hover { text-shadow: 0 0 8px var(--karyus-neon); }
 }
 
 .futuristic-btn {
@@ -244,8 +273,15 @@ a {
 
 // 7. RESPONSIVIDADE
 @media (max-width: 768px) {
-  .sidebar { width: 100%; height: auto; position: relative; }
+  .sidebar { 
+    width: 100%; height: auto; position: relative; 
+    border-right: none; border-bottom: 1px solid var(--karyus-blue);
+  }
+  .sidebar-logo { height: auto; padding: 2rem 0; }
+  .sidebar-logo img { position: relative; transform: none; top: auto; left: auto; }
+  .nav-logo-small { display: none; }
+  .nav-logo-full { display: block !important; opacity: 1 !important; margin: 0 auto; width: 160px; }
+  
   .main-content { margin-left: 0; width: 100%; padding: 2rem; }
-  .sidebar:hover { width: 100%; }
-  .glitch-text { font-size: 3rem !important; } // Ajuste mobile
+  .glitch-text { font-size: 2.5rem !important; letter-spacing: 2px !important; }
 }
