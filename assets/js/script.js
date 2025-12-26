@@ -4,21 +4,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearSpan = document.getElementById('current-year');
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-    // 2. SMOOTH SCROLL PARA SPA
-    document.querySelectorAll('.sidebar-nav a').forEach(anchor => {
+    // 2. SMOOTH SCROLL UNIVERSAL (Sidebar, Logo, Botões)
+    // O seletor 'a[href^="#"]' pega QUALQUER link que aponte para uma ID interna
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
+            e.preventDefault(); // Impede o pulo brusco
             
-            // Âncoras internas
-            if (targetId.startsWith('#')) {
-                e.preventDefault();
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start' // Alinha sempre ao TOPO da seção
+                });
             }
         });
     });
