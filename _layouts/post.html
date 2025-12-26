@@ -1,0 +1,108 @@
+---
+layout: default
+---
+<article class="post-container">
+  
+  <header class="post-header">
+    <a href="{{ '/' | relative_url }}#projects" class="back-link">
+      <i class="fas fa-arrow-left"></i> Return to Hangar
+    </a>
+    
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-meta">
+      <span class="date">{{ page.date | date: "%B %d, %Y" }}</span>
+      <span class="tags">
+        {% for category in page.categories %}
+          #{{ category }} 
+        {% endfor %}
+      </span>
+    </div>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <div class="post-footer-nav">
+    <a href="{{ '/' | relative_url }}#contact" class="futuristic-btn">Discuss this Project</a>
+  </div>
+
+</article>
+
+<style>
+  /* ESTILOS ESPECÍFICOS PARA O POST (Foco na Leitura) */
+  .post-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 120px 20px 60px; /* Padding top alto para não bater no topo */
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--karyus-earth) !important;
+    font-family: var(--font-header);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .back-link:hover {
+    color: var(--karyus-neon) !important;
+    transform: translateX(-5px);
+  }
+
+  .post-title {
+    font-family: var(--font-header);
+    color: var(--karyus-earth);
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .post-meta {
+    font-family: var(--font-tech);
+    color: #8ba29a;
+    font-size: 0.9rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid rgba(227, 167, 80, 0.2);
+    padding-bottom: 2rem;
+  }
+  
+  .post-content {
+    font-family: 'JetBrains Mono', monospace; /* Ou uma fonte serifada se preferir leitura longa */
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #d0dcd8;
+  }
+  
+  /* Formatação interna do Markdown */
+  .post-content h2 {
+    color: var(--karyus-neon);
+    margin-top: 3rem;
+    border-left: 3px solid var(--karyus-earth);
+    padding-left: 15px;
+  }
+  .post-content p { margin-bottom: 1.5rem; }
+  .post-content img {
+    max-width: 100%;
+    border: 1px solid var(--karyus-blue);
+    border-radius: 4px;
+    margin: 2rem 0;
+  }
+  .post-content blockquote {
+    border-left: 3px solid var(--karyus-neon);
+    background: rgba(0, 242, 255, 0.05);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+  }
+  
+  .post-footer-nav {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(227, 167, 80, 0.2);
+    text-align: center;
+  }
+</style>
