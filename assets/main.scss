@@ -316,13 +316,13 @@ a {
   }
 }
 
-// 11. BACKGROUND BLUEPRINT (Ilusão de Ótica Sutil)
+// 11. BACKGROUND BLUEPRINT (Ajustado)
 // Apenas para Home e Contact
 #home, #contact {
   position: relative;
   overflow: hidden;
 
-  // Grade de Engenharia sutil
+  // Grade de Engenharia
   &::before {
     content: "";
     position: absolute;
@@ -331,15 +331,18 @@ a {
     width: 100%;
     height: 100%;
     
-    // Linhas douradas quase transparentes (3% de opacidade)
+    // AUMENTO DE VISIBILIDADE:
+    // Mudamos de 0.03 (3%) para 0.07 (7%) de opacidade.
+    // Agora o dourado vai aparecer bem mais sobre o preto.
     background-image: 
-      linear-gradient(rgba(227, 167, 80, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(227, 167, 80, 0.03) 1px, transparent 1px);
-    background-size: 40px 40px; 
+      linear-gradient(rgba(227, 167, 80, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(227, 167, 80, 0.07) 1px, transparent 1px);
     
-    // Vignette (Escurece nas bordas)
-    mask-image: radial-gradient(circle, black 30%, transparent 80%);
-    -webkit-mask-image: radial-gradient(circle, black 30%, transparent 80%);
+    background-size: 50px 50px; // Aumentei um pouco o quadrado para ficar mais elegante
+    
+    // Suavização nas bordas (Vignette) para não cortar seco
+    mask-image: radial-gradient(circle, black 40%, transparent 95%);
+    -webkit-mask-image: radial-gradient(circle, black 40%, transparent 95%);
     
     pointer-events: none;
     z-index: 0;
@@ -350,25 +353,6 @@ a {
     position: relative;
     z-index: 1;
   }
-}
-
-// Linha de Scan para o Contact
-#contact::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--karyus-neon), transparent);
-  opacity: 0.1;
-  animation: scanline 8s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes scanline {
-  0% { top: 0%; }
-  100% { top: 100%; }
 }
 
 // 12. RESPONSIVIDADE
