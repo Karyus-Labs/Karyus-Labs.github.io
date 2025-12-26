@@ -7,10 +7,10 @@
 
 // 2. VARIÁVEIS DE CORES (Karyus Labs Official)
 :root {
-  --karyus-blue: #002F45;   // Azul Marinha Profundo
-  --karyus-earth: #E3A750;  // Destaque Terra/Ouro
-  --karyus-ash: #BCD4CC;    // Cinza Técnico para Leitura
-  --bg-primary: #00121a;    // Fundo Dark Mode (Padrão)
+  --karyus-blue: #002F45;   
+  --karyus-earth: #E3A750;  
+  --karyus-ash: #BCD4CC;    
+  --bg-primary: #00121a;    
   --text-primary: #BCD4CC;
   --font-primary: 'Orbitron', sans-serif;
   --font-secondary: 'Poppins', sans-serif;
@@ -48,9 +48,9 @@ body {
   transition: background-color var(--transition);
 }
 
-// 5. SIDEBAR (Resolvendo botões pequenos e layout)
+// 5. SIDEBAR
 .sidebar {
-  width: 280px; // Aumentado para melhor leitura
+  width: 280px; 
   height: 100vh;
   position: fixed;
   left: 0;
@@ -65,7 +65,7 @@ body {
 
   .nav-logo {
     width: 100%;
-    max-width: 170px; // Domando o logo gigante
+    max-width: 170px; 
     margin: 0 auto 3rem;
     display: block;
   }
@@ -83,7 +83,7 @@ body {
     color: var(--karyus-ash);
     text-decoration: none;
     font-family: var(--font-primary);
-    font-size: 1rem; // Botões maiores
+    font-size: 1rem; 
     padding: 15px 20px;
     border-radius: 10px;
     transition: all 0.3s ease;
@@ -109,10 +109,10 @@ body {
   .wrapper { max-width: 1000px; }
 }
 
-// 7. BOTÕES FUTURISTAS (Ações de Impacto)
+// 7. BOTÕES FUTURISTAS
 .futuristic-btn {
   display: inline-block;
-  padding: 1.2rem 3.5rem !important; // Tamanho de destaque
+  padding: 1.2rem 3.5rem !important; 
   border: 2px solid var(--karyus-earth);
   color: var(--karyus-earth) !important;
   font-family: var(--font-primary);
@@ -131,7 +131,7 @@ body {
   }
 }
 
-// 8. MATHJAX (P&D High-Fidelity)
+// 8. MATHJAX
 .mjx-container {
   color: var(--karyus-ash) !important;
   font-size: 1.2rem !important;
