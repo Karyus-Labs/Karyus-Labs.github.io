@@ -4,82 +4,121 @@ title: ""
 permalink: /
 ---
 
-<section class="hero-manifesto">
-  <h1 class="glitch-text">KARYUS LABS</h1>
-  <p class="subtitle">Aerospace Engineering | Applied Intelligence | Mathematical Rigor</p>
-
-  <div class="mission-statement">
-    "Bridging the gap between classical Aeronautical Engineering and the transformative power of AI".
-  </div>
-
-  <div class="tech-grid">
-    <div class="tech-item">
-      <i class="fas fa-microchip"></i>
-      <span>Double Degree Candidate: Centrale Méditerranée & EESC-USP </span>
+<section id="home" class="one-page-section">
+  <div class="hero-manifesto">
+    <h1 class="glitch-text">KARYUS LABS</h1>
+    <p class="subtitle">Aerospace Engineering | Applied Intelligence | Mathematical Rigor</p>
+    <div class="mission-statement">
+      "Bridging the gap between classical Aeronautical Engineering and the transformative power of AI."
     </div>
-    <div class="tech-item">
-      <i class="fas fa-trophy"></i>
-      <span>Winner: Embraer HackaSEA Challenge </span>
+    <div class="tech-grid">
+      <div class="tech-item">
+        <i class="fas fa-microchip"></i>
+        <span>Double Degree Candidate: Centrale Méditerranée & EESC-USP</span>
+      </div>
+      <div class="tech-item">
+        <i class="fas fa-trophy"></i>
+        <span>Winner: Embraer HackaSEA Challenge</span>
+      </div>
+    </div>
+    <a href="#projects" class="futuristic-btn">Access R&D Portfolio</a>
+  </div>
+</section>
+
+<section id="about" class="one-page-section">
+  <h2 class="section-title">The Founder: Engineering the Future of Flight</h2>
+  <div class="content-block">
+    <p class="highlight-text">**Renato Filho** | Aerospace Engineer & AI Researcher</p>
+    
+    <h3>Strategic Vision</h3>
+    <p>My journey in engineering is driven by a singular goal: to bridge the gap between classical Aeronautical Engineering and the transformative power of Artificial Intelligence. I focus on solving high-complexity problems through simulation, automation, and mathematical rigor.</p>
+
+    <h3>Technical Foundation</h3>
+    <ul class="tech-list">
+      <li>**Flight Mechanics & Control:** Specialized in stability analysis and control sizing (XFLR5, AVL, MATLAB/Simulink).</li>
+      <li>**Data Science & NLP:** Developed data intelligence platforms and applied NLP to large-scale industrial datasets (PICME scholarship).</li>
+      <li>**Optimization:** Background in Graph Theory and computational complexity for Deep Tech development.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="research" class="one-page-section">
+  <h2 class="section-title">Research & R&D</h2>
+  <div class="content-block">
+    <h3>PICME - Undergraduate Research (IMPA & CNPq)</h3>
+    <p>Conducted rigorous theoretical research on the mathematical foundations of computer science, focusing on implementation complexity and mathematical proofs.</p>
+    
+    <h3>Automotive Market Intelligence (CarReliability)</h3>
+    <p>Developed a full-stack data intelligence platform, processing over 140,000 consumer reviews using Sentiment Analysis and a proprietary "Reliability Score" algorithm.</p>
+  </div>
+</section>
+
+<section id="projects" class="one-page-section">
+  <h2 class="section-title">Engineering Hangar</h2>
+  <div class="project-showcase">
+    <div class="project-image-container">
+      <img src="{{ '/assets/images/cessna_hero.png' | relative_url }}" alt="Cessna 182 Simulation" class="project-hero-img">
+      <div class="project-overlay">
+        <h3>Cessna 182: Nonlinear Flight Dynamics</h3>
+        <p>High-fidelity nonlinear simulator built in Simulink by implementing raw equations of motion block-by-block.</p>
+        <a href="{{ '/2025/11/16/linear-vs-non-linear-what-building-a-simulink-flight-simulator-taught-me-about-engineering/' | relative_url }}" class="futuristic-btn">View Technical Report</a>
+      </div>
     </div>
   </div>
+</section>
 
-  <a href="{{ '/projects/' | relative_url }}" class="futuristic-btn">Access R&D Portfolio</a>
+<section id="contact" class="one-page-section">
+  <h2 class="section-title">Contact Mission Control</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <p><i class="fas fa-envelope"></i> rcmartinsf@gmail.com</p>
+      <p><i class="fas fa-map-marker-alt"></i> Marseille, France | São Carlos, Brazil</p>
+      <p><i class="fas fa-phone"></i> +33 07 43 50 28 14</p>
+    </div>
+  </div>
 </section>
 
 <style>
-.hero-manifesto {
-  text-align: center;
-  padding: 4rem 0;
-}
-.glitch-text {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 5rem;
-  font-weight: 900;
-  color: var(--karyus-earth);
-  letter-spacing: 10px;
-  margin-bottom: 1rem;
-}
-.subtitle {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1rem;
-    color: var(--karyus-neon);
-    letter-spacing: 2px;
-}
-.mission-statement {
-  font-family: 'JetBrains Mono', monospace;
-  font-style: italic;
-  font-size: 1.2rem;
-  margin: 3rem 0;
-  color: var(--text-primary);
-  opacity: 0.8;
-}
-.tech-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-bottom: 4rem;
-}
-.tech-item {
-  background: rgba(0, 47, 69, 0.4);
-  padding: 20px;
-  border: 1px solid var(--karyus-blue);
-  border-radius: 4px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  text-align: left;
-}
-.tech-item i {
+  .one-page-section {
+    min-height: 100vh;
+    padding: 6rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    border-left: 5px solid var(--karyus-neon);
+    padding-left: 20px;
     color: var(--karyus-earth);
-    font-size: 1.5rem;
-}
-
-@media (max-width: 768px) {
-    .glitch-text { font-size: 3rem; letter-spacing: 5px; }
-    .tech-grid { grid-template-columns: 1fr; }
-}
+  }
+  .content-block {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 2.5rem;
+    border: 1px solid rgba(0, 242, 255, 0.1);
+    border-radius: 8px;
+    line-height: 1.8;
+  }
+  .highlight-text {
+    color: var(--karyus-neon);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  .tech-list {
+    list-style: none;
+    padding: 0;
+  }
+  .tech-list li {
+    margin-bottom: 1rem;
+    padding-left: 25px;
+    position: relative;
+  }
+  .tech-list li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--karyus-earth);
+    font-family: var(--font-header);
+  }
 </style>
-
-**Renato Filho @ Founder Karyus-Labs**
