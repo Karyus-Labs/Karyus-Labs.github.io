@@ -4,6 +4,8 @@ title: ""
 permalink: /
 ---
 
+{% assign cessna_post = site.posts | where_exp: "item", "item.title contains 'Cessna'" | first %}
+
 <section id="home" class="one-page-section" style="text-align: center;">
   <div class="hero-manifesto">
     <h1 class="glitch-text">KARYUS LABS</h1>
@@ -66,11 +68,11 @@ permalink: /
       <div class="project-overlay">
         <h3>Cessna 182: Nonlinear Flight Dynamics</h3>
         <p>High-fidelity simulator in Simulink implementing raw equations of motion. Validated against linearized state-space models.</p>
-        <a href="{{ '/2025/11/16/linear-vs-non-linear-what-building-a-simulink-flight-simulator-taught-me-about-engineering/' | relative_url }}" class="futuristic-btn">Read Case Study</a>
+        
+        <a href="{{ cessna_post.url | relative_url }}" class="futuristic-btn">Read Case Study</a>
       </div>
     </div>
-    
-    </div>
+  </div>
 </section>
 
 <section id="contact" class="one-page-section">
