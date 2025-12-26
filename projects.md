@@ -1,25 +1,46 @@
 ---
 layout: post
-title: "Technical Projects"
+title: "Engineering Hangar"
 permalink: /projects/
 ---
 
-## Engineering Portfolio: From Physics to Simulation
+## Technical Implementations
 
-Each project represents a deep dive into the "Engineering Workflow," moving from theoretical physics to high-fidelity implementation.
+Each project here is a transition from mathematical theory to high-fidelity code execution.
 
-### Cessna 182 Nonlinear Flight Simulator
-Developed as part of the Flight Dynamics (SAA0184) coursework at EESC-USP.
+<div class="project-showcase">
+  <div class="project-image-container">
+    <img src="{{ '/assets/images/cessna_sim.gif' | relative_url }}" alt="Cessna 182 Simulation" class="project-hero-img">
+    <div class="project-overlay">
+      <h3>Cessna 182: Nonlinear Flight Dynamics</h3>
+      <p>Simulink-based flight simulator implementing 6-DOF equations of motion from scratch.</p>
+      <a href="https://github.com/Renatocmf023/Cessna-182-Sim" class="futuristic-btn">Review Codebase</a>
+    </div>
+  </div>
+</div>
 
-* **Longitudinal Dynamics:** Built a high-fidelity nonlinear simulator in Simulink by implementing raw equations of motion block-by-block.
-* **Data Validation:** Compared linearized state-space models against full nonlinear behavior to assess the limits of aerodynamic simplifications.
-* **Trim Calculation:** Integrated MATLAB scripts for precise aircraft trim equilibrium points prior to simulation runs.
-
-### EESC-USP AeroDesign
-Contributed to the design and financial sustainability of high-performance competition aircraft.
-
-* **Stability & Control:** Responsible for complete stability analysis and control surface sizing using XFLR5 and AVL.
-* **Flight Data Matching:** Performed complex data matching between flight telemetry and simulation models to calibrate stability and inertia derivatives.
-* **Strategic Partnerships:** Led the department as Sponsorship Director, securing 17 global partners and managing resources from multinationals like Tractian, Henkel, and STMicroelectronics.
+<style>
+.project-image-container {
+  position: relative;
+  border: 1px solid var(--karyus-blue);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 3rem;
+  background: #000;
+}
+.project-hero-img {
+  width: 100%;
+  opacity: 0.6;
+  transition: 0.5s;
+}
+.project-overlay {
+  padding: 3rem;
+  background: linear-gradient(0deg, rgba(1, 8, 11, 0.9) 30%, transparent);
+}
+.project-image-container:hover .project-hero-img {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+</style>
 
 **Renato Filho @ Founder Karyus-Labs**
