@@ -65,7 +65,7 @@ body {
   }
 }
 
-// 4. LÓGICA DE LOGOS (Ajuste no "K")
+// 4. LÓGICA DE LOGOS
 .sidebar-logo {
   position: relative; 
   height: 140px;      
@@ -85,15 +85,11 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
     font-family: var(--font-header);
     font-weight: 900;
     font-size: 3.5rem; 
     color: var(--karyus-earth);
-    
-    // REMOVIDO O TEXT-SHADOW (Sem brilho, visual clean)
-    text-shadow: none; 
-    
+    text-shadow: none; // Clean look
     transition: var(--transition);
     z-index: 2;
     opacity: 1; 
@@ -274,6 +270,7 @@ body {
   overflow: hidden;
   background: #000;
   transition: var(--transition);
+  cursor: pointer; // Indica interatividade
   
   &:hover {
     border-color: var(--karyus-neon);
@@ -288,7 +285,52 @@ body {
   position: relative;
 }
 
-// 10. LINKS & BOTÕES
+// 10. CARDS DE TEXTO (INTERATIVIDADE NOVA!)
+// Trazido do index.md para cá, com o efeito de hover adicionado
+.content-block {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 2.5rem;
+  border: 1px solid rgba(0, 242, 255, 0.1);
+  border-radius: 8px;
+  line-height: 1.8;
+  transition: var(--transition); // Suavidade essencial
+
+  // O EFEITO DE "ACENDER" AO PASSAR O MOUSE
+  &:hover {
+    border-color: var(--karyus-neon); // Borda vira Neon
+    box-shadow: 0 0 30px rgba(227, 167, 80, 0.15); // Glow sutil Dourado/Terra
+    transform: translateY(-5px); // Leve levitação
+    background: rgba(255, 255, 255, 0.04); // Fundo clareia levemente
+  }
+}
+
+.highlight-text {
+  color: var(--karyus-neon);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.tech-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    margin-bottom: 1rem;
+    padding-left: 25px;
+    position: relative;
+    
+    &::before {
+      content: '>';
+      position: absolute;
+      left: 0;
+      color: var(--karyus-earth);
+      font-weight: bold;
+    }
+  }
+}
+
+// 11. LINKS & BOTÕES
 a {
     color: var(--karyus-neon) !important;
     text-decoration: none;
@@ -316,13 +358,11 @@ a {
   }
 }
 
-// 11. BACKGROUND BLUEPRINT (Ajustado)
-// Apenas para Home e Contact
+// 12. BACKGROUND BLUEPRINT (Ajustado)
 #home, #contact {
   position: relative;
   overflow: hidden;
 
-  // Grade de Engenharia
   &::before {
     content: "";
     position: absolute;
@@ -331,16 +371,10 @@ a {
     width: 100%;
     height: 100%;
     
-    // AUMENTO DE VISIBILIDADE:
-    // Mudamos de 0.03 (3%) para 0.07 (7%) de opacidade.
-    // Agora o dourado vai aparecer bem mais sobre o preto.
     background-image: 
       linear-gradient(rgba(227, 167, 80, 0.07) 1px, transparent 1px),
       linear-gradient(90deg, rgba(227, 167, 80, 0.07) 1px, transparent 1px);
-    
-    background-size: 50px 50px; // Aumentei um pouco o quadrado para ficar mais elegante
-    
-    // Suavização nas bordas (Vignette) para não cortar seco
+    background-size: 50px 50px; 
     mask-image: radial-gradient(circle, black 40%, transparent 95%);
     -webkit-mask-image: radial-gradient(circle, black 40%, transparent 95%);
     
@@ -348,14 +382,13 @@ a {
     z-index: 0;
   }
 
-  // Conteúdo acima do fundo
   .hero-manifesto, .contact-grid, h2 {
     position: relative;
     z-index: 1;
   }
 }
 
-// 12. RESPONSIVIDADE
+// 13. RESPONSIVIDADE
 @media (max-width: 768px) {
   .sidebar { 
     width: 100%; height: auto; position: relative; 
