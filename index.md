@@ -1,6 +1,7 @@
 ---
-layout: home
-title: "Karyus Labs"
+layout: page
+title: ""
+permalink: /
 ---
 
 <section class="hero-manifesto">
@@ -8,21 +9,21 @@ title: "Karyus Labs"
   <p class="subtitle">Aerospace Engineering | Applied Intelligence | Mathematical Rigor</p>
 
   <div class="mission-statement">
-    "Bridging the gap between classical Aeronautical Engineering and the transformative power of AI." 
+    "Bridging the gap between classical Aeronautical Engineering and the transformative power of AI".
   </div>
 
   <div class="tech-grid">
     <div class="tech-item">
       <i class="fas fa-microchip"></i>
-      <span>Double Degree: Centrale Méditerranée & EESC-USP</span> [cite: 519, 634]
+      <span>Double Degree Candidate: Centrale Méditerranée & EESC-USP [cite: 519, 634]</span>
     </div>
     <div class="tech-item">
-      <i class="fas fa-drafting-compass"></i>
-      <span>Winner: Embraer HackaSEA Challenge</span> [cite: 529, 644]
+      <i class="fas fa-trophy"></i>
+      <span>Winner: Embraer HackaSEA Challenge [cite: 529, 644]</span>
     </div>
   </div>
 
-  <a href="/projects/" class="futuristic-btn">Access R&D Portfolio</a>
+  <a href="{{ '/projects/' | relative_url }}" class="futuristic-btn">Access R&D Portfolio</a>
 </section>
 
 <style>
@@ -37,6 +38,12 @@ title: "Karyus Labs"
   color: var(--karyus-earth);
   letter-spacing: 10px;
   margin-bottom: 1rem;
+}
+.subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    color: var(--karyus-neon);
+    letter-spacing: 2px;
 }
 .mission-statement {
   font-family: 'JetBrains Mono', monospace;
@@ -59,5 +66,20 @@ title: "Karyus Labs"
   border-radius: 4px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
+}
+.tech-item i {
+    color: var(--karyus-earth);
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .glitch-text { font-size: 3rem; letter-spacing: 5px; }
+    .tech-grid { grid-template-columns: 1fr; }
 }
 </style>
+
+**Renato Filho @ Founder Karyus-Labs**
