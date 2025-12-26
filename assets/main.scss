@@ -1,77 +1,102 @@
 ---
+# Somente para o Jekyll processar o SASS
 ---
 
-// 1. Definição da sua paleta de cores Karyus-Labs
-$karyus-dark-blue: #002F45;
-$karyus-ash-gray: #BCD4CC;
-$karyus-earth: #E3A750;
+// 1. Importação de Fontes (Orbitron para títulos, Poppins para leitura)
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap');
 
-// 2. Mapeamento para as variáveis do tema 'minima'
-// Esta é a parte principal da customização.
-// O 'minima' usará estas cores em vez das padrão.
+// 2. Variáveis de Identidade Karyus Labs
+:root {
+  --karyus-blue: #002F45;   // Primary Dark
+  --karyus-ash: #BCD4CC;    // Secondary Text
+  --karyus-earth: #E3A750;  // Accent/Action
+  --bg-deep: #001a26;       // Background mais profundo
+  --font-primary: 'Orbitron', sans-serif;
+  --font-secondary: 'Poppins', sans-serif;
+  --transition-speed: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
 
-$background-color: $karyus-ash-gray; // Fundo do blog
-$text-color: $karyus-dark-blue;   // Texto principal
-$link-color: $karyus-earth;       // Links e destaques
+// 3. Reset e Estilo Global (Forçando Dark Mode)
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--karyus-blue);
+  color: var(--karyus-ash);
+  font-family: var(--font-secondary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
-// Cores "cinza" do tema, ajustadas para sua paleta
-$grey-color: lighten($karyus-dark-blue, 30%);
-$grey-color-light: lighten($karyus-ash-gray, 5%);
-$grey-color-dark: darken($karyus-dark-blue, 5%);
+h1, h2, h3, h4 {
+  font-family: var(--font-primary);
+  color: var(--karyus-earth);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
 
-// 3. Importar o restante dos estilos do 'minima'
-// IMPORTANTE: Isso deve vir *depois* das suas variáveis.
+// 4. Sidebar Estilo "Jean-Cassiano" (Karyus Dashboard)
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 100vh;
+  background-color: var(--bg-deep);
+  border-right: 1px solid var(--karyus-earth);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  z-index: 1000;
+  transition: width var(--transition-speed);
+  
+  &:hover {
+    width: 200px;
+    .sidebar-text { opacity: 1; visibility: visible; }
+  }
+}
+
+.sidebar-text {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+  font-family: var(--font-primary);
+  font-size: 0.8rem;
+  margin-left: 10px;
+}
+
+// 5. Ajuste do Conteúdo Principal
+.main-content {
+  margin-left: 80px; // Espaço para a sidebar
+  padding: 2rem;
+  max-width: 1100px;
+}
+
+// 6. Botão Futurista (Implementando o seu Storytelling de Ação)
+.futuristic-btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border: 2px solid var(--karyus-earth);
+  color: var(--karyus-earth);
+  text-decoration: none;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-speed);
+
+  &:hover {
+    background-color: var(--karyus-earth);
+    color: var(--karyus-blue);
+    box-shadow: 0 0 20px rgba(227, 167, 80, 0.4);
+  }
+}
+
+// 7. Estilo para Equações MathJax (Garantindo contraste)
+.mjx-chtml {
+  color: var(--karyus-ash) !important;
+  font-size: 1.1rem !important;
+}
+
+// Importar o restante do Jekyll Minima (opcional, mas recomendado manter o básico)
 @import "minima";
-
-// 4. (Recomendado) Sobrescritas Específicas
-// Para garantir que a marca fique forte, vamos forçar
-// o estilo do cabeçalho (header) e outros elementos.
-
-// Cabeçalho com o azul escuro de fundo
-.site-header {
-  background-color: $karyus-dark-blue;
-  border-top: 5px solid $karyus-earth; // Borda de destaque 'Earth'
-  border-bottom: 1px solid $karyus-earth;
-}
-
-// Título do site e links de navegação no header
-.site-title,
-.site-title:visited,
-.site-nav .page-link {
-  color: $karyus-ash-gray; // Cor clara para contrastar com o fundo escuro
-}
-
-// Efeito 'hover' nos links do header
-.site-nav .page-link:hover {
-  color: $karyus-earth;
-}
-
-// Títulos dos posts na página inicial
-.post-link {
-  color: $karyus-dark-blue;
-}
-
-.post-link:hover {
-  color: $karyus-earth;
-}
-
-// 5. Estilos do Logo Karyus-Labs
-
-.site-logo-link {
-  display: block;
-  float: left;
-}
-
-.site-logo {
-  // Você pode ajustar esta altura se necessário
-  max-height: 150px; 
-
-  // Alinha o logo verticalmente com os links de navegação
-  margin-top: 8px; // Ajuste fino
-  margin-bottom: 8px; // Ajuste fino
-}
-
-// Esconde o título de texto original que estava lá
-.site-title {
-  display: none;
-}
