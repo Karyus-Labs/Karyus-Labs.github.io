@@ -57,7 +57,19 @@ body {
     .nav-text { opacity: 1; transform: translateX(0); }
     
     // Transição de Logos (Cruzada)
-    .nav-logo-full { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    .nav-logo-full { 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px; 
+    
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: var(--transition);
+    opacity: 0; 
+    z-index: 1;
+    
+    filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.8)); 
+  }
     .brand-symbol { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
 
     // Rodapé Expande
