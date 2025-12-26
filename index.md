@@ -38,9 +38,9 @@ permalink: /
 
     <h3>Core Toolkit</h3>
     <ul class="tech-list">
-      <li>**Simulation & Structure:** Structural analysis and simulation using Abaqus, ANSYS, and CAD modeling (SolidWorks/CATIA).</li>
-      <li>**Aerodynamics:** Stability analysis and aircraft sizing (XFLR5, AVL) validated by academic competitions (SAE Aerodesign).</li>
-      <li>**Computational Logic:** Leveraging a background in Algorithm Theory to build efficient scripts in Python and MATLAB for engineering automation.</li>
+      <li>**Flight Dynamics & Control:** Comprehensive stability analysis ranging from static sizing (XFLR5, AVL) to **Nonlinear Dynamic Simulation** and Control Law design using **MATLAB & Simulink**.</li>
+      <li>**Simulation & Structure:** Structural analysis and FEM simulation using Abaqus and ANSYS, integrated with parametric CAD modeling (SolidWorks/CATIA).</li>
+      <li>**Computational Logic:** Leveraging a background in Algorithm Theory (IMPA) to build optimized engineering automation scripts in Python and MATLAB.</li>
     </ul>
   </div>
 </section>
