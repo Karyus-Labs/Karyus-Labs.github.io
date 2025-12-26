@@ -6,14 +6,14 @@ permalink: /projects/
 
 ## Technical Implementations
 
-[cite_start]Each project represents a deep dive into the "Engineering Workflow," moving from theoretical physics to high-fidelity implementation[cite: 558, 680].
+Each project represents a deep dive into the "Engineering Workflow," moving from theoretical physics to high-fidelity implementation.
 
 <div class="project-showcase">
   <div class="project-image-container">
     <img src="{{ '/assets/images/cessna_hero.png' | relative_url }}" alt="Cessna 182 Simulation" class="project-hero-img">
     <div class="project-overlay">
       <h3>Cessna 182: Nonlinear Flight Dynamics</h3>
-      [cite_start]<p>High-fidelity nonlinear simulator built in Simulink by implementing raw equations of motion block-by-block[cite: 562, 683]. [cite_start]Validated against linearized state-space models to assess aerodynamic limits[cite: 563, 684].</p>
+      <p>High-fidelity nonlinear simulator built in Simulink by implementing raw equations of motion block-by-block. Validated against linearized state-space models to assess aerodynamic limits.</p>
       
       <a href="{{ '/2025/11/16/linear-vs-non-linear-what-building-a-simulink-flight-simulator-taught-me-about-engineering/' | relative_url }}" class="futuristic-btn">View Technical Report</a>
     </div>
