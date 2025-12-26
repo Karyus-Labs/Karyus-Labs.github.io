@@ -15,11 +15,11 @@ permalink: /
   <div class="tech-grid">
     <div class="tech-item">
       <i class="fas fa-microchip"></i>
-      <span>Double Degree Candidate: Centrale Méditerranée & EESC-USP [cite: 519, 634]</span>
+      <span>Double Degree Candidate: Centrale Méditerranée & EESC-USP </span>
     </div>
     <div class="tech-item">
       <i class="fas fa-trophy"></i>
-      <span>Winner: Embraer HackaSEA Challenge [cite: 529, 644]</span>
+      <span>Winner: Embraer HackaSEA Challenge </span>
     </div>
   </div>
 
