@@ -1,23 +1,23 @@
 ---
 ---
 
-// 1. FONTES E VARIÁVEIS HUD
+// 1. FONTES E VARIÁVEIS HUD (Deep Tech Only)
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;700&display=swap');
 @import "minima";
 
 :root {
-  --sidebar-collapsed: 90px;   
+  --sidebar-collapsed: 90px;   // Largura segura para não cortar ícones
   --sidebar-expanded: 320px;   
   --karyus-blue: #002F45;   
   --karyus-earth: #E3A750;  
   --karyus-neon: #00f2ff;
   --karyus-earth-glow: rgba(227, 167, 80, 0.4);
-  --bg-primary: #01080b;       
+  --bg-primary: #01080b;       // Sempre Dark (Deep Space)
   --text-primary: #BCD4CC;
   --font-header: 'Orbitron', sans-serif;
   --font-tech: 'JetBrains Mono', monospace;
   
-  // Física da Animação
+  // Física da Animação (Fluidez Premium)
   --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1); 
 }
 
@@ -56,9 +56,9 @@ body {
     
     .nav-text { opacity: 1; transform: translateX(0); }
     
-    // Transição das Imagens (Favicon some, Logo aparece)
+    // Transição de Logos (Cruzada)
     .nav-logo-full { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    .nav-logo-small { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+    .brand-symbol { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
 
     // Rodapé Expande
     .sidebar-footer .social-icons {
@@ -68,7 +68,7 @@ body {
   }
 }
 
-// 4. LÓGICA DE LOGO (Favicon vs Logo)
+// 4. LÓGICA DE LOGO (TEXTO "K" vs IMAGEM)
 .sidebar-logo {
   position: relative; 
   height: 140px;      
@@ -83,30 +83,41 @@ body {
     position: relative; 
   }
 
-  img {
+  // O "K" TÁTICO (Substitui imagem pixelada)
+  .brand-symbol {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); // Centralização Perfeita
+    transform: translate(-50%, -50%);
+    
+    font-family: var(--font-header);
+    font-weight: 900;
+    font-size: 3.5rem; // Tamanho imponente
+    color: var(--karyus-earth);
+    
+    // O Segredo do "Glow"
+    text-shadow: 0 0 15px var(--karyus-earth-glow), 0 0 30px rgba(227, 167, 80, 0.2);
+    
     transition: var(--transition);
+    z-index: 2;
+    opacity: 1;
+    cursor: pointer;
   }
 
-  // Configuração do Favicon (Colapsado)
-  .nav-logo-small { 
-    width: 45px; // Tamanho ideal para barra de 90px
-    height: auto;
-    opacity: 1; 
-    z-index: 2;
-    filter: drop-shadow(0 0 5px var(--karyus-earth-glow));
-  }
-  
-  // Configuração da Logo Completa (Expandido)
+  // A Logo Completa (Imagem)
   .nav-logo-full { 
-    width: 180px; 
-    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px; // Ajuste conforme necessário para sua imagem
+    
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: var(--transition);
     opacity: 0; 
     z-index: 1;
-    transform: translate(-50%, -50%) scale(0.8); // Zoom-in ao aparecer
+    
+    // Filtro opcional para harmonizar logos pretas/escuras no fundo escuro
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
   }
 }
 
@@ -119,7 +130,7 @@ body {
   a {
     display: flex;
     align-items: center;
-    padding: 22px 32px; 
+    padding: 22px 34px; // Centraliza opticamente com o ícone
     color: #8ba29a !important;
     text-decoration: none;
     font-family: var(--font-header);
@@ -130,7 +141,7 @@ body {
       min-width: 25px;
       font-size: 1.4rem;
       color: var(--karyus-earth);
-      transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); // Efeito Elástico
+      transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); // Bounce effect
       display: flex;
       justify-content: center;
     }
@@ -157,7 +168,7 @@ body {
   }
 }
 
-// 6. RODAPÉ (Ícones Fluidos)
+// 6. RODAPÉ (Fluido e Sem Cortes)
 .sidebar-footer {
   padding: 2rem 0; 
   border-top: 1px solid rgba(227, 167, 80, 0.1);
@@ -170,7 +181,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.2rem; // Ajustado para não cortar na barra de 90px
+    gap: 1.2rem; // Ajuste fino para caber na barra de 90px
     transition: gap 0.5s ease;
 
     a {
@@ -278,7 +289,7 @@ a {
   }
   .sidebar-logo { height: auto; padding: 2rem 0; }
   
-  .nav-logo-small { display: none; }
+  .brand-symbol { display: none; } // No mobile, mostra só a logo completa
   .nav-logo-full { position: relative; transform: none; top: auto; left: auto; opacity: 1 !important; margin: 0 auto; width: 160px; }
   
   .main-content { margin-left: 0; width: 100%; padding: 2rem; }
