@@ -64,7 +64,7 @@ permalink: /
   <h2 class="section-title">Engineering Hangar</h2>
   <div class="project-showcase">
     <div class="project-image-container" style="margin-bottom: 2rem;">
-      <img src="{{ '/assets/images/cessna_hero.png' | relative_url }}" alt="Cessna 182 Simulation" class="project-hero-img">
+      <img src="{{ '/assets/images/cessna182-photo.png' | relative_url }}" alt="Cessna 182 Simulation" class="project-hero-img">
       <div class="project-overlay">
         <h3>Cessna 182: Nonlinear Flight Dynamics</h3>
         <p>High-fidelity simulator in Simulink implementing raw equations of motion. Validated against linearized state-space models.</p>
