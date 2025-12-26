@@ -4,7 +4,7 @@ title: ""
 permalink: /
 ---
 
-{% assign cessna_post = site.posts | where_exp: "item", "item.title contains 'Cessna'" | first %}
+{% assign cessna_post = site.posts | where_exp: "item", "item.path contains 'cessna182'" | first %}
 
 <section id="home" class="one-page-section" style="text-align: center;">
   <div class="hero-manifesto">
@@ -69,7 +69,7 @@ permalink: /
         <h3>Cessna 182: Nonlinear Flight Dynamics</h3>
         <p>High-fidelity simulator in Simulink implementing raw equations of motion. Validated against linearized state-space models.</p>
         
-        <a href="{{ cessna_post.url | relative_url }}" class="futuristic-btn">Read Case Study</a>
+        <a href="{{ cessna_post.url | default: '#projects' | relative_url }}" class="futuristic-btn">Read Case Study</a>
       </div>
     </div>
   </div>
@@ -91,6 +91,7 @@ permalink: /
 </section>
 
 <style>
+  /* ESTILOS MANTIDOS CONFORME SUA VERSÃO */
   .section-title {
     font-size: 2.5rem;
     margin-bottom: 3rem;
