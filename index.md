@@ -7,52 +7,52 @@ permalink: /
 <section id="home" class="one-page-section" style="text-align: center;">
   <div class="hero-manifesto">
     <h1 class="glitch-text">KARYUS LABS</h1>
-    <p class="subtitle">Aerospace Engineering | Applied Intelligence | Mathematical Rigor</p>
+    <p class="subtitle">Aerospace Engineering | Applied Intelligence | Computational Physics</p>
     
-    <div class="mission-statement" style="max-width: 800px; margin: 3rem auto; font-size: 1.2rem; font-style: italic; color: #fff; opacity: 0.8;">
-      "Bridging the gap between classical Aeronautical Engineering and the transformative power of AI."
+    <div class="mission-statement" style="max-width: 800px; margin: 3rem auto; font-size: 1.2rem; font-style: italic; color: #fff; opacity: 0.9;">
+      "Engineering precision met by Data Intelligence. We solve complex aerodynamic problems through rigorous simulation and algorithmic efficiency."
     </div>
 
     <div class="tech-grid" style="display: flex; gap: 20px; justify-content: center; margin-bottom: 4rem; flex-wrap: wrap;">
       <div class="tech-item" style="border: 1px solid var(--karyus-blue); padding: 15px 25px; background: rgba(0,47,69,0.3); border-radius: 4px;">
-        <i class="fas fa-microchip" style="color: var(--karyus-earth); margin-right: 10px;"></i>
-        <span>Double Degree: Centrale Méditerranée & EESC-USP</span>
+        <i class="fas fa-university" style="color: var(--karyus-earth); margin-right: 10px;"></i>
+        <span>Centrale Méditerranée & USP (Double Degree)</span>
       </div>
       <div class="tech-item" style="border: 1px solid var(--karyus-blue); padding: 15px 25px; background: rgba(0,47,69,0.3); border-radius: 4px;">
         <i class="fas fa-trophy" style="color: var(--karyus-earth); margin-right: 10px;"></i>
-        <span>Winner: Embraer HackaSEA Challenge</span>
+        <span>1st Place: Embraer HackaSEA Challenge</span>
       </div>
     </div>
 
-    <a href="#projects" class="futuristic-btn">Access R&D Portfolio</a>
+    <a href="#projects" class="futuristic-btn">Deploy R&D Portfolio</a>
   </div>
 </section>
 
 <section id="about" class="one-page-section">
   <h2 class="section-title">The Founder</h2>
   <div class="content-block">
-    <p class="highlight-text">**Renato Filho** | Aerospace Engineer & AI Researcher</p>
+    <p class="highlight-text">**Renato Filho** | Aerospace Engineer & Data Scientist</p>
     
     <h3>Strategic Vision</h3>
-    <p>My journey in engineering is driven by a singular goal: to bridge the gap between classical Aeronautical Engineering and the transformative power of Artificial Intelligence. I focus on solving high-complexity problems through simulation, automation, and mathematical rigor.</p>
+    <p>At Karyus Labs, the mission is to transcend traditional engineering boundaries. By combining the physical intuition of <strong>Fluid Mechanics</strong> with the predictive power of <strong>Machine Learning</strong>, I develop solutions that are not only theoretically sound but operationally efficient.</p>
 
-    <h3>Technical Foundation</h3>
+    <h3>Core Competencies</h3>
     <ul class="tech-list">
-      <li>**Flight Mechanics & Control:** Specialized in stability analysis and control sizing (XFLR5, AVL, MATLAB/Simulink).</li>
-      <li>**Data Science & NLP:** Developed data intelligence platforms and applied NLP to large-scale industrial datasets (PICME scholarship).</li>
-      <li>**Optimization:** Background in Graph Theory and computational complexity for Deep Tech development.</li>
+      <li>**Aerospace Dynamics:** Expertise in Stability & Control and Aircraft Sizing (SAE Aerodesign Legacy), utilizing XFLR5, AVL, and MATLAB.</li>
+      <li>**Applied Intelligence:** Full-stack development of data platforms using Node.js and Python, featuring NLP pipelines for large-scale sentiment analysis.</li>
+      <li>**Technical Leadership:** Proven track record in managing technical partnerships and strategic planning for high-performance engineering teams.</li>
     </ul>
   </div>
 </section>
 
 <section id="research" class="one-page-section">
-  <h2 class="section-title">Research & R&D</h2>
+  <h2 class="section-title">Research & Intelligence</h2>
   <div class="content-block">
-    <h3>PICME - Undergraduate Research (IMPA & CNPq)</h3>
-    <p>Conducted rigorous theoretical research on the mathematical foundations of computer science, focusing on implementation complexity and mathematical proofs.</p>
+    <h3>PICME - Advanced Mathematics (IMPA/CNPq)</h3>
+    <p>Researched the mathematical foundations of Computer Science, focusing on Graph Theory and Implementation Complexity. This background ensures that Karyus algorithms are optimized for performance, not just functionality.</p>
     
-    <h3>Automotive Market Intelligence (CarReliability)</h3>
-    <p>Developed a full-stack data intelligence platform, processing over 140,000 consumer reviews using Sentiment Analysis and a proprietary "Reliability Score" algorithm.</p>
+    <h3>Automotive Market Intelligence (NLP Engine)</h3>
+    <p>Designed and deployed a proprietary data intelligence architecture that scraped and processed <strong>140,000+ consumer reviews</strong>. The system utilized Natural Language Processing to generate a quantitative "Reliability Score" for market analysis.</p>
   </div>
 </section>
 
@@ -71,18 +71,23 @@ permalink: /
 </section>
 
 <section id="contact" class="one-page-section">
-  <h2 class="section-title">Contact Mission Control</h2>
+  <h2 class="section-title">Initiate Contact</h2>
   <div class="contact-grid">
     <div class="contact-info" style="font-size: 1.1rem; line-height: 2;">
-      <p><i class="fas fa-envelope" style="color: var(--karyus-earth); margin-right: 10px;"></i> rcmartinsf@gmail.com</p>
-      <p><i class="fas fa-map-marker-alt" style="color: var(--karyus-earth); margin-right: 10px;"></i> Marseille, France | São Carlos, Brazil</p>
+      <p style="margin-bottom: 1rem; color: var(--karyus-neon);"><strong>Status:</strong> <span style="color: #fff;">Open for Internship Opportunities (Summer 2026)</span></p>
+      <p><i class="fas fa-envelope" style="color: var(--karyus-earth); margin-right: 10px;"></i> <a href="mailto:renatocmf@usp.br" style="color: inherit; text-decoration: none;">renatocmf@usp.br</a></p>
+      <p><i class="fas fa-map-marker-alt" style="color: var(--karyus-earth); margin-right: 10px;"></i> Marseille, France (Timezone: CET)</p>
       <p><i class="fas fa-phone" style="color: var(--karyus-earth); margin-right: 10px;"></i> +33 07 43 50 28 14</p>
+      
+      <div style="margin-top: 2rem;">
+        <a href="https://linkedin.com/in/renato-cm-filho" target="_blank" class="futuristic-btn" style="font-size: 0.9rem;">Connect on LinkedIn</a>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  /* ESTILOS ESPECÍFICOS PARA O CONTEÚDO DA PÁGINA ÚNICA */
+  
   .section-title {
     font-size: 2.5rem;
     margin-bottom: 3rem;
