@@ -1,30 +1,35 @@
+{% if page.url == "/" %}
+  {% assign link_prefix = "" %}
+{% else %}
+  {% assign link_prefix = "/" | relative_url %}
+{% endif %}
+
 <aside class="sidebar">
   <div class="sidebar-logo">
-    <a href="#home">
+    <a href="{{ link_prefix }}#home">
       <span class="nav-logo-small brand-symbol">K</span>
-      
       <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="Karyus Labs" class="nav-logo-full">
     </a>
   </div>
   
   <nav class="sidebar-nav">
-    <a href="#home">
+    <a href="{{ link_prefix }}#home">
       <i class="fas fa-home"></i>
       <span class="nav-text">Mission Home</span>
     </a>
-    <a href="#about">
+    <a href="{{ link_prefix }}#about">
       <i class="fas fa-user-astronaut"></i>
       <span class="nav-text">The Founder</span>
     </a>
-    <a href="#research">
+    <a href="{{ link_prefix }}#research">
       <i class="fas fa-microchip"></i>
       <span class="nav-text">Research</span>
     </a>
-    <a href="#projects">
+    <a href="{{ link_prefix }}#projects">
       <i class="fas fa-rocket"></i>
       <span class="nav-text">Projects</span>
     </a>
-    <a href="#contact">
+    <a href="{{ link_prefix }}#contact">
       <i class="fas fa-paper-plane"></i>
       <span class="nav-text">Contact</span>
     </a>
