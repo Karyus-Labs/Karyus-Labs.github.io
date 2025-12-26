@@ -1,23 +1,21 @@
 ---
 ---
 
-// 1. FONTES E VARIÁVEIS HUD (Deep Tech Only)
+// 1. FONTES E VARIÁVEIS HUD
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;700&display=swap');
 @import "minima";
 
 :root {
-  --sidebar-collapsed: 90px;   // Largura segura para não cortar ícones
+  --sidebar-collapsed: 90px;   
   --sidebar-expanded: 320px;   
   --karyus-blue: #002F45;   
   --karyus-earth: #E3A750;  
   --karyus-neon: #00f2ff;
   --karyus-earth-glow: rgba(227, 167, 80, 0.4);
-  --bg-primary: #01080b;       // Sempre Dark (Deep Space)
+  --bg-primary: #01080b;       
   --text-primary: #BCD4CC;
   --font-header: 'Orbitron', sans-serif;
   --font-tech: 'JetBrains Mono', monospace;
-  
-  // Física da Animação (Fluidez Premium)
   --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1); 
 }
 
@@ -49,38 +47,23 @@ body {
   flex-direction: column;
   overflow: hidden;
 
-  // ESTADO EXPANDIDO (HOVER)
+  // HOVER: Expande e troca logos
   &:hover {
     width: var(--sidebar-expanded);
     box-shadow: 10px 0 50px rgba(0,0,0,0.8);
     
     .nav-text { opacity: 1; transform: translateX(0); }
     
-    // Transição de Logos (Cruzada)
-    .nav-logo-full { 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200px; 
-    
-    transform: translate(-50%, -50%) scale(0.9);
-    transition: var(--transition);
-    opacity: 0; 
-    z-index: 1;
-    
-    filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.8)); 
-  }
+    // Mostra Logo Grande
+    .nav-logo-full { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    // Esconde o "K"
     .brand-symbol { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
 
-    // Rodapé Expande
-    .sidebar-footer .social-icons {
-        gap: 2rem;
-        a { font-size: 2.2rem; }
-    }
+    .sidebar-footer .social-icons { gap: 2rem; a { font-size: 2.2rem; } }
   }
 }
 
-// 4. LÓGICA DE LOGO (TEXTO "K" vs IMAGEM)
+// 4. LÓGICA DE LOGOS (Debugada)
 .sidebar-logo {
   position: relative; 
   height: 140px;      
@@ -95,7 +78,7 @@ body {
     position: relative; 
   }
 
-  // O "K" TÁTICO (Substitui imagem pixelada)
+  // --- O "K" (Barra Fechada) ---
   .brand-symbol {
     position: absolute;
     top: 50%;
@@ -104,32 +87,33 @@ body {
     
     font-family: var(--font-header);
     font-weight: 900;
-    font-size: 3.5rem; // Tamanho imponente
+    font-size: 3.5rem; 
     color: var(--karyus-earth);
     
-    // O Segredo do "Glow"
+    // Brilho para garantir visibilidade
     text-shadow: 0 0 15px var(--karyus-earth-glow), 0 0 30px rgba(227, 167, 80, 0.2);
     
     transition: var(--transition);
     z-index: 2;
-    opacity: 1;
-    cursor: pointer;
+    opacity: 1; // Visível por padrão
+    pointer-events: none;
   }
 
-  // A Logo Completa (Imagem)
+  // --- A LOGO GRANDE (Barra Aberta) ---
   .nav-logo-full { 
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 200px; // Ajuste conforme necessário para sua imagem
+    width: 200px; 
     
     transform: translate(-50%, -50%) scale(0.9);
     transition: var(--transition);
-    opacity: 0; 
+    opacity: 0; // Invisível por padrão
     z-index: 1;
-    
-    // Filtro opcional para harmonizar logos pretas/escuras no fundo escuro
-    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+
+    // CORREÇÃO DE CONTRASTE: 
+    // Cria uma "luz de fundo" ciano suave para destacar a logo escura
+    filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.6));
   }
 }
 
@@ -142,7 +126,7 @@ body {
   a {
     display: flex;
     align-items: center;
-    padding: 22px 34px; // Centraliza opticamente com o ícone
+    padding: 22px 34px; 
     color: #8ba29a !important;
     text-decoration: none;
     font-family: var(--font-header);
@@ -153,7 +137,7 @@ body {
       min-width: 25px;
       font-size: 1.4rem;
       color: var(--karyus-earth);
-      transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); // Bounce effect
+      transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
       display: flex;
       justify-content: center;
     }
@@ -171,16 +155,12 @@ body {
       background: rgba(227, 167, 80, 0.05);
       color: var(--karyus-neon) !important;
       
-      i { 
-        transform: scale(1.3); 
-        filter: drop-shadow(0 0 10px var(--karyus-earth));
-        color: var(--karyus-neon);
-      }
+      i { transform: scale(1.3); filter: drop-shadow(0 0 10px var(--karyus-earth)); color: var(--karyus-neon); }
     }
   }
 }
 
-// 6. RODAPÉ (Fluido e Sem Cortes)
+// 6. RODAPÉ
 .sidebar-footer {
   padding: 2rem 0; 
   border-top: 1px solid rgba(227, 167, 80, 0.1);
@@ -193,7 +173,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.2rem; // Ajuste fino para caber na barra de 90px
+    gap: 1.2rem; 
     transition: gap 0.5s ease;
 
     a {
@@ -219,10 +199,7 @@ body {
   flex-direction: column;
   align-items: center;
 
-  .wrapper {
-    max-width: 1000px;
-    width: 100%;
-  }
+  .wrapper { max-width: 1000px; width: 100%; }
 }
 
 // 8. SEÇÕES & TIPOGRAFIA
@@ -301,8 +278,8 @@ a {
   }
   .sidebar-logo { height: auto; padding: 2rem 0; }
   
-  .brand-symbol { display: none; } // No mobile, mostra só a logo completa
-  .nav-logo-full { position: relative; transform: none; top: auto; left: auto; opacity: 1 !important; margin: 0 auto; width: 160px; }
+  .brand-symbol { display: none; } 
+  .nav-logo-full { position: relative; transform: none; top: auto; left: auto; opacity: 1 !important; margin: 0 auto; width: 160px; filter: none; }
   
   .main-content { margin-left: 0; width: 100%; padding: 2rem; }
   .glitch-text { font-size: 2.5rem !important; letter-spacing: 2px !important; }
