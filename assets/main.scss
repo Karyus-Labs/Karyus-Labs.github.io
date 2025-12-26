@@ -14,7 +14,6 @@
   --sidebar-bg: rgba(0, 47, 69, 0.85); 
   --text-primary: #BCD4CC;
   --text-muted: #8ba29a;
-  --card-bg: rgba(255, 255, 255, 0.03);
   --font-primary: 'Orbitron', sans-serif;
   --font-secondary: 'Poppins', sans-serif;
   --transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -26,7 +25,6 @@ body.light-mode {
   --sidebar-bg: rgba(255, 255, 255, 0.9);
   --text-primary: #002F45;
   --text-muted: #4a6a7a;
-  --card-bg: #ffffff;
   --karyus-blue: #ffffff;
 }
 
@@ -50,7 +48,7 @@ body {
   left: 0;
   top: 0;
   background-color: var(--sidebar-bg);
-  backdrop-filter: blur(20px); // Efeito lúdico de profundidade
+  backdrop-filter: blur(20px); 
   border-right: 1px solid var(--karyus-earth-glow);
   display: flex;
   flex-direction: column;
@@ -85,18 +83,24 @@ body {
     border-radius: 15px;
     transition: all 0.3s ease;
 
-    i { color: var(--karyus-earth); font-size: 1.3rem; }
+    i { color: var(--karyus-earth); font-size: 1.3rem; transition: 0.3s; }
 
+    // INTERAÇÃO BRILHANTE (Link Hover)
     &:hover {
       background: rgba(227, 167, 80, 0.1);
       color: var(--karyus-earth);
       transform: translateX(12px);
-      box-shadow: inset 0 0 15px rgba(227, 167, 80, 0.05);
+      box-shadow: 0 0 20px rgba(227, 167, 80, 0.1);
+      
+      i {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 8px var(--karyus-earth));
+      }
     }
   }
 }
 
-// 5. FOOTER DA SIDEBAR (Ícones Sociais Escalados)
+// 5. FOOTER DA SIDEBAR (Ícones Sociais Grandes & Brilhantes)
 .sidebar-footer {
   margin-top: auto;
   padding-top: 2rem;
@@ -110,53 +114,56 @@ body {
     margin-bottom: 2rem;
 
     a {
-      font-size: 2.2rem; // Ícones agora são protagonistas
+      font-size: 2.2rem; // Ícones muito maiores
       color: var(--text-muted);
       transition: var(--transition);
       
       &:hover {
         color: var(--karyus-earth);
-        transform: scale(1.25) translateY(-5px);
-        filter: drop-shadow(0 0 15px var(--karyus-earth));
+        transform: scale(1.3) translateY(-8px); // Interação mais lúdica
+        filter: drop-shadow(0 0 15px var(--karyus-earth)); // Efeito brilhante
       }
     }
   }
 }
 
-// 6. BOTÃO DE TEMA
+// 6. BOTÃO DE TEMA (Estilo HUD)
 .theme-toggle-btn {
   background: transparent;
-  border: 2px solid var(--karyus-earth);
+  border: 1px solid var(--karyus-earth);
   color: var(--karyus-earth);
-  padding: 10px 25px;
-  border-radius: 30px;
+  padding: 12px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 1.2rem;
+  margin: 0 auto;
   transition: var(--transition);
   
   &:hover {
     background: var(--karyus-earth);
     color: var(--karyus-blue);
-    box-shadow: 0 0 20px var(--karyus-earth-glow);
+    box-shadow: 0 0 25px var(--karyus-earth);
+    transform: rotate(45deg);
   }
 }
 
-// 7. CONTEÚDO PRINCIPAL (Fluidez)
+// 7. CONTEÚDO PRINCIPAL (Fluidez e Espaçamento)
 .main-content {
   margin-left: var(--sidebar-width);
   padding: 6rem 8rem;
   width: 100%;
-  animation: slideUp 0.8s ease-out;
+  animation: slideIn 0.8s ease-out;
   
   .wrapper { 
-    max-width: 1100px; // Proporção áurea de leitura
+    max-width: 1100px;
     margin: 0 auto;
   }
 }
 
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 // 8. BOTÕES FUTURISTAS
@@ -172,12 +179,11 @@ body {
   text-transform: uppercase;
   letter-spacing: 3px;
   transition: all 0.4s;
-  border-radius: 4px;
   
   &:hover {
     background: var(--karyus-earth);
     color: var(--karyus-blue) !important;
     box-shadow: 0 0 40px var(--karyus-earth-glow);
-    transform: translateY(-3px);
+    transform: translateY(-5px);
   }
 }
