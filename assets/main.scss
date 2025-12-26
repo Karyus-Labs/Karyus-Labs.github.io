@@ -1,231 +1,204 @@
 ---
 ---
 
-// 1. FONTES DE ALTA PERFORMANCE (Cockpit HUD Style)
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;700&family=Poppins:wght@300;400;600&display=swap');
+// 1. FONTES E VARIÁVEIS HUD (Proporções Reais)
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;700&display=swap');
 @import "minima";
 
-// 2. SISTEMA DE TOKENS (Karyus Labs Big-Tech)
 :root {
+  --sidebar-collapsed: 85px;  // Largura real para os ícones
+  --sidebar-expanded: 300px;   // Expansão lateral lúdica
   --karyus-blue: #002F45;   
   --karyus-earth: #E3A750;  
-  --karyus-neon: #00f2ff;     // Cor para interações "brilhantes"
+  --karyus-neon: #00f2ff;
   --karyus-earth-glow: rgba(227, 167, 80, 0.4);
-  --bg-primary: #01080b;      // Fundo Deep Black
-  --sidebar-bg: rgba(0, 18, 26, 0.95); 
+  --bg-primary: #01080b;    
   --text-primary: #BCD4CC;
-  --text-muted: #8ba29a;
-  --font-primary: 'Orbitron', sans-serif;
-  --font-secondary: 'JetBrains Mono', monospace; // Tipografia técnica solicitada
-  --transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  --sidebar-width: 350px;     // Proporção aumentada para tool bar
+  --font-header: 'Orbitron', sans-serif;
+  --font-tech: 'JetBrains Mono', monospace; // Tipografia técnica de precisão
+  --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-// 3. LÓGICA DE TEMAS (Corrigida e Fluida)
+// 2. LÓGICA DE TEMAS
 body.light-mode {
   --bg-primary: #f0f4f7;
-  --sidebar-bg: rgba(255, 255, 255, 0.95);
   --text-primary: #002F45;
-  --text-muted: #4a6a7a;
   --karyus-blue: #ffffff;
-  
-  .sidebar { border-right: 1px solid #ddd; }
 }
 
-// 4. ESTRUTURA GLOBAL
+// 3. ESTRUTURA GLOBAL (Centralização e Reset)
 body {
   background-color: var(--bg-primary) !important;
   color: var(--text-primary) !important;
-  font-family: var(--font-secondary);
+  font-family: var(--font-tech);
   margin: 0;
   display: flex;
   min-height: 100vh;
-  transition: background-color var(--transition), color var(--transition);
+  transition: background-color var(--transition);
   overflow-x: hidden;
 }
 
-// 5. CORREÇÃO DE LINKS (Interação e Brilho)
-a {
-  color: var(--karyus-earth) !important;
-  text-decoration: none;
-  transition: var(--transition);
-  
-  &:hover {
-    color: var(--karyus-neon) !important;
-    text-shadow: 0 0 10px var(--karyus-neon);
-  }
-  
-  // Impede que o link fique preto após clicado
-  &:visited { color: var(--karyus-earth) !important; }
-}
-
-// 6. TOOL BAR DINÂMICA (Sidebar que se estende)
+// 4. SIDEBAR HUD RETRÁTIL (Aparece ao passar o mouse)
 .sidebar {
-  width: var(--sidebar-width);
+  width: var(--sidebar-collapsed);
   height: 100vh;
   position: fixed;
   left: 0;
   top: 0;
-  background-color: var(--sidebar-bg);
-  backdrop-filter: blur(20px); 
-  border-right: 2px solid var(--karyus-blue);
+  background: rgba(0, 18, 26, 0.98);
+  backdrop-filter: blur(15px);
+  border-right: 1px solid var(--karyus-blue);
+  z-index: 1000;
+  transition: width var(--transition);
   display: flex;
   flex-direction: column;
-  padding: 4rem 0; // Padding lateral removido para o efeito de extensão
-  z-index: 1000;
-  transition: var(--transition);
+  overflow: hidden; // Garante que o texto suma quando colapsado
 
-  .sidebar-logo {
-    padding: 0 2.5rem;
-    margin-bottom: 4rem;
-    .nav-logo {
-      width: 100%;
-      max-width: 200px;
-      filter: drop-shadow(0 0 8px var(--karyus-earth-glow));
-    }
+  &:hover {
+    width: var(--sidebar-expanded);
+    box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+    
+    .nav-text { opacity: 1; transform: translateX(0); }
+    .nav-logo-full { opacity: 1; display: block; }
+    .nav-logo-small { opacity: 0; display: none; }
   }
+}
+
+.sidebar-logo {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  height: 120px;
+  
+  .nav-logo-small { width: 35px; transition: var(--transition); filter: drop-shadow(0 0 5px var(--karyus-earth-glow)); }
+  .nav-logo-full { width: 180px; display: none; opacity: 0; transition: var(--transition); }
 }
 
 .sidebar-nav {
   display: flex;
   flex-direction: column;
-  
+  flex-grow: 1;
+
   a {
     display: flex;
     align-items: center;
-    gap: 20px;
-    color: var(--text-muted) !important;
-    font-family: var(--font-primary);
-    font-size: 1.1rem; // Opções maiores
-    font-weight: 700;
-    padding: 22px 40px;
-    position: relative;
-    overflow: hidden;
+    padding: 22px 30px; // Proporção áurea de alinhamento para ícones
+    color: #8ba29a !important;
+    text-decoration: none;
+    font-family: var(--font-header);
+    white-space: nowrap; // Impede quebra de texto na expansão
     transition: var(--transition);
 
-    i { 
-      color: var(--karyus-earth); 
-      font-size: 1.4rem; 
-      min-width: 35px;
-      transition: var(--transition);
+    i {
+      min-width: 25px;
+      font-size: 1.4rem;
+      color: var(--karyus-earth);
+      transition: transform 0.3s;
     }
 
-    // Efeito de "extensão" ao passar o mouse
-    &::before {
-      content: '';
-      position: absolute;
-      left: -100%;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(227, 167, 80, 0.15));
-      transition: 0.5s ease;
-      z-index: -1;
+    .nav-text {
+      margin-left: 25px;
+      opacity: 0;
+      transform: translateX(-15px);
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
     }
 
     &:hover {
+      background: rgba(227, 167, 80, 0.05);
       color: var(--karyus-neon) !important;
-      transform: translateX(10px);
       
-      &::before { left: 0; }
-      
-      i {
-        transform: scale(1.2);
-        filter: drop-shadow(0 0 10px var(--karyus-neon));
-      }
+      i { transform: scale(1.2); filter: drop-shadow(0 0 8px var(--karyus-earth)); }
     }
   }
 }
 
-// 7. FOOTER DA SIDEBAR (Ícones Sociais Grandes)
 .sidebar-footer {
-  margin-top: auto;
-  padding: 2rem;
+  padding: 2rem 1.5rem;
+  border-top: 1px solid rgba(227, 167, 80, 0.2);
   text-align: center;
-  border-top: 1px solid var(--karyus-earth-glow);
 
   .social-icons {
     display: flex;
-    gap: 2.5rem;
+    gap: 1.5rem;
     justify-content: center;
-    margin-bottom: 2rem;
-
-    a {
-      font-size: 2.5rem; // Ícones protagonistas
-      color: var(--text-muted) !important;
-      
-      &:hover {
-        color: var(--karyus-neon) !important;
-        transform: scale(1.3) translateY(-8px);
-        filter: drop-shadow(0 0 15px var(--karyus-neon));
-      }
+    margin-bottom: 1.5rem;
+    
+    a { 
+        font-size: 1.8rem; 
+        color: var(--karyus-earth) !important;
+        &:hover { transform: scale(1.2); filter: drop-shadow(0 0 10px var(--karyus-earth)); }
     }
   }
 }
 
-// 8. CONTEÚDO PRINCIPAL (Centralizado e Fluido)
+// 5. CONTEÚDO PRINCIPAL (Correção para 100% Zoom)
 .main-content {
-  margin-left: var(--sidebar-width);
-  width: calc(100% - var(--sidebar-width));
-  padding: 8rem 5rem;
+  margin-left: var(--sidebar-collapsed); // Espaço fixo inicial
+  width: calc(100% - var(--sidebar-collapsed));
+  padding: 6rem 5rem;
   display: flex;
   justify-content: center; // Centralização absoluta do blog
-  animation: fadeIn 1s ease-in-out;
-  
-  .wrapper { 
-    max-width: 900px; // Largura ideal para leitura técnica
+
+  .wrapper {
+    max-width: 850px; // Largura ideal para leitura técnica sem esparramar
     width: 100%;
+    animation: fadeIn 0.8s ease;
   }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-// 9. BOTÕES E COMPONENTES HUD
+// 6. COMPONENTES HUD (Links e Botões)
+a {
+    color: var(--karyus-neon) !important;
+    transition: 0.3s;
+    &:visited { color: var(--karyus-neon) !important; } // Mantém a cor vibrante
+    &:hover { text-shadow: 0 0 8px var(--karyus-neon); }
+}
+
 .futuristic-btn {
   display: inline-block;
-  padding: 1.2rem 3.5rem !important; 
+  padding: 1rem 3rem !important; 
   border: 1px solid var(--karyus-earth);
   background: rgba(227, 167, 80, 0.05);
   color: var(--karyus-earth) !important;
-  font-family: var(--font-primary);
-  font-weight: 900;
+  font-family: var(--font-header);
   text-transform: uppercase;
-  letter-spacing: 3px;
-  border-radius: 4px;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  font-weight: 900;
+  transition: all 0.3s;
   
   &:hover {
     background: var(--karyus-earth);
     color: var(--bg-primary) !important;
-    box-shadow: 0 0 40px var(--karyus-earth-glow);
-    transform: translateY(-5px);
+    box-shadow: 0 0 25px var(--karyus-earth-glow);
+    transform: translateY(-3px);
   }
 }
 
-// 10. MATHJAX
+// 7. MATHJAX (Estética Neon)
 .mjx-container {
   color: var(--karyus-neon) !important;
   margin: 3rem 0 !important;
 }
 
-// 11. RESPONSIVIDADE
-@media (max-width: 1024px) {
-  --sidebar-width: 280px;
-  .main-content { padding: 4rem 2rem; }
-}
-
+// 8. RESPONSIVIDADE (Mobile HUD)
 @media (max-width: 768px) {
-  body { flex-direction: column; }
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-    padding: 2rem 0;
+  .sidebar { 
+    width: 100%; 
+    height: auto; 
+    position: relative; 
+    border-right: none;
+    border-bottom: 1px solid var(--karyus-blue);
   }
-  .main-content {
-    margin-left: 0;
-    width: 100%;
-  }
+  .main-content { margin-left: 0; width: 100%; padding: 2rem; }
+  .sidebar:hover { width: 100%; }
+  .nav-text { opacity: 1 !important; transform: none !important; }
+  .nav-logo-small { display: none; }
+  .nav-logo-full { display: block !important; opacity: 1 !important; margin: 0 auto; }
 }
