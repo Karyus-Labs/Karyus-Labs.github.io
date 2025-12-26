@@ -47,23 +47,17 @@ body {
   flex-direction: column;
   overflow: hidden;
 
-  // HOVER: Expande e troca logos
   &:hover {
     width: var(--sidebar-expanded);
     box-shadow: 10px 0 50px rgba(0,0,0,0.8);
-    
     .nav-text { opacity: 1; transform: translateX(0); }
-    
-    // Mostra Logo Grande
     .nav-logo-full { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    // Esconde o "K"
     .brand-symbol { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-
     .sidebar-footer .social-icons { gap: 2rem; a { font-size: 2.2rem; } }
   }
 }
 
-// 4. LÓGICA DE LOGOS (Debugada)
+// 4. LÓGICA DE LOGOS
 .sidebar-logo {
   position: relative; 
   height: 140px;      
@@ -78,41 +72,31 @@ body {
     position: relative; 
   }
 
-  // --- O "K" (Barra Fechada) ---
   .brand-symbol {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
     font-family: var(--font-header);
     font-weight: 900;
     font-size: 3.5rem; 
     color: var(--karyus-earth);
-    
-    // Brilho para garantir visibilidade
     text-shadow: 0 0 15px var(--karyus-earth-glow), 0 0 30px rgba(227, 167, 80, 0.2);
-    
     transition: var(--transition);
     z-index: 2;
-    opacity: 1; // Visível por padrão
+    opacity: 1; 
     pointer-events: none;
   }
 
-  // --- A LOGO GRANDE (Barra Aberta) ---
   .nav-logo-full { 
     position: absolute;
     top: 50%;
     left: 50%;
     width: 200px; 
-    
     transform: translate(-50%, -50%) scale(0.9);
     transition: var(--transition);
-    opacity: 0; // Invisível por padrão
+    opacity: 0; 
     z-index: 1;
-
-    // CORREÇÃO DE CONTRASTE: 
-    // Cria uma "luz de fundo" ciano suave para destacar a logo escura
     filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.6));
   }
 }
@@ -154,7 +138,6 @@ body {
     &:hover {
       background: rgba(227, 167, 80, 0.05);
       color: var(--karyus-neon) !important;
-      
       i { transform: scale(1.3); filter: drop-shadow(0 0 10px var(--karyus-earth)); color: var(--karyus-neon); }
     }
   }
@@ -190,25 +173,32 @@ body {
   }
 }
 
-// 7. CONTEÚDO PRINCIPAL
+// 7. CONTEÚDO PRINCIPAL (Centralização Lateral)
 .main-content {
   margin-left: var(--sidebar-collapsed);
   width: calc(100% - var(--sidebar-collapsed));
   padding: 0 5rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; // Centraliza o wrapper lateralmente
 
   .wrapper { max-width: 1000px; width: 100%; }
 }
 
-// 8. SEÇÕES & TIPOGRAFIA
+// 8. SEÇÕES PADRONIZADAS (A CORREÇÃO DO ALINHAMENTO)
 .one-page-section {
     min-height: 100vh;
-    padding: 100px 0;
+    // 1. Removido justify-content: center (isso causava altura variável)
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; // Começa sempre do topo
+    
+    // 2. Padding Padronizado: Define onde o texto começa visualmente
+    padding-top: 140px; 
+    padding-bottom: 80px;
+    
+    // 3. Scroll Margin: Garante que o scroll pare um pouco antes do padding
+    scroll-margin-top: 20px; 
 
     h2 {
         font-family: var(--font-header);
@@ -223,6 +213,10 @@ body {
 
 .hero-manifesto {
     text-align: center;
+    // A Home pode ser exceção e ficar centralizada se preferir, 
+    // mas com padding-top 140px ela já fica bem posicionada.
+    margin-top: 5vh; 
+    
     .glitch-text {
         font-family: var(--font-header);
         font-size: 5.5rem;
@@ -231,6 +225,7 @@ body {
         letter-spacing: 10px;
         margin-bottom: 1rem;
         text-shadow: 0 0 20px rgba(227, 167, 80, 0.3);
+        line-height: 1.1;
     }
     .subtitle {
         font-family: var(--font-tech);
@@ -283,4 +278,7 @@ a {
   
   .main-content { margin-left: 0; width: 100%; padding: 2rem; }
   .glitch-text { font-size: 2.5rem !important; letter-spacing: 2px !important; }
+  
+  // Ajuste de padding mobile
+  .one-page-section { padding-top: 80px; }
 }
