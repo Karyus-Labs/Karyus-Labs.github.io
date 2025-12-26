@@ -31,16 +31,16 @@ permalink: /
 <section id="about" class="one-page-section">
   <h2 class="section-title">The Engineer</h2>
   <div class="content-block">
-    <p class="highlight-text">**Renato Filho** | Founder of Karyus Labs</p>
+    <p class="highlight-text">Renato Filho | Founder of Karyus Labs</p>
     
     <h3>The Approach</h3>
     <p><strong>Karyus Labs</strong> serves as my digital workshop. The goal is simple: to document the rigorous application of engineering principles to solve complex problems. Whether through Finite Element Analysis (FEA), Computational Fluid Dynamics (CFD), or Data Science, the focus remains on <strong>technical precision</strong> and reliability.</p>
 
     <h3>Core Toolkit</h3>
     <ul class="tech-list">
-      <li>**Flight Dynamics & Control:** Comprehensive stability analysis ranging from static sizing (XFLR5, AVL) to **Nonlinear Dynamic Simulation** and Control Law design using **MATLAB & Simulink**.</li>
-      <li>**Simulation & Structure:** Structural analysis and FEM simulation using Abaqus and ANSYS, integrated with parametric CAD modeling (SolidWorks/CATIA).</li>
-      <li>**Computational Logic:** Leveraging a background in Algorithm Theory (IMPA) to build optimized engineering automation scripts in Python and MATLAB.</li>
+      <li>Flight Dynamics & Control: Comprehensive stability analysis ranging from static sizing (XFLR5, AVL) to Nonlinear Dynamic Simulation and Control Law design using MATLAB & Simulink.</li>
+      <li>Simulation & Structure: Structural analysis and FEM simulation using Abaqus and ANSYS, integrated with parametric CAD modeling (SolidWorks/CATIA).</li>
+      <li>Computational Logic: Leveraging a background in Algorithm Theory (IMPA) to build optimized engineering automation scripts in Python and MATLAB.</li>
     </ul>
   </div>
 </section>
@@ -89,7 +89,6 @@ permalink: /
 </section>
 
 <style>
-  /* MANTENHA O CSS ORIGINAL */
   .section-title {
     font-size: 2.5rem;
     margin-bottom: 3rem;
