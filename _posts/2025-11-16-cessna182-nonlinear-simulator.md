@@ -84,4 +84,4 @@ If you're in aerospace simulation or autonomous systems, I’d love to hear feed
 
 ---
 
-**Renato Filho @ Founder Karyus-Labs**
+**Renato Martins Filho @ Founder Karyus-Labs**
