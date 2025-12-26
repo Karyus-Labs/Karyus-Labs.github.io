@@ -326,3 +326,56 @@ a {
   .one-page-section { padding-top: 80px; }
   .project-hero-img { height: 250px; }
 }
+
+// 12. ELEMENTOS VISUAIS DE FUNDO (Blueprint Grid)
+#home, #contact {
+  position: relative;
+  overflow: hidden;
+
+  // Criando as linhas de fundo via Pseudo-elemento
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    // Desenho das linhas (Grid de Engenharia)
+    background-image: 
+      linear-gradient(rgba(227, 167, 80, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(227, 167, 80, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px; // Tamanho do quadrado da grade
+    
+    // Máscara para as linhas sumirem suavemente nas bordas (Vignette)
+    mask-image: radial-gradient(circle, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle, black 30%, transparent 80%);
+    
+    pointer-events: none; // Garante que as linhas não atrapalhem cliques
+    z-index: 0;
+  }
+
+  // Garante que o conteúdo fique acima das linhas
+  .hero-manifesto, .contact-grid, h2 {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// Detalhe extra para o Contact: uma linha de "scan" tecnológica
+#contact::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--karyus-neon), transparent);
+  opacity: 0.1;
+  animation: scanline 8s linear infinite;
+}
+
+@keyframes scanline {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
