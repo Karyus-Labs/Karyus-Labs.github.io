@@ -1,23 +1,23 @@
 ---
 ---
 
-// 1. FONTES E VARIÁVEIS HUD (Deep Tech Only)
+// 1. FONTES E VARIÁVEIS HUD
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;700&display=swap');
 @import "minima";
 
 :root {
-  --sidebar-collapsed: 90px;   // Aumentei levemente para garantir que os ícones caibam
+  --sidebar-collapsed: 90px;   
   --sidebar-expanded: 320px;   
   --karyus-blue: #002F45;   
   --karyus-earth: #E3A750;  
   --karyus-neon: #00f2ff;
   --karyus-earth-glow: rgba(227, 167, 80, 0.4);
-  --bg-primary: #01080b;       // Sempre Dark
+  --bg-primary: #01080b;       
   --text-primary: #BCD4CC;
   --font-header: 'Orbitron', sans-serif;
   --font-tech: 'JetBrains Mono', monospace;
   
-  // Física da Animação (Mais fluida)
+  // Física da Animação
   --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1); 
 }
 
@@ -33,34 +33,34 @@ body {
   scroll-behavior: smooth;
 }
 
-// 3. SIDEBAR HUD (Estabilizada)
+// 3. SIDEBAR HUD
 .sidebar {
   width: var(--sidebar-collapsed);
   height: 100vh;
   position: fixed;
   left: 0;
   top: 0;
-  background: rgba(0, 18, 26, 0.98); // Vidro escuro
+  background: rgba(0, 18, 26, 0.98); 
   backdrop-filter: blur(15px);
-  border-right: 1px solid rgba(0, 242, 255, 0.1); // Borda sutil Neon
+  border-right: 1px solid rgba(0, 242, 255, 0.1); 
   z-index: 1000;
   transition: width var(--transition);
   display: flex;
   flex-direction: column;
   overflow: hidden;
 
-  // Estado Expandido (Hover)
+  // ESTADO EXPANDIDO (HOVER)
   &:hover {
     width: var(--sidebar-expanded);
     box-shadow: 10px 0 50px rgba(0,0,0,0.8);
     
     .nav-text { opacity: 1; transform: translateX(0); }
     
-    // Troca de Logo Suave
+    // Transição das Imagens (Favicon some, Logo aparece)
     .nav-logo-full { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    .nav-logo-small { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    .nav-logo-small { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
 
-    // Expande footer
+    // Rodapé Expande
     .sidebar-footer .social-icons {
         gap: 2rem;
         a { font-size: 2.2rem; }
@@ -68,15 +68,14 @@ body {
   }
 }
 
-// LÓGICA DE LOGO (Correção do "Pulo")
+// 4. LÓGICA DE LOGO (Favicon vs Logo)
 .sidebar-logo {
   position: relative; 
-  height: 140px;      // Altura fixa para nunca empurrar o menu
+  height: 140px;      
   width: 100%;
   border-bottom: 1px solid rgba(227, 167, 80, 0.1);
   margin-bottom: 1rem;
   
-  // O link ocupa a área toda, mas as imagens são absolutas
   a {
     display: block;
     width: 100%;
@@ -88,26 +87,30 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); // Centralização perfeita
+    transform: translate(-50%, -50%); // Centralização Perfeita
     transition: var(--transition);
   }
 
+  // Configuração do Favicon (Colapsado)
   .nav-logo-small { 
-    width: 45px; 
+    width: 45px; // Tamanho ideal para barra de 90px
+    height: auto;
     opacity: 1; 
     z-index: 2;
     filter: drop-shadow(0 0 5px var(--karyus-earth-glow));
   }
   
+  // Configuração da Logo Completa (Expandido)
   .nav-logo-full { 
-    width: 200px; 
+    width: 180px; 
+    height: auto;
     opacity: 0; 
     z-index: 1;
-    transform: translate(-50%, -50%) scale(0.9); // Efeito de zoom na entrada
+    transform: translate(-50%, -50%) scale(0.8); // Zoom-in ao aparecer
   }
 }
 
-// NAVEGAÇÃO
+// 5. NAVEGAÇÃO
 .sidebar-nav {
   display: flex;
   flex-direction: column;
@@ -116,7 +119,7 @@ body {
   a {
     display: flex;
     align-items: center;
-    padding: 22px 32px; // Centraliza no eixo do ícone
+    padding: 22px 32px; 
     color: #8ba29a !important;
     text-decoration: none;
     font-family: var(--font-header);
@@ -127,7 +130,7 @@ body {
       min-width: 25px;
       font-size: 1.4rem;
       color: var(--karyus-earth);
-      transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); // Efeito "Bounce"
+      transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); // Efeito Elástico
       display: flex;
       justify-content: center;
     }
@@ -145,7 +148,6 @@ body {
       background: rgba(227, 167, 80, 0.05);
       color: var(--karyus-neon) !important;
       
-      // Ícone salta e brilha
       i { 
         transform: scale(1.3); 
         filter: drop-shadow(0 0 10px var(--karyus-earth));
@@ -155,28 +157,26 @@ body {
   }
 }
 
-// RODAPÉ (Correção dos Ícones Cortados)
+// 6. RODAPÉ (Ícones Fluidos)
 .sidebar-footer {
-  padding: 2rem 0; // Removi padding lateral para usar flex-center
+  padding: 2rem 0; 
   border-top: 1px solid rgba(227, 167, 80, 0.1);
   width: 100%;
   display: flex;
   justify-content: center;
-  overflow: hidden; // Previne scroll horizontal na transição
+  overflow: hidden;
 
   .social-icons {
     display: flex;
     justify-content: center;
     align-items: center;
-    // Estado Colapsado (Padrão)
-    gap: 1rem; // Gap menor para caber em 90px
+    gap: 1.2rem; // Ajustado para não cortar na barra de 90px
     transition: gap 0.5s ease;
 
     a {
-      // Tamanho Colapsado
       font-size: 1.6rem; 
       color: var(--karyus-earth) !important;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); // Fluidez elástica
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       
       &:hover {
         color: var(--karyus-neon) !important;
@@ -187,7 +187,7 @@ body {
   }
 }
 
-// 4. CONTEÚDO PRINCIPAL
+// 7. CONTEÚDO PRINCIPAL
 .main-content {
   margin-left: var(--sidebar-collapsed);
   width: calc(100% - var(--sidebar-collapsed));
@@ -202,7 +202,7 @@ body {
   }
 }
 
-// 5. SEÇÕES & TIPOGRAFIA
+// 8. SEÇÕES & TIPOGRAFIA
 .one-page-section {
     min-height: 100vh;
     padding: 100px 0;
@@ -221,7 +221,6 @@ body {
     }
 }
 
-// Hero Text Restoration
 .hero-manifesto {
     text-align: center;
     .glitch-text {
@@ -243,7 +242,7 @@ body {
     }
 }
 
-// 6. LINKS & BOTÕES
+// 9. LINKS & BOTÕES
 a {
     color: var(--karyus-neon) !important;
     text-decoration: none;
@@ -271,16 +270,16 @@ a {
   }
 }
 
-// 7. RESPONSIVIDADE
+// 10. RESPONSIVIDADE
 @media (max-width: 768px) {
   .sidebar { 
     width: 100%; height: auto; position: relative; 
     border-right: none; border-bottom: 1px solid var(--karyus-blue);
   }
   .sidebar-logo { height: auto; padding: 2rem 0; }
-  .sidebar-logo img { position: relative; transform: none; top: auto; left: auto; }
+  
   .nav-logo-small { display: none; }
-  .nav-logo-full { display: block !important; opacity: 1 !important; margin: 0 auto; width: 160px; }
+  .nav-logo-full { position: relative; transform: none; top: auto; left: auto; opacity: 1 !important; margin: 0 auto; width: 160px; }
   
   .main-content { margin-left: 0; width: 100%; padding: 2rem; }
   .glitch-text { font-size: 2.5rem !important; letter-spacing: 2px !important; }
