@@ -1,13 +1,13 @@
 ---
 ---
 
-// 1. FONTES E VARIÁVEIS HUD (Proporções Reais)
+// 1. FONTES E VARIÁVEIS HUD
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;700&display=swap');
 @import "minima";
 
 :root {
-  --sidebar-collapsed: 85px;  // Largura real para os ícones
-  --sidebar-expanded: 300px;   // Expansão lateral lúdica
+  --sidebar-collapsed: 85px;  // Largura real ícones
+  --sidebar-expanded: 320px;   // Expansão lateral
   --karyus-blue: #002F45;   
   --karyus-earth: #E3A750;  
   --karyus-neon: #00f2ff;
@@ -15,18 +15,17 @@
   --bg-primary: #01080b;    
   --text-primary: #BCD4CC;
   --font-header: 'Orbitron', sans-serif;
-  --font-tech: 'JetBrains Mono', monospace; // Tipografia técnica de precisão
+  --font-tech: 'JetBrains Mono', monospace;
   --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-// 2. LÓGICA DE TEMAS
 body.light-mode {
   --bg-primary: #f0f4f7;
   --text-primary: #002F45;
   --karyus-blue: #ffffff;
 }
 
-// 3. ESTRUTURA GLOBAL (Centralização e Reset)
+// 2. ESTRUTURA GLOBAL
 body {
   background-color: var(--bg-primary) !important;
   color: var(--text-primary) !important;
@@ -36,9 +35,10 @@ body {
   min-height: 100vh;
   transition: background-color var(--transition);
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-// 4. SIDEBAR HUD RETRÁTIL (Aparece ao passar o mouse)
+// 3. SIDEBAR HUD RETRÁTIL
 .sidebar {
   width: var(--sidebar-collapsed);
   height: 100vh;
@@ -52,12 +52,11 @@ body {
   transition: width var(--transition);
   display: flex;
   flex-direction: column;
-  overflow: hidden; // Garante que o texto suma quando colapsado
+  overflow: hidden;
 
   &:hover {
     width: var(--sidebar-expanded);
-    box-shadow: 10px 0 30px rgba(0,0,0,0.5);
-    
+    box-shadow: 10px 0 40px rgba(0,0,0,0.6);
     .nav-text { opacity: 1; transform: translateX(0); }
     .nav-logo-full { opacity: 1; display: block; }
     .nav-logo-small { opacity: 0; display: none; }
@@ -68,9 +67,8 @@ body {
   padding: 3rem 1.5rem;
   text-align: center;
   height: 120px;
-  
-  .nav-logo-small { width: 35px; transition: var(--transition); filter: drop-shadow(0 0 5px var(--karyus-earth-glow)); }
-  .nav-logo-full { width: 180px; display: none; opacity: 0; transition: var(--transition); }
+  .nav-logo-small { width: 40px; transition: var(--transition); }
+  .nav-logo-full { width: 200px; display: none; opacity: 0; transition: var(--transition); }
 }
 
 .sidebar-nav {
@@ -81,18 +79,18 @@ body {
   a {
     display: flex;
     align-items: center;
-    padding: 22px 30px; // Proporção áurea de alinhamento para ícones
+    padding: 22px 30px;
     color: #8ba29a !important;
     text-decoration: none;
     font-family: var(--font-header);
-    white-space: nowrap; // Impede quebra de texto na expansão
+    white-space: nowrap;
     transition: var(--transition);
 
     i {
       min-width: 25px;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       color: var(--karyus-earth);
-      transition: transform 0.3s;
+      transition: 0.3s;
     }
 
     .nav-text {
@@ -100,105 +98,90 @@ body {
       opacity: 0;
       transform: translateX(-15px);
       transition: all 0.3s ease;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       letter-spacing: 1px;
     }
 
     &:hover {
       background: rgba(227, 167, 80, 0.05);
       color: var(--karyus-neon) !important;
-      
-      i { transform: scale(1.2); filter: drop-shadow(0 0 8px var(--karyus-earth)); }
+      i { transform: scale(1.2); filter: drop-shadow(0 0 10px var(--karyus-earth)); }
     }
   }
 }
 
 .sidebar-footer {
-  padding: 2rem 1.5rem;
+  padding: 2.5rem 1.5rem;
   border-top: 1px solid rgba(227, 167, 80, 0.2);
   text-align: center;
-
   .social-icons {
     display: flex;
     gap: 1.5rem;
     justify-content: center;
-    margin-bottom: 1.5rem;
-    
+    margin-bottom: 2rem;
     a { 
-        font-size: 1.8rem; 
+        font-size: 2.2rem; 
         color: var(--karyus-earth) !important;
-        &:hover { transform: scale(1.2); filter: drop-shadow(0 0 10px var(--karyus-earth)); }
+        &:hover { transform: scale(1.2) translateY(-5px); filter: drop-shadow(0 0 12px var(--karyus-earth)); }
     }
   }
 }
 
-// 5. CONTEÚDO PRINCIPAL (Correção para 100% Zoom)
+// 4. CONTEÚDO PRINCIPAL (Centralização 100% Zoom)
 .main-content {
-  margin-left: var(--sidebar-collapsed); // Espaço fixo inicial
+  margin-left: var(--sidebar-collapsed);
   width: calc(100% - var(--sidebar-collapsed));
-  padding: 6rem 5rem;
+  padding: 0 5rem;
   display: flex;
-  justify-content: center; // Centralização absoluta do blog
+  flex-direction: column;
+  align-items: center;
 
   .wrapper {
-    max-width: 850px; // Largura ideal para leitura técnica sem esparramar
+    max-width: 900px; // Proporção ideal para leitura técnica
     width: 100%;
-    animation: fadeIn 0.8s ease;
   }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+// 5. SEÇÕES PÁGINA ÚNICA
+.one-page-section {
+    min-height: 100vh;
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-// 6. COMPONENTES HUD (Links e Botões)
+// 6. LINKS E HUD
 a {
     color: var(--karyus-neon) !important;
-    transition: 0.3s;
-    &:visited { color: var(--karyus-neon) !important; } // Mantém a cor vibrante
-    &:hover { text-shadow: 0 0 8px var(--karyus-neon); }
+    &:visited { color: var(--karyus-neon) !important; }
+    &:hover { text-shadow: 0 0 10px var(--karyus-neon); }
 }
 
 .futuristic-btn {
   display: inline-block;
-  padding: 1rem 3rem !important; 
+  padding: 1.2rem 3.5rem !important; 
   border: 1px solid var(--karyus-earth);
   background: rgba(227, 167, 80, 0.05);
   color: var(--karyus-earth) !important;
   font-family: var(--font-header);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.85rem;
   font-weight: 900;
-  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border-radius: 4px;
   
   &:hover {
     background: var(--karyus-earth);
     color: var(--bg-primary) !important;
-    box-shadow: 0 0 25px var(--karyus-earth-glow);
-    transform: translateY(-3px);
+    box-shadow: 0 0 40px var(--karyus-earth-glow);
+    transform: translateY(-5px);
   }
 }
 
-// 7. MATHJAX (Estética Neon)
-.mjx-container {
-  color: var(--karyus-neon) !important;
-  margin: 3rem 0 !important;
-}
-
-// 8. RESPONSIVIDADE (Mobile HUD)
+// 7. RESPONSIVIDADE
 @media (max-width: 768px) {
-  .sidebar { 
-    width: 100%; 
-    height: auto; 
-    position: relative; 
-    border-right: none;
-    border-bottom: 1px solid var(--karyus-blue);
-  }
+  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--karyus-blue); }
   .main-content { margin-left: 0; width: 100%; padding: 2rem; }
   .sidebar:hover { width: 100%; }
   .nav-text { opacity: 1 !important; transform: none !important; }
-  .nav-logo-small { display: none; }
-  .nav-logo-full { display: block !important; opacity: 1 !important; margin: 0 auto; }
 }
