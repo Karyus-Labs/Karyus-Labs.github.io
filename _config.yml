@@ -1,11 +1,30 @@
-title: "Karyus Labs Blog"
+title: "Karyus Labs"
 description: "Aerospace R&D and Simulation Projects"
-theme: minima
-markdown: kramdown
+author: "Renato Filho"
+email: "rcmartinsf@gmail.com"
 
+# IMPORTANTE: Ajuste o baseurl para o nome do seu repositório no GitHub
+baseurl: "" 
+url: "https://Karyus-Labs.github.io"
+
+# Configurações de Markdown e Estilo
+markdown: kramdown
+theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag # Recomendo adicionar para SEO Big-Tech
 
 collections:
   posts:
     output: true
+
+# Garante que o Jekyll processe seus arquivos SASS e JS corretamente
+sass:
+  sass_dir: _sass
+  style: compressed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
