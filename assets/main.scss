@@ -1,8 +1,8 @@
 ---
 ---
 
-// 1. FONTES E VARIÁVEIS HUD (Deep Tech & Professional)
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+// 1. FONTES E VARIÁVEIS HUD (Deep Tech & High Readability)
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;700&family=Exo+2:wght@300;400;500;600;700&display=swap');
 @import "minima";
 
 :root {
@@ -15,10 +15,10 @@
   --bg-primary: #01080b;       
   --text-primary: #BCD4CC;
   
-  // HIERARQUIA TIPOGRÁFICA REFINADA
-  --font-header: 'Orbitron', sans-serif;       // Títulos de impacto
-  --font-body: 'Rajdhani', sans-serif;         // Leitura profissional e fluida
-  --font-tech: 'JetBrains Mono', monospace;    // Apenas para dados puramente técnicos
+  // HIERARQUIA TIPOGRÁFICA
+  --font-header: 'Orbitron', sans-serif;       // Títulos e Impacto
+  --font-body: 'Exo 2', sans-serif;           // Corpo de texto (Futurista + Legível)
+  --font-tech: 'JetBrains Mono', monospace;    // Dados técnicos e código
   
   --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1); 
 }
@@ -27,15 +27,16 @@
 body {
   background-color: var(--bg-primary) !important;
   color: var(--text-primary) !important;
-  font-family: var(--font-body); // Fonte principal agora é a Rajdhani
-  font-size: 1.15rem;            // Rajdhani lê melhor um pouco maior
-  font-weight: 500;
+  font-family: var(--font-body); 
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.8;      // Espaçamento generoso para conforto visual
+  letter-spacing: 0.3px; // Leve respiro entre as letras
   margin: 0;
   display: flex;
   min-height: 100vh;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  line-height: 1.6;
 }
 
 // 3. SIDEBAR HUD
@@ -138,7 +139,7 @@ body {
       opacity: 0;
       transform: translateX(-20px);
       transition: all 0.4s ease;
-      font-size: 1rem;
+      font-size: 1.1rem;
       letter-spacing: 1px;
     }
 
@@ -217,7 +218,13 @@ body {
       color: var(--karyus-neon);
       font-size: 1.5rem;
       margin-top: 2rem;
+      margin-bottom: 1rem;
       letter-spacing: 1px;
+    }
+
+    p {
+      margin-bottom: 1.8rem;
+      max-width: 900px; // Limite de largura para leitura confortável
     }
 }
 
@@ -236,7 +243,7 @@ body {
         line-height: 1.1;
     }
     .subtitle {
-        font-family: var(--font-tech); // Mantemos a mono aqui para estilo HUD
+        font-family: var(--font-tech); // Mantemos o estilo HUD aqui
         font-size: 0.9rem;
         color: var(--karyus-neon);
         letter-spacing: 3px;
@@ -248,8 +255,8 @@ body {
 // 9. PROJETOS (Ajuste de Imagem)
 .project-hero-img {
   width: 100%;
-  height: 380px;      // Altura cinematográfica
-  object-fit: cover;  // Recorte inteligente
+  height: 380px;      
+  object-fit: cover;  // Recorte inteligente para manter o foco no avião
   object-position: center;
   opacity: 0.5;
   transition: 0.5s;
