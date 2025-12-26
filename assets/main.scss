@@ -6,8 +6,8 @@
 @import "minima";
 
 :root {
-  --sidebar-collapsed: 85px;  // Largura real ícones
-  --sidebar-expanded: 320px;   // Expansão lateral
+  --sidebar-collapsed: 85px;  
+  --sidebar-expanded: 320px;   
   --karyus-blue: #002F45;   
   --karyus-earth: #E3A750;  
   --karyus-neon: #00f2ff;
@@ -19,17 +19,11 @@
   --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-body.light-mode {
-  --bg-primary: #f0f4f7;
-  --text-primary: #002F45;
-  --karyus-blue: #ffffff;
-}
-
 // 2. ESTRUTURA GLOBAL
 body {
   background-color: var(--bg-primary) !important;
   color: var(--text-primary) !important;
-  font-family: var(--font-tech);
+  font-family: var(--font-tech); // Corpo do texto técnico
   margin: 0;
   display: flex;
   min-height: 100vh;
@@ -38,7 +32,7 @@ body {
   scroll-behavior: smooth;
 }
 
-// 3. SIDEBAR HUD RETRÁTIL
+// 3. SIDEBAR HUD ESTABILIZADA (Sem "Pulo")
 .sidebar {
   width: var(--sidebar-collapsed);
   height: 100vh;
@@ -58,17 +52,49 @@ body {
     width: var(--sidebar-expanded);
     box-shadow: 10px 0 40px rgba(0,0,0,0.6);
     .nav-text { opacity: 1; transform: translateX(0); }
-    .nav-logo-full { opacity: 1; display: block; }
-    .nav-logo-small { opacity: 0; display: none; }
+    // Apenas controla a opacidade, não o display, para evitar pulos
+    .nav-logo-full { opacity: 1; } 
+    .nav-logo-small { opacity: 0; }
   }
 }
 
+// AQUI ESTÁ A CORREÇÃO DO PULO:
 .sidebar-logo {
-  padding: 3rem 1.5rem;
-  text-align: center;
-  height: 120px;
-  .nav-logo-small { width: 40px; transition: var(--transition); }
-  .nav-logo-full { width: 200px; display: none; opacity: 0; transition: var(--transition); }
+  position: relative; // Cria contexto para absolute
+  height: 120px;      // Altura fixa, nada empurra nada
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(227, 167, 80, 0.1);
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  img {
+    position: absolute; // Sobreposição perfeita
+    transition: var(--transition);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); // Centralização absoluta
+  }
+
+  .nav-logo-small { 
+    width: 40px; 
+    opacity: 1;
+    z-index: 2;
+  }
+  
+  .nav-logo-full { 
+    width: 180px; 
+    opacity: 0;
+    z-index: 1;
+  }
 }
 
 .sidebar-nav {
@@ -82,7 +108,7 @@ body {
     padding: 22px 30px;
     color: #8ba29a !important;
     text-decoration: none;
-    font-family: var(--font-header);
+    font-family: var(--font-header); // Volta a ser Orbitron nos menus
     white-space: nowrap;
     transition: var(--transition);
 
@@ -91,6 +117,8 @@ body {
       font-size: 1.5rem;
       color: var(--karyus-earth);
       transition: 0.3s;
+      display: flex;
+      justify-content: center; // Centraliza ícone no espaço dele
     }
 
     .nav-text {
@@ -114,6 +142,7 @@ body {
   padding: 2.5rem 1.5rem;
   border-top: 1px solid rgba(227, 167, 80, 0.2);
   text-align: center;
+  
   .social-icons {
     display: flex;
     gap: 1.5rem;
@@ -127,7 +156,7 @@ body {
   }
 }
 
-// 4. CONTEÚDO PRINCIPAL (Centralização 100% Zoom)
+// 4. CONTEÚDO PRINCIPAL
 .main-content {
   margin-left: var(--sidebar-collapsed);
   width: calc(100% - var(--sidebar-collapsed));
@@ -137,18 +166,53 @@ body {
   align-items: center;
 
   .wrapper {
-    max-width: 900px; // Proporção ideal para leitura técnica
+    max-width: 1000px; // Um pouco mais largo para a Hero Section brilhar
     width: 100%;
   }
 }
 
-// 5. SEÇÕES PÁGINA ÚNICA
+// 5. RESGATE DA CAPA "FODA" (Tipografia Hero)
 .one-page-section {
     min-height: 100vh;
     padding: 100px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    // Garante que os títulos das seções sejam impactantes
+    h2 {
+        font-family: var(--font-header);
+        font-size: 3rem;
+        color: var(--karyus-earth);
+        margin-bottom: 3rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+}
+
+// Estilos específicos para a HERO da Home
+.hero-manifesto {
+    text-align: center;
+    
+    .glitch-text {
+        font-family: var(--font-header); // FORÇA ORBITRON
+        font-size: 5.5rem; // TAMANHO GIGANTE
+        font-weight: 900;
+        color: var(--karyus-earth);
+        letter-spacing: 12px;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 20px rgba(227, 167, 80, 0.3); // Glow sutil
+        line-height: 1.1;
+    }
+
+    .subtitle {
+        font-family: var(--font-tech);
+        font-size: 1.1rem;
+        color: var(--karyus-neon);
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 3rem;
+    }
 }
 
 // 6. LINKS E HUD
@@ -180,8 +244,8 @@ a {
 
 // 7. RESPONSIVIDADE
 @media (max-width: 768px) {
-  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--karyus-blue); }
+  .sidebar { width: 100%; height: auto; position: relative; }
   .main-content { margin-left: 0; width: 100%; padding: 2rem; }
   .sidebar:hover { width: 100%; }
-  .nav-text { opacity: 1 !important; transform: none !important; }
+  .glitch-text { font-size: 3rem !important; } // Ajuste mobile
 }
