@@ -33,7 +33,7 @@ permalink: /
 <section id="about" class="one-page-section">
   <h2 class="section-title">The Engineer</h2>
   <div class="content-block">
-    <p class="highlight-text">Renato Martins Filho | Founder of Karyus Labs</p>
+    <p class="highlight-text">Renato Filho | Founder of Karyus Labs</p>
     
     <h3>The Approach</h3>
     <p><strong>Karyus Labs</strong> serves as my digital workshop. The goal is simple: to document the rigorous application of engineering principles to solve complex problems. Whether through Finite Element Analysis (FEA), Computational Fluid Dynamics (CFD), or Data Science, the focus remains on <strong>technical precision</strong> and reliability.</p>
@@ -64,7 +64,7 @@ permalink: /
   <h2 class="section-title">Engineering Hangar</h2>
   <div class="project-showcase">
     <div class="project-image-container" style="margin-bottom: 2rem;">
-      <img src="{{ '/assets/images/cessna182-photo.png' | relative_url }}" alt="Cessna 182 Simulation" class="project-hero-img">
+      <img src="{{ '/assets/images/cessna-real.jpg' | relative_url }}" alt="Cessna 182 Simulation" class="project-hero-img">
       
       <div class="project-overlay">
         <h3>Cessna 182: Nonlinear Flight Dynamics</h3>
@@ -83,10 +83,21 @@ permalink: /
       <p style="margin-bottom: 1rem; color: var(--karyus-neon);"><strong>Objective:</strong> <span style="color: #fff;">Seeking Internship Opportunities (Summer 2026)</span></p>
       <p>Available for discussions on Structural Analysis, Aerodynamics, and Software Engineering.</p>
       
-      <div style="margin-top: 2rem; display: flex; gap: 20px; align-items: center;">
-        <a href="mailto:renatocmf@usp.br" class="futuristic-btn" style="background: transparent; border: 1px solid var(--karyus-neon);">Email Me</a>
-        <a href="https://linkedin.com/in/renato-cm-filho" target="_blank" class="futuristic-btn">LinkedIn Profile</a>
+      <div style="margin-top: 2rem; display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+        
+        <a href="mailto:renatocmf@usp.br" class="futuristic-btn" style="background: transparent; border: 1px solid var(--karyus-neon);">
+          Email Me
+        </a>
+        
+        <a href="https://linkedin.com/in/renato-cm-filho" target="_blank" class="futuristic-btn">
+          LinkedIn
+        </a>
+
+        <a href="{{ '/assets/files/CV_RenatoCMF_Ouvrier.pdf' | relative_url }}" target="_blank" class="futuristic-btn" style="color: var(--karyus-neon) !important; border-color: var(--karyus-neon);">
+          <i class="fas fa-file-download" style="margin-right: 8px;"></i> CV
+        </a>
+
       </div>
     </div>
   </div>
-</section>>
+</section>
