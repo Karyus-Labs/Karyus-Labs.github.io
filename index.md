@@ -16,12 +16,12 @@ permalink: /
     </div>
 
     <div class="tech-grid" style="display: flex; gap: 20px; justify-content: center; margin-bottom: 4rem; flex-wrap: wrap;">
-      <div class="tech-item" style="border: 1px solid var(--karyus-blue); padding: 15px 25px; background: rgba(0,47,69,0.3); border-radius: 4px;">
-        <i class="fas fa-university" style="color: var(--karyus-earth); margin-right: 10px;"></i>
+      <div class="tech-item">
+        <i class="fas fa-university"></i>
         <span>Centrale Méditerranée & USP</span>
       </div>
-      <div class="tech-item" style="border: 1px solid var(--karyus-blue); padding: 15px 25px; background: rgba(0,47,69,0.3); border-radius: 4px;">
-        <i class="fas fa-layer-group" style="color: var(--karyus-earth); margin-right: 10px;"></i>
+      <div class="tech-item">
+        <i class="fas fa-layer-group"></i>
         <span>Multidisciplinary Engineering</span>
       </div>
     </div>
@@ -33,7 +33,7 @@ permalink: /
 <section id="about" class="one-page-section">
   <h2 class="section-title">The Engineer</h2>
   <div class="content-block">
-    <p class="highlight-text">Renato Martins Filho | Founder of Karyus Labs</p>
+    <p class="highlight-text">Renato Filho | Founder of Karyus Labs</p>
     
     <h3>The Approach</h3>
     <p><strong>Karyus Labs</strong> serves as my digital workshop. The goal is simple: to document the rigorous application of engineering principles to solve complex problems. Whether through Finite Element Analysis (FEA), Computational Fluid Dynamics (CFD), or Data Science, the focus remains on <strong>technical precision</strong> and reliability.</p>
@@ -65,6 +65,7 @@ permalink: /
   <div class="project-showcase">
     <div class="project-image-container" style="margin-bottom: 2rem;">
       <img src="{{ '/assets/images/cessna182-photo.png' | relative_url }}" alt="Cessna 182 Simulation" class="project-hero-img">
+      
       <div class="project-overlay">
         <h3>Cessna 182: Nonlinear Flight Dynamics</h3>
         <p>High-fidelity simulator in Simulink implementing raw equations of motion. Validated against linearized state-space models.</p>
@@ -88,74 +89,4 @@ permalink: /
       </div>
     </div>
   </div>
-</section>
-
-<style>
-  /* ESTILOS MANTIDOS CONFORME SUA VERSÃO */
-  .section-title {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    border-left: 5px solid var(--karyus-neon);
-    padding-left: 20px;
-    color: var(--karyus-earth);
-  }
-  .content-block {
-    background: rgba(255, 255, 255, 0.02);
-    padding: 2.5rem;
-    border: 1px solid rgba(0, 242, 255, 0.1);
-    border-radius: 8px;
-    line-height: 1.8;
-  }
-  .highlight-text {
-    color: var(--karyus-neon);
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    font-weight: bold;
-  }
-  .tech-list {
-    list-style: none;
-    padding: 0;
-  }
-  .tech-list li {
-    margin-bottom: 1rem;
-    padding-left: 25px;
-    position: relative;
-  }
-  .tech-list li::before {
-    content: '>';
-    position: absolute;
-    left: 0;
-    color: var(--karyus-earth);
-    font-weight: bold;
-  }
-  .project-image-container {
-    position: relative;
-    border: 1px solid var(--karyus-blue);
-    border-radius: 8px;
-    overflow: hidden;
-    background: #000;
-    transition: var(--transition);
-  }
-  .project-hero-img {
-    width: 100%;
-    height: 350px; 
-    object-fit: cover;
-    object-position: center; 
-    opacity: 0.5;
-    transition: 0.5s;
-    display: block;
-  }
-  .project-overlay {
-    padding: 3rem;
-    background: linear-gradient(0deg, rgba(1, 8, 11, 0.95) 40%, transparent);
-    position: relative;
-  }
-  .project-image-container:hover {
-    border-color: var(--karyus-neon);
-    box-shadow: 0 0 30px var(--karyus-earth-glow);
-  }
-  .project-image-container:hover .project-hero-img {
-    opacity: 0.8;
-    transform: scale(1.03);
-  }
-</style>
+</section>>
