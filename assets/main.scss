@@ -89,7 +89,7 @@ body {
     font-weight: 900;
     font-size: 3.5rem; 
     color: var(--karyus-earth);
-    text-shadow: none; // Clean look
+    text-shadow: none; 
     transition: var(--transition);
     z-index: 2;
     opacity: 1; 
@@ -252,6 +252,30 @@ body {
     }
 }
 
+// NOVO: BADGES DO TOPO (Centralé & Multidisciplinary)
+.tech-item {
+  border: 1px solid var(--karyus-blue);
+  padding: 15px 25px;
+  background: rgba(0, 47, 69, 0.3);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+  cursor: default;
+
+  i { margin-right: 10px; color: var(--karyus-earth); transition: var(--transition); }
+
+  // EFEITO HOVER (Neon Glow)
+  &:hover {
+    border-color: var(--karyus-neon);
+    background: rgba(0, 47, 69, 0.6);
+    box-shadow: 0 0 25px rgba(0, 242, 255, 0.2); // Brilho Ciano
+    transform: translateY(-5px);
+    
+    i { color: var(--karyus-neon); text-shadow: 0 0 10px var(--karyus-neon); }
+  }
+}
+
 // 9. PROJETOS
 .project-hero-img {
   width: 100%;
@@ -270,7 +294,7 @@ body {
   overflow: hidden;
   background: #000;
   transition: var(--transition);
-  cursor: pointer; // Indica interatividade
+  cursor: pointer;
   
   &:hover {
     border-color: var(--karyus-neon);
@@ -285,22 +309,20 @@ body {
   position: relative;
 }
 
-// 10. CARDS DE TEXTO (INTERATIVIDADE NOVA!)
-// Trazido do index.md para cá, com o efeito de hover adicionado
+// 10. CARDS DE TEXTO (About, Research)
 .content-block {
   background: rgba(255, 255, 255, 0.02);
   padding: 2.5rem;
   border: 1px solid rgba(0, 242, 255, 0.1);
   border-radius: 8px;
   line-height: 1.8;
-  transition: var(--transition); // Suavidade essencial
+  transition: var(--transition);
 
-  // O EFEITO DE "ACENDER" AO PASSAR O MOUSE
   &:hover {
-    border-color: var(--karyus-neon); // Borda vira Neon
-    box-shadow: 0 0 30px rgba(227, 167, 80, 0.15); // Glow sutil Dourado/Terra
-    transform: translateY(-5px); // Leve levitação
-    background: rgba(255, 255, 255, 0.04); // Fundo clareia levemente
+    border-color: var(--karyus-neon);
+    box-shadow: 0 0 30px rgba(227, 167, 80, 0.15); 
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.04);
   }
 }
 
@@ -374,7 +396,9 @@ a {
     background-image: 
       linear-gradient(rgba(227, 167, 80, 0.07) 1px, transparent 1px),
       linear-gradient(90deg, rgba(227, 167, 80, 0.07) 1px, transparent 1px);
+    
     background-size: 50px 50px; 
+    
     mask-image: radial-gradient(circle, black 40%, transparent 95%);
     -webkit-mask-image: radial-gradient(circle, black 40%, transparent 95%);
     
