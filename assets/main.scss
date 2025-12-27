@@ -1,7 +1,7 @@
 ---
 ---
 
-// 1. FONTES E VARIÁVEIS HUD (Deep Tech & High Readability)
+// 1. FONTES E VARIÁVEIS HUD
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;700&family=Exo+2:wght@300;400;500;600;700&display=swap');
 @import "minima";
 
@@ -15,7 +15,6 @@
   --bg-primary: #01080b;       
   --text-primary: #BCD4CC;
   
-  // HIERARQUIA TIPOGRÁFICA
   --font-header: 'Orbitron', sans-serif;
   --font-body: 'Exo 2', sans-serif;           
   --font-tech: 'JetBrains Mono', monospace;    
@@ -23,7 +22,7 @@
   --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1); 
 }
 
-// 2. ESTRUTURA GLOBAL (COM EFEITO ESTRELAS/STARFIELD)
+// 2. ESTRUTURA GLOBAL (COM STARFIELD)
 body {
   background-color: var(--bg-primary) !important;
   color: var(--text-primary) !important;
@@ -38,31 +37,25 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
 
-  // TÉCNICA STARFIELD (Fundo de Estrelas Não-Uniforme)
-  // Usamos dois gradients sobrepostos com tamanhos diferentes para criar "caos"
   background-image: 
-      // Camada 1: Estrelas pequenas e densas (fundo)
       radial-gradient(rgba(188, 212, 204, 0.1) 1px, transparent 1px),
-      // Camada 2: Estrelas um pouco maiores e mais espalhadas (destaque)
       radial-gradient(rgba(188, 212, 204, 0.15) 1.5px, transparent 1.5px);
-
-  // Espaçamentos diferentes (primos entre si) para evitar repetição óbvia
   background-size: 50px 50px, 110px 110px; 
-  
-  // Deslocamento para quebrar o alinhamento
   background-position: 0 0, 25px 25px;
-  
-  background-attachment: fixed; // Efeito Parallax (estrelas fixas no fundo)
+  background-attachment: fixed; 
 }
 
-// 3. SIDEBAR HUD
+// 3. SIDEBAR HUD (AZUL PROFUNDO RESTAURADO)
 .sidebar {
   width: var(--sidebar-collapsed);
   height: 100vh;
   position: fixed;
   left: 0;
   top: 0;
+  
+  // Voltamos para o Azul Marinho Deep Tech
   background: rgba(0, 18, 26, 0.98); 
+  
   backdrop-filter: blur(15px);
   border-right: 1px solid rgba(0, 242, 255, 0.1); 
   z-index: 1000;
@@ -75,13 +68,16 @@ body {
     width: var(--sidebar-expanded);
     box-shadow: 10px 0 50px rgba(0,0,0,0.8);
     .nav-text { opacity: 1; transform: translateX(0); }
+    
+    // Animação da Logo
     .nav-logo-full { opacity: 1; transform: translate(-50%, -50%) scale(1); }
     .brand-symbol { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+    
     .sidebar-footer .social-icons { gap: 2rem; a { font-size: 2.2rem; } }
   }
 }
 
-// 4. LÓGICA DE LOGOS
+// 4. LÓGICA DE LOGOS (IMAGEM SEM BRILHO)
 .sidebar-logo {
   position: relative; 
   height: 140px;      
@@ -96,32 +92,38 @@ body {
     position: relative; 
   }
 
+  // 1. LOGO PEQUENA (Fechada)
   .brand-symbol {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: var(--font-header);
-    font-weight: 900;
-    font-size: 3.5rem; 
-    color: var(--karyus-earth);
-    text-shadow: none; 
+    
+    width: 50px; // Ajuste o tamanho da logo pequena aqui
+    height: auto;
+    
     transition: var(--transition);
     z-index: 2;
     opacity: 1; 
     pointer-events: none;
   }
 
+  // 2. LOGO GRANDE (Aberta)
   .nav-logo-full { 
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 200px; 
+    
+    width: 180px; // Ajuste o tamanho da logo grande aqui
+    
     transform: translate(-50%, -50%) scale(0.9);
     transition: var(--transition);
     opacity: 0; 
     z-index: 1;
-    filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.6));
+    
+    // REMOVIDO: filter: drop-shadow(...) 
+    // A logo agora aparece "seca" e nítida, sem brilho neon.
+    filter: none;
   }
 }
 
@@ -398,7 +400,6 @@ a {
 }
 
 // 13. BACKGROUND BLUEPRINT (Home & Contact)
-// Essas linhas ficam SOBRE as estrelas, criando profundidade
 #home, #contact {
   position: relative;
   overflow: hidden;
@@ -411,7 +412,6 @@ a {
     width: 100%;
     height: 100%;
     
-    // Grid de linhas (7% Opacidade)
     background-image: 
       linear-gradient(rgba(227, 167, 80, 0.07) 1px, transparent 1px),
       linear-gradient(90deg, rgba(227, 167, 80, 0.07) 1px, transparent 1px);
