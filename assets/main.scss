@@ -100,12 +100,11 @@ body {
   }
 
   .karyus-brand-static { 
-    width: 80%;            
-    max-width: 180px;      
+    width: 75%;           
+    max-width: 150px;      
     height: auto;
     transition: var(--transition);
     opacity: 1;            
-    
     filter: none; 
   }
 }
