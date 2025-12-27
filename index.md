@@ -8,7 +8,11 @@ permalink: /
 
 <section id="home" class="one-page-section" style="text-align: center;">
   <div class="hero-manifesto">
-    <h1 class="glitch-text">KARYUS LABS</h1>
+    
+    <img src="{{ '/assets/images/karyus-logo.svg' | relative_url }}" alt="Karyus Labs" class="hero-logo-totem">
+    
+    <h1 class="glitch-text mini-glitch">KARYUS LABS</h1>
+    
     <p class="subtitle">Aerospace Engineering | Computational Physics | Data Strategy</p>
     
     <div class="mission-statement" style="max-width: 800px; margin: 3rem auto; font-size: 1.2rem; font-style: italic; color: #fff; opacity: 0.9;">
@@ -33,48 +37,24 @@ permalink: /
 <section id="about" class="one-page-section">
   <h2 class="section-title">The Engineer</h2>
   <div class="content-block">
-    <p class="highlight-text">Renato Martins Filho | Founder of Karyus Labs</p>
-    
-    <h3>The Approach</h3>
-    <p><strong>Karyus Labs</strong> serves as my digital workshop. The goal is simple: to document the rigorous application of engineering principles to solve complex problems. Whether through Finite Element Analysis (FEA), Computational Fluid Dynamics (CFD), or Data Science, the focus remains on <strong>technical precision</strong> and reliability.</p>
-
-    <h3>Core Toolkit</h3>
-    <ul class="tech-list">
-      <li>Flight Dynamics & Control: Comprehensive stability analysis ranging from static sizing (XFLR5, AVL) to Nonlinear Dynamic Simulation and Control Law design using MATLAB & Simulink.</li>
-      <li>Simulation & Structure: Structural analysis and FEM simulation using Abaqus and ANSYS, integrated with parametric CAD modeling (SolidWorks/CATIA).</li>
-      <li>Computational Logic: Leveraging a background in Algorithm Theory (IMPA) to build optimized engineering automation scripts in Python and MATLAB.</li>
-    </ul>
-  </div>
-</section>
-
-<section id="research" class="one-page-section">
-  <h2 class="section-title">Research & Intelligence</h2>
-  <div class="content-block">
-    <p style="margin-bottom: 2rem; opacity: 0.8;"><em>Theoretical foundations and data science projects.</em></p>
-
-    <h3>PICME - Algorithmic Logic (IMPA/CNPq)</h3>
-    <p>Scientific initiation focused on <strong>Graph Theory</strong> and the mathematical foundations of Computer Science. While distinct from aerospace, this background provided the rigorous logical framework I use today to structure complex engineering code and optimization routines.</p>
-    
-    <h3>Automotive Market Intelligence (NLP)</h3>
-    <p>Developed a full-stack data platform processing <strong>140,000+ consumer reviews</strong>. This project demonstrates the capability to handle large datasets and extract actionable insights using Natural Language Processing (Node.js/Python).</p>
+    <p>
+      Here you should keep your bio regarding your double degree at USP and École Centrale.
+    </p>
   </div>
 </section>
 
 <section id="projects" class="one-page-section">
-  <h2 class="section-title">Engineering Hangar</h2>
-  <div class="project-showcase">
+    <h2 class="section-title">Selected Missions</h2>
+    
     <div class="project-image-container" style="margin-bottom: 2rem;">
-      <img src="{{ '/assets/images/cessna182-photo.png' | relative_url }}" alt="Cessna 182 Simulation" class="project-hero-img">
-      
-      <div class="project-overlay">
-        <h3>Cessna 182: Nonlinear Flight Dynamics</h3>
-        <p>High-fidelity simulator in Simulink implementing raw equations of motion. Validated against linearized state-space models.</p>
-        
-        <a href="{{ cessna_post.url | default: '#projects' | relative_url }}" class="futuristic-btn">Read Case Study</a>
-      </div>
+        <div class="project-overlay">
+            <h3 class="highlight-text">Cessna 182 Flight Dynamics</h3>
+            <p>Implementing raw equations of motion. Validated against linearized state-space models.</p>
+            <a href="{{ cessna_post.url | default: '#projects' | relative_url }}" class="futuristic-btn">Read Case Study</a>
+        </div>
     </div>
-  </div>
-</section>
+    
+    </section>
 
 <section id="contact" class="one-page-section">
   <h2 class="section-title">Connect</h2>
@@ -93,10 +73,9 @@ permalink: /
           LinkedIn
         </a>
 
-        <a href="{{ '/assets/files/CV_RenatoCMF_Ouvrier.pdf' | relative_url }}" target="_blank" class="futuristic-btn" style="color: var(--karyus-neon) !important; border-color: var(--karyus-neon);">
-          <i class="fas fa-file-download" style="margin-right: 8px;"></i> CV
+        <a href="{{ '/assets/files/CV_RenatoCMF_Ouvrier.pdf' | relative_url }}" target="_blank" class="futuristic-btn">
+          Download CV
         </a>
-
       </div>
     </div>
   </div>
