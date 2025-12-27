@@ -89,7 +89,10 @@ body {
     font-weight: 900;
     font-size: 3.5rem; 
     color: var(--karyus-earth);
+    
+    // SEM BRILHO (Visual Sólido/Clean)
     text-shadow: none; 
+    
     transition: var(--transition);
     z-index: 2;
     opacity: 1; 
@@ -193,16 +196,17 @@ body {
   .wrapper { max-width: 1000px; width: 100%; }
 }
 
-// 8. SEÇÕES PADRONIZADAS (CALIBRAGEM DE ESPAÇAMENTO AQUI)
+// 8. SEÇÕES PADRONIZADAS (AJUSTE DE POSIÇÃO)
 .one-page-section {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; // Início fixo
+    justify-content: flex-start; 
     
-    // RITMO NATURAL E FIXO
-    padding-top: 150px;    // Espaço fixo no topo
-    padding-bottom: 150px; // Espaço simétrico na base
+    // Títulos mais altos na página:
+    padding-top: 100px;    
+    padding-bottom: 100px; 
+    
     scroll-margin-top: 0px; 
 
     h2 {
@@ -210,8 +214,7 @@ body {
         font-size: 3rem;
         color: var(--karyus-earth);
         
-        // Separação forte entre Título e Conteúdo
-        margin-bottom: 4rem; 
+        margin-bottom: 3.5rem; 
         
         text-transform: uppercase;
         letter-spacing: 2px;
@@ -222,16 +225,12 @@ body {
       font-family: var(--font-header);
       color: var(--karyus-neon);
       font-size: 1.5rem;
-      
-      // Respiro antes de um novo subtópico
-      margin-top: 3.5rem; 
+      margin-top: 3rem; 
       margin-bottom: 1.5rem;
-      
       letter-spacing: 1px;
     }
 
     p {
-      // Espaço natural entre parágrafos
       margin-bottom: 2rem; 
       max-width: 900px; 
     }
@@ -239,7 +238,6 @@ body {
 
 .hero-manifesto {
     text-align: center;
-    // Centraliza visualmente na primeira tela
     margin-top: 10vh; 
     
     .glitch-text {
@@ -258,11 +256,11 @@ body {
         color: var(--karyus-neon);
         letter-spacing: 3px;
         text-transform: uppercase;
-        margin-bottom: 4rem; // Mais espaço antes dos botões/badges
+        margin-bottom: 4rem; 
     }
 }
 
-// 9. TECH BADGES (CENTRALÉ & USP) - Estilo & Animação
+// 9. TECH BADGES (Animação de Hover)
 .tech-item {
   border: 1px solid var(--karyus-blue);
   padding: 15px 25px;
@@ -275,7 +273,6 @@ body {
 
   i { margin-right: 10px; color: var(--karyus-earth); transition: var(--transition); }
 
-  // EFEITO HOVER (Neon Glow igual aos Content Blocks)
   &:hover {
     border-color: var(--karyus-neon);
     background: rgba(0, 47, 69, 0.6);
@@ -319,10 +316,10 @@ body {
   position: relative;
 }
 
-// 11. CARDS DE TEXTO (Content Blocks)
+// 11. CARDS DE TEXTO (Levitação + Glow)
 .content-block {
   background: rgba(255, 255, 255, 0.02);
-  padding: 3rem; // Aumentado levemente o padding interno
+  padding: 3rem; 
   border: 1px solid rgba(0, 242, 255, 0.1);
   border-radius: 8px;
   line-height: 1.8;
@@ -339,7 +336,7 @@ body {
 .highlight-text {
   color: var(--karyus-neon);
   font-size: 1.2rem;
-  margin-bottom: 2rem; // Mais espaço após o destaque
+  margin-bottom: 2rem; 
   font-weight: bold;
 }
 
@@ -348,7 +345,7 @@ body {
   padding: 0;
 
   li {
-    margin-bottom: 1.2rem; // Mais espaço entre itens da lista
+    margin-bottom: 1.2rem;
     padding-left: 25px;
     position: relative;
     
@@ -403,12 +400,14 @@ a {
     width: 100%;
     height: 100%;
     
+    // Grid sutil (7% Opacidade)
     background-image: 
       linear-gradient(rgba(227, 167, 80, 0.07) 1px, transparent 1px),
       linear-gradient(90deg, rgba(227, 167, 80, 0.07) 1px, transparent 1px);
     
     background-size: 50px 50px; 
     
+    // Vignette
     mask-image: radial-gradient(circle, black 40%, transparent 95%);
     -webkit-mask-image: radial-gradient(circle, black 40%, transparent 95%);
     
@@ -433,6 +432,6 @@ a {
   .nav-logo-full { position: relative; transform: none; top: auto; left: auto; opacity: 1 !important; margin: 0 auto; width: 160px; filter: none; }
   .main-content { margin-left: 0; width: 100%; padding: 2rem; }
   .glitch-text { font-size: 2.5rem !important; letter-spacing: 2px !important; }
-  .one-page-section { padding-top: 80px; padding-bottom: 80px; } // Ajuste Mobile
+  .one-page-section { padding-top: 80px; padding-bottom: 80px; } 
   .project-hero-img { height: 250px; }
 }
