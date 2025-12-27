@@ -23,7 +23,7 @@
   --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1); 
 }
 
-// 2. ESTRUTURA GLOBAL (Com Textura de Pontos CAD)
+// 2. ESTRUTURA GLOBAL (AGORA MAIS VISÍVEL)
 body {
   background-color: var(--bg-primary) !important;
   color: var(--text-primary) !important;
@@ -38,10 +38,14 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
 
-  // BACKGROUND GLOBAL: Matriz de pontos sutil (3% opacidade)
-  background-image: radial-gradient(rgba(188, 212, 204, 0.03) 1px, transparent 1px);
-  background-size: 30px 30px; 
-  background-attachment: fixed; // O fundo fica fixo enquanto o conteúdo rola
+  // AJUSTE AGRESSIVO DE TEXTURA:
+  // Opacidade subiu para 0.08 (8%) e Tamanho aumentou para 1.5px
+  background-image: radial-gradient(rgba(188, 212, 204, 0.08) 1.5px, transparent 1.5px);
+  
+  // Densidade maior: pontos a cada 20px (antes era 30px)
+  background-size: 20px 20px; 
+  
+  background-attachment: fixed; 
 }
 
 // 3. SIDEBAR HUD
@@ -94,7 +98,7 @@ body {
     font-weight: 900;
     font-size: 3.5rem; 
     color: var(--karyus-earth);
-    text-shadow: none; // Visual Sólido (Clean)
+    text-shadow: none; 
     transition: var(--transition);
     z-index: 2;
     opacity: 1; 
@@ -205,7 +209,6 @@ body {
     flex-direction: column;
     justify-content: flex-start; 
     
-    // Títulos mais altos na página:
     padding-top: 100px;    
     padding-bottom: 100px; 
     
@@ -215,9 +218,7 @@ body {
         font-family: var(--font-header);
         font-size: 3rem;
         color: var(--karyus-earth);
-        
         margin-bottom: 3.5rem; 
-        
         text-transform: uppercase;
         letter-spacing: 2px;
         text-shadow: 0 0 10px rgba(227, 167, 80, 0.2);
@@ -262,7 +263,7 @@ body {
     }
 }
 
-// 9. TECH BADGES (Animação de Hover)
+// 9. TECH BADGES
 .tech-item {
   border: 1px solid var(--karyus-blue);
   padding: 15px 25px;
@@ -318,7 +319,7 @@ body {
   position: relative;
 }
 
-// 11. CARDS DE TEXTO (Levitação + Glow)
+// 11. CARDS DE TEXTO
 .content-block {
   background: rgba(255, 255, 255, 0.02);
   padding: 3rem; 
@@ -390,7 +391,6 @@ a {
 }
 
 // 13. BACKGROUND BLUEPRINT (Home & Contact)
-// Fica SOBRE o fundo de pontos global
 #home, #contact {
   position: relative;
   overflow: hidden;
@@ -403,14 +403,13 @@ a {
     width: 100%;
     height: 100%;
     
-    // Grid sutil (7% Opacidade)
+    // Grid de linhas (7% Opacidade)
     background-image: 
       linear-gradient(rgba(227, 167, 80, 0.07) 1px, transparent 1px),
       linear-gradient(90deg, rgba(227, 167, 80, 0.07) 1px, transparent 1px);
     
     background-size: 50px 50px; 
     
-    // Vignette
     mask-image: radial-gradient(circle, black 40%, transparent 95%);
     -webkit-mask-image: radial-gradient(circle, black 40%, transparent 95%);
     
