@@ -33,7 +33,7 @@ permalink: /
 <section id="about" class="one-page-section">
   <h2 class="section-title">The Engineer</h2>
   <div class="content-block">
-    <p class="highlight-text">Renato Filho | Founder of Karyus Labs</p>
+    <p class="highlight-text">Renato Martins Filho | Founder of Karyus Labs</p>
     
     <h3>The Approach</h3>
     <p><strong>Karyus Labs</strong> serves as my digital workshop. The goal is simple: to document the rigorous application of engineering principles to solve complex problems. Whether through Finite Element Analysis (FEA), Computational Fluid Dynamics (CFD), or Data Science, the focus remains on <strong>technical precision</strong> and reliability.</p>
