@@ -39,20 +39,13 @@ body {
   scroll-behavior: smooth;
 
   // TÉCNICA STARFIELD (Fundo de Estrelas Não-Uniforme)
-  // Usamos dois gradients sobrepostos com tamanhos diferentes para criar "caos"
   background-image: 
-      // Camada 1: Estrelas pequenas e densas (fundo)
       radial-gradient(rgba(188, 212, 204, 0.1) 1px, transparent 1px),
-      // Camada 2: Estrelas um pouco maiores e mais espalhadas (destaque)
       radial-gradient(rgba(188, 212, 204, 0.15) 1.5px, transparent 1.5px);
 
-  // Espaçamentos diferentes (primos entre si) para evitar repetição óbvia
   background-size: 50px 50px, 110px 110px; 
-  
-  // Deslocamento para quebrar o alinhamento
   background-position: 0 0, 25px 25px;
-  
-  background-attachment: fixed; // Efeito Parallax (estrelas fixas no fundo)
+  background-attachment: fixed; 
 }
 
 // 3. SIDEBAR HUD
@@ -75,11 +68,12 @@ body {
     width: var(--sidebar-expanded);
     box-shadow: 10px 0 50px rgba(0,0,0,0.8);
     .nav-text { opacity: 1; transform: translateX(0); }
+    // Animação de troca de logo REMOVIDA para estabilidade
     .sidebar-footer .social-icons { gap: 2rem; a { font-size: 2.2rem; } }
   }
 }
 
-// 4. LÓGICA DE LOGOS (Protocolo Single Brand)
+// 4. LÓGICA DE LOGOS (Protocolo Single Brand Atualizado)
 .sidebar-logo {
   position: relative; 
   height: 140px;      
@@ -87,6 +81,7 @@ body {
   border-bottom: 1px solid rgba(227, 167, 80, 0.1);
   margin-bottom: 1rem;
   
+  // Centralização Flexbox
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,13 +94,14 @@ body {
     height: 100%;
   }
 
+  // A Nova Logo Estática
   .karyus-brand-static { 
-    width: 75%;           
-    max-width: 150px;      
+    width: 85%;            // Ocupa bem o espaço quando a barra está fechada
+    max-width: 200px;      // O FREIO: Trava em 200px quando a barra abre
     height: auto;
     transition: var(--transition);
     opacity: 1;            
-    filter: none; 
+    filter: none;          // Sem brilho artificial na sidebar
   }
 }
 
@@ -415,17 +411,63 @@ a {
   }
 }
 
-// 14. RESPONSIVIDADE
+// 14. ANIMAÇÕES & EFEITOS ESPECIAIS (TOTEM ID)
+
+// Animação de "Respiração" (Reator Nuclear)
+@keyframes reactor-pulse {
+  0% {
+    filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.2));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(0, 242, 255, 0.6)); // Brilho Azul Neon intenso
+    transform: scale(1.02); // Leve aumento
+  }
+  100% {
+    filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.2));
+    transform: scale(1);
+  }
+}
+
+// Logo Central da Home (Totem)
+.hero-logo-totem {
+  width: 180px;            // Tamanho inicial imponente
+  max-width: 80vw;         // Responsividade para celular
+  height: auto;
+  margin-bottom: 2rem;     // Espaço para o texto
+  
+  // Ativa o reator
+  animation: reactor-pulse 4s infinite ease-in-out;
+}
+
+// Ajuste para o texto KARYUS LABS não brigar com a logo
+.mini-glitch {
+  font-size: 3rem !important; // Reduzido de 5.5rem para 3rem
+  margin-top: -1rem;          // Puxa para perto da logo
+  opacity: 0.9;
+}
+
+// 15. RESPONSIVIDADE
 @media (max-width: 768px) {
   .sidebar { 
     width: 100%; height: auto; position: relative; 
     border-right: none; border-bottom: 1px solid var(--karyus-blue);
   }
   .sidebar-logo { height: auto; padding: 2rem 0; }
-  .brand-symbol { display: none; } 
-  .nav-logo-full { position: relative; transform: none; top: auto; left: auto; opacity: 1 !important; margin: 0 auto; width: 160px; filter: none; }
+  
+  // No mobile, a logo pode ficar normal
+  .karyus-brand-static { 
+    width: 160px; 
+    max-width: none; // Remove o freio no mobile
+  }
+
   .main-content { margin-left: 0; width: 100%; padding: 2rem; }
   .glitch-text { font-size: 2.5rem !important; letter-spacing: 2px !important; }
+  
+  // Ajustes do Totem no Mobile
+  .hero-logo-totem { width: 140px; }
+  .mini-glitch { font-size: 2rem !important; }
+
   .one-page-section { padding-top: 80px; padding-bottom: 80px; } 
   .project-hero-img { height: 250px; }
 }
