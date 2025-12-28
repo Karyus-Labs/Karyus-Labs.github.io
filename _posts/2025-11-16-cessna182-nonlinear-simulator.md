@@ -34,7 +34,7 @@ $$
 \begin{cases}
 \dot{V} = \frac{1}{m} (T \cos\alpha - D - mg \sin(\theta - \alpha)) \\
 \dot{\alpha} = \frac{q \cos\alpha - (L + T \sin\alpha - mg \cos(\theta - \alpha))}{mV} \\
-\dot{q} = \frac{M}{I_y} \\
+\dot{q} = \frac{M}{I_y}
 \end{cases}
 $$
 
@@ -61,3 +61,9 @@ When I overlaid the response of my **Non-Linear Simulink** model with the **Line
 The complete implementation, including the adapted MATLAB trim scripts, the non-linear integration logic, and the final Simulink `.slx` model, is available for technical review:
 
 **[Access the GitHub Repository: Cessna 182 Simulator](https://github.com/Karyus-Labs/cessna182-nonlinear-simulator)**
+
+---
+
+### Discuss this Project
+
+Are you working on flight control or high-fidelity simulation? Let's connect and discuss the technical nuances of aircraft modeling.
