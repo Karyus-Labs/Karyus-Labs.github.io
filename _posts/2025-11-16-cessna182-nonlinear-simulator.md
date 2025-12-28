@@ -1,68 +1,61 @@
 ---
 layout: post
-title: "Linear vs. Non-Linear: What building a Cessna 182 Simulator taught me about Flight Dynamics"
+title: "Linear vs. Non-Linear: Validating Cessna 182 Dynamics in Simulink"
 date: 2025-11-16
 categories: [Aerospace, Simulation]
-tags: [Flight Dynamics, Nonlinear Systems, MATLAB, Simulink, Control Theory, Aircraft Modeling]
+tags: [Flight Dynamics, MATLAB, Simulink, Nonlinear Systems, Aircraft Modeling]
 image: /assets/images/Simulink_Cessna_Cover.png
-description: "A deep dive into high-fidelity longitudinal dynamics: implementing a 3-DOF simulator from scratch and validating linear approximations."
+description: "How I adapted analytical models and architected a Simulink simulator to test the limits of linear flight dynamics."
 ---
 
-In aerospace engineering, we rely heavily on simplifications. We use **linearized models** to predict aircraft behavior, they are faster, easier to compute, and essential for control law design.
+In aerospace engineering, we spend years studying linearized models. They are the bread and butter of control design, but they often feel like "paper planes"—elegant in theory, but detached from the messy, non-linear reality of flight.
 
-But as I progressed through my studies at **EESC-USP**, one question kept bothering me: **Exactly when does the linear model fail?**
-
-To find out, I took the lead in developing a high-fidelity flight simulator for a **Cessna 182** as part of the *Flight Dynamics* (SAA0184) curriculum. My mission was clear: architect the entire simulation environment in MATLAB/Simulink, from trim algorithms to non-linear integration.
-
----
-
-## The Challenge: Physics from Scratch
-The project required comparing a classic State-Space model against a full Non-Linear system. Instead of using "black-box" flight simulators, I implemented the **3-DOF Longitudinal Equations of Motion** directly.
-
-This involved handling the non-linear coupling of velocity ($V$), angle of attack ($\alpha$), pitch rate ($q$), and pitch angle ($\theta$):
-
-$$\dot{q} = \frac{M}{I_y}$$
-$$\dot{\alpha} = \frac{q \cos(\alpha) - (L + T\sin(\alpha) - mg\cos(\theta))/mV}{ \cos(\alpha) }$$
-
-The "Hero's Journey" here wasn't just writing the math, but ensuring the **numerical stability** of the solver while maintaining physical consistency with Roskam’s aerodynamic derivatives.
+During the **Flight Dynamics** (SAA0184) course at **EESC-USP**, my group (*Zona de Turbulência*) was challenged to bridge this gap. My specific role was to take the analytical framework provided in class, adapt the numerical solvers, and architect a high-fidelity **Simulink** environment to see if our linear predictions would hold up under pressure.
 
 ---
 
-## The Engineering Workflow
-A professional simulator is more than just a model; it's a toolchain. I structured the project in two main phases:
+## The Workflow: Adapting and Building
+Engineering is rarely about reinventing the wheel; it’s about making the wheel turn precisely for your specific mission. 
 
-### 1. The Search for Equilibrium (Trim Calculation)
-An aircraft cannot fly if it isn't balanced. I developed a **Newton-Raphson based trim script** in MATLAB (`trim_aircraft.m`) to find the exact elevator deflection ($\delta_e$) and angle of attack ($\alpha$) for steady-state cruise at various airspeeds.
+### 1. From Script to Solver
+Starting with the core MATLAB algorithms provided by Prof. Ricardo Angélico, I worked on adapting the **Newton-Raphson** routines to calculate the trim conditions for a **Cessna 182**. This involved mapping Roskam’s aerodynamic derivatives into a solver that could find the exact equilibrium ($V, \alpha, \delta_e, T$) for any flight condition.
 
-### 2. Implementation in Simulink
-In the Simulink environment, I focused on **modularity**. I built a custom block architecture where Aerodynamics, Propulsion, and Kinematics were isolated. This allowed us to swap aerodynamic data or engine models without rebuilding the entire solver.
+### 2. Translating Physics into Blocks
+The real challenge was the **Simulink implementation**. I translated the coupled longitudinal equations of motion into a modular block architecture. Instead of a single "black box," I separated the physics into Aerodynamics, Propulsion, and Kinematics. 
 
-![Simulink Model Architecture](/assets/images/Simulink.png)
-*Figure 1: My modular Simulink architecture for 3-DOF longitudinal flight.*
+The system solves the non-linear state vector $x = [V, \alpha, q, \theta]^T$ in real-time:
+
+$$
+\begin{cases}
+\dot{V} = \frac{1}{m} (T \cos\alpha - D - mg \sin(\theta - \alpha)) \\
+\dot{\alpha} = \frac{q \cos\alpha - (L + T \sin\alpha - mg \cos(\theta - \alpha))}{mV} \\
+\dot{q} = \frac{M}{I_y} \\
+\dots
+\end{cases}
+$$
 
 ---
 
-## The Moment of Truth: Step Response Comparison
-We subjected both models to a **1-degree elevator step input**. We were looking for the two fundamental longitudinal modes: the fast **Short Period** and the slow, energy-exchanging **Phugoid**.
+## The "Eureka" Moment
+There is a specific kind of satisfaction in seeing two lines on a graph overlap perfectly. We injected a **1-degree elevator step input** to trigger the aircraft's natural modes: the fast **Short Period** and the slow, oscillating **Phugoid**.
 
-### The Result
-The comparison was a revelation of engineering precision. For small perturbations, the linear State-Space model (derived via Taylor expansion) and the Non-Linear Simulink model were **nearly identical**.
+When I overlaid the response of my **Non-Linear Simulink** model with the **Linear State-Space** model, the results were nearly identical for small perturbations.
 
 ![Comparison Results](/assets/images/Comparation_Models.png)
-*Figure 2: Non-Linear (Blue) vs. Linear (Red) response. Notice the perfect tracking during the Short Period oscillation.*
+*Figure 1: Transient response comparison. The blue line (Non-Linear) perfectly tracking the red dashed line (Linear).*
 
-> **The Insight:** This project taught me that "Linear" isn't a synonym for "Imprecise". It is a powerful tool for control design, provided the engineer knows the boundaries of the flight envelope where the linearization holds true.
+**What this taught me:** It wasn't just about validating a classroom exercise. It was about building confidence in my tools. Seeing the linear model track the non-linear physics confirmed that these "simplifications" are actually powerful engineering surgical instruments—if you know how to calibrate them.
 
 ---
 
-## Repository & Technical Documentation
-I’ve open-sourced the full toolchain, including the trim scripts, the non-linear ODE implementations, and the Simulink `.slx` files.
+## Technical Repository
+I have documented the entire process, including the adapted MATLAB scripts for trimming and the final Simulink `.slx` architecture.
 
 **Project Repo:** [Karyus-Labs / Cessna182 Non-Linear Flight Simulator](https://github.com/Karyus-Labs/cessna182-nonlinear-simulator)
 
 ---
 
 ### Discuss this Project
-Are you interested in GNC (Guidance, Navigation, and Control) or high-fidelity flight simulation? Let's connect and discuss the nuances of aircraft modeling.
+Are you interested in high-fidelity simulation or flight control? I'm always open to technical discussions on aircraft modeling.
 
 [**Discuss on LinkedIn**](https://www.linkedin.com/in/renato-filho-607b53207)
