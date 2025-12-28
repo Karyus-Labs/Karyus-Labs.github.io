@@ -24,7 +24,9 @@ Starting with the core MATLAB algorithms, I adapted the **Newton-Raphson** routi
 ### 2. High-Fidelity Implementation
 In the Simulink environment, I translated the longitudinal equations of motion into a modular block architecture. My goal was to track the complete state of the aircraft, integrating the dynamics to return the full state vector and trajectory:
 
-$$x = [u, w, q, \theta, x_e, z_e]^T$$
+$$
+x = [u, w, q, \theta, x_e, z_e]^T
+$$
 
 By outputting both body-fixed velocities ($u, w$) and Earth-fixed coordinates ($x_e, z_e$), I could recover the angle of attack ($\alpha$) and visualize the aircraft's path in 2D space. The system solves the non-linear coupling in real-time:
 
@@ -33,7 +35,6 @@ $$
 \dot{V} = \frac{1}{m} (T \cos\alpha - D - mg \sin(\theta - \alpha)) \\
 \dot{\alpha} = \frac{q \cos\alpha - (L + T \sin\alpha - mg \cos(\theta - \alpha))}{mV} \\
 \dot{q} = \frac{M}{I_y} \\
-\dots
 \end{cases}
 $$
 
@@ -51,20 +52,12 @@ When I overlaid the response of my **Non-Linear Simulink** model with the **Line
 ![Comparison Results](/assets/images/Comparation_Models.png)
 *Figure 2: Transient response comparison. The blue line (Non-Linear) perfectly tracking the red dashed line (Linear).*
 
-**The Lesson Learned:** This project wasn't just a validation of a classroom exercise; it was a validation of the tools. Seeing the linear model track the non-linear physics built my confidence in knowing when a simple model is a surgical instrument and quando a física não-linear completa deve assumir o controle.
+**The Lesson Learned:** This project wasn't just a validation of a classroom exercise; it was a validation of the tools. Seeing the linear model track the non-linear physics built my confidence in knowing when a simple model is a surgical instrument and when the full non-linear physics must take over.
 
 ---
 
-## Technical Assets & Repository
+## Technical Assets
 
 The complete implementation, including the adapted MATLAB trim scripts, the non-linear integration logic, and the final Simulink `.slx` model, is available for technical review:
 
-🚀 **[Access the Full Project on GitHub](https://github.com/Karyus-Labs/cessna182-nonlinear-simulator)**
-
----
-
-### Discuss this Project
-
-Are you working on flight control or high-fidelity simulation? Let's connect and discuss the technical nuances of aircraft modeling.
-
-[**DISCUSS THIS PROJECT**](https://www.linkedin.com/in/renato-filho-607b53207)
+**[Access the GitHub Repository: Cessna 182 Simulator](https://github.com/Karyus-Labs/cessna182-nonlinear-simulator)**
