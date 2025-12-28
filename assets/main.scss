@@ -68,12 +68,12 @@ body {
     width: var(--sidebar-expanded);
     box-shadow: 10px 0 50px rgba(0,0,0,0.8);
     .nav-text { opacity: 1; transform: translateX(0); }
-    // Animação de troca de logo REMOVIDA para estabilidade
+    // Animação de troca de logo removida para estabilidade
     .sidebar-footer .social-icons { gap: 2rem; a { font-size: 2.2rem; } }
   }
 }
 
-// 4. LÓGICA DE LOGOS (Protocolo Single Brand Atualizado)
+// 4. LÓGICA DE LOGOS (Protocolo Single Brand)
 .sidebar-logo {
   position: relative; 
   height: 140px;      
@@ -94,7 +94,7 @@ body {
     height: 100%;
   }
 
-  // A Nova Logo Estática
+  // A Nova Logo Estática (SVG)
   .karyus-brand-static { 
     width: 85%;            // Ocupa bem o espaço quando a barra está fechada
     max-width: 200px;      // O FREIO: Trava em 200px quando a barra abre
@@ -378,7 +378,6 @@ a {
 }
 
 // 13. BACKGROUND BLUEPRINT (Home & Contact)
-// Essas linhas ficam SOBRE as estrelas, criando profundidade
 #home, #contact {
   position: relative;
   overflow: hidden;
@@ -391,7 +390,7 @@ a {
     width: 100%;
     height: 100%;
     
-    // Grid de linhas (7% Opacidade)
+    // Grid de linhas
     background-image: 
       linear-gradient(rgba(227, 167, 80, 0.07) 1px, transparent 1px),
       linear-gradient(90deg, rgba(227, 167, 80, 0.07) 1px, transparent 1px);
@@ -411,7 +410,7 @@ a {
   }
 }
 
-// 14. ANIMAÇÕES & EFEITOS ESPECIAIS (TOTEM ID)
+// 14. SISTEMA DE LOGOTIPO HÍBRIDO (Para o Hero)
 
 // Animação de "Respiração" (Reator Nuclear)
 @keyframes reactor-pulse {
@@ -421,7 +420,7 @@ a {
   }
   50% {
     filter: drop-shadow(0 0 40px rgba(0, 242, 255, 0.6)); // Brilho Azul Neon intenso
-    transform: scale(1.02); // Leve aumento
+    transform: scale(1.02); 
   }
   100% {
     filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.2));
@@ -429,45 +428,75 @@ a {
   }
 }
 
-// Logo Central da Home (Totem)
-.hero-logo-totem {
-  width: 180px;            // Tamanho inicial imponente
-  max-width: 80vw;         // Responsividade para celular
-  height: auto;
-  margin-bottom: 2rem;     // Espaço para o texto
-  
-  // Ativa o reator
-  animation: reactor-pulse 4s infinite ease-in-out;
+.karyus-logotype-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center; // Centraliza verticalmente o K com o texto
+  gap: 10px;           // Espaço sutil entre o Logo e o "ARYUS"
+  margin-bottom: 1rem;
+  flex-wrap: nowrap;   // Garante que não quebre a linha no desktop
 }
 
-// Ajuste para o texto KARYUS LABS não brigar com a logo
-.mini-glitch {
-  font-size: 3rem !important; // Reduzido de 5.5rem para 3rem
-  margin-top: -1rem;          // Puxa para perto da logo
-  opacity: 0.9;
+// O "K" (Logo SVG)
+.inline-k-logo {
+  height: 5rem;        // Altura compatível com o texto H1
+  width: auto;
+  
+  // Efeito pulsante
+  animation: reactor-pulse 4s infinite ease-in-out; 
+  
+  // Ajuste fino de posição para alinhar com a fonte
+  transform: translateY(-5px); 
+}
+
+// O Texto "ARYUS LABS"
+.text-remainder {
+  margin: 0 !important; // Remove margens padrão do H1
+  line-height: 1;       
+  
+  font-size: 5.5rem;
+  font-family: var(--font-header);
+  font-weight: 900;
+  color: var(--karyus-earth);
+  letter-spacing: 10px;
+  text-shadow: 0 0 20px rgba(227, 167, 80, 0.3);
 }
 
 // 15. RESPONSIVIDADE
 @media (max-width: 768px) {
+  // Sidebar Mobile
   .sidebar { 
     width: 100%; height: auto; position: relative; 
     border-right: none; border-bottom: 1px solid var(--karyus-blue);
   }
   .sidebar-logo { height: auto; padding: 2rem 0; }
   
-  // No mobile, a logo pode ficar normal
   .karyus-brand-static { 
     width: 160px; 
-    max-width: none; // Remove o freio no mobile
+    max-width: none; // Solta o freio no mobile
   }
 
+  // Conteúdo Mobile
   .main-content { margin-left: 0; width: 100%; padding: 2rem; }
   .glitch-text { font-size: 2.5rem !important; letter-spacing: 2px !important; }
   
-  // Ajustes do Totem no Mobile
-  .hero-logo-totem { width: 140px; }
-  .mini-glitch { font-size: 2rem !important; }
-
   .one-page-section { padding-top: 80px; padding-bottom: 80px; } 
   .project-hero-img { height: 250px; }
+
+  // Ajuste do Logotipo Híbrido no Mobile (Vira Totem)
+  .karyus-logotype-wrapper {
+    flex-direction: column; // Um em cima do outro
+    gap: 0;
+  }
+  
+  .inline-k-logo {
+    height: 100px;        
+    transform: translateY(0);
+    margin-bottom: 10px;
+  }
+  
+  .text-remainder {
+    font-size: 2.8rem !important; 
+    letter-spacing: 5px !important;
+  }
 }
