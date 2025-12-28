@@ -9,11 +9,7 @@ permalink: /
 <section id="home" class="one-page-section" style="text-align: center;">
   <div class="hero-manifesto">
     
-    <div class="karyus-logotype-wrapper">
-      <img src="{{ '/assets/images/karyus-logo.svg' | relative_url }}" alt="K" class="inline-k-logo">
-      
-      <h1 class="glitch-text text-remainder">ARYUS LABS</h1>
-    </div>
+    <h1 class="glitch-text">KARYUS LABS</h1>
 
     <p class="subtitle">Aerospace Engineering | Computational Physics | Data Strategy</p>
     
