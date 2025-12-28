@@ -96,13 +96,13 @@ body {
 
   // A Nova Logo Estática (SVG)
   .karyus-brand-static { 
-    width: 85%;            // Ocupa bem o espaço quando a barra está fechada
-    max-width: 200px;      // O FREIO: Trava em 200px quando a barra abre
+    width: 75%;            // Ocupa bem o espaço quando a barra está fechada
+    max-width: 150px;      // <--- O FREIO: Trava em 150px. Mesmo abrindo a barra, não passa disso.
     height: auto;
     transition: var(--transition);
     opacity: 1;            
-    filter: none;          // Sem brilho artificial na sidebar
-  }
+    filter: none; 
+  }  
 }
 
 // 5. NAVEGAÇÃO
@@ -439,7 +439,7 @@ a {
 
 // O "K" (Logo SVG)
 .inline-k-logo {
-  height: 10rem;        // Altura compatível com o texto H1
+  height: 8rem;        // Altura compatível com o texto H1
   width: auto;
   
   // Efeito pulsante
