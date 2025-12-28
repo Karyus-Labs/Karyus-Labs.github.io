@@ -5,25 +5,26 @@ date: 2025-11-16
 categories: [Aerospace, Simulation]
 tags: [Flight Dynamics, MATLAB, Simulink, Nonlinear Systems, Aircraft Modeling]
 image: /assets/images/Simulink_Cessna_Cover.png
-description: "How I adapted analytical models and architected a Simulink simulator to test the limits of linear flight dynamics."
+description: "How I adapted analytical models and architected a Simulink environment to bridge the gap between theory and flight physics."
 ---
 
 In aerospace engineering, we spend years studying linearized models. They are the bread and butter of control design, but they often feel like "paper planes"—elegant in theory, but detached from the messy, non-linear reality of flight.
 
-During the **Flight Dynamics** (SAA0184) course at **EESC-USP**, my group (*Zona de Turbulência*) was challenged to bridge this gap. My specific role was to take the analytical framework provided in class, adapt the numerical solvers, and architect a high-fidelity **Simulink** environment to see if our linear predictions would hold up under pressure.
+During the **Flight Dynamics** (SAA0184) course at **EESC-USP**, I had the chance to bridge this gap. My goal wasn't to reinvent the math, but to take the analytical framework and the base scripts provided by **Prof. Ricardo Angélico**, adapt them, and architect a modular **Simulink** simulator to see if the linear predictions would actually hold up.
 
 ---
 
-## The Workflow: Adapting and Building
-Engineering is rarely about reinventing the wheel; it’s about making the wheel turn precisely for your specific mission. 
+## The Scope: Adaptation and Architecture
+
+Engineering is often about taking a solid foundation and making it work for a specific, complex mission. My contribution to the *Zona de Turbulência* group was focusing on the computational integration.
 
 ### 1. From Script to Solver
-Starting with the core MATLAB algorithms provided by Prof. Ricardo Angélico, I worked on adapting the **Newton-Raphson** routines to calculate the trim conditions for a **Cessna 182**. This involved mapping Roskam’s aerodynamic derivatives into a solver that could find the exact equilibrium ($V, \alpha, \delta_e, T$) for any flight condition.
+Starting with the core MATLAB algorithms, I adapted the **Newton-Raphson** routines to calculate the trim conditions for a **Cessna 182**. This meant ensuring the solver could handle the aerodynamic derivatives from **Roskam (Appendix B)** to find the equilibrium ($V, \alpha, \delta_e, T$) for our specific flight envelope.
 
-### 2. Translating Physics into Blocks
-The real challenge was the **Simulink implementation**. I translated the coupled longitudinal equations of motion into a modular block architecture. Instead of a single "black box," I separated the physics into Aerodynamics, Propulsion, and Kinematics. 
+### 2. High-Fidelity Implementation
+In the Simulink environment, I translated the longitudinal equations of motion into a modular block architecture. Instead of using $u$ and $w$ (body-fixed velocities), I used the total airspeed $V$ and the angle of attack $\alpha$, as they align directly with how lift and drag forces are modeled.
 
-The system solves the non-linear state vector $x = [V, \alpha, q, \theta]^T$ in real-time:
+The system solves the non-linear coupling in real-time:
 
 $$
 \begin{cases}
@@ -34,28 +35,33 @@ $$
 \end{cases}
 $$
 
+![Simulink Model Architecture](/assets/images/Simulink.png)
+*Figure 1: My modular Simulink architecture for 3-DOF longitudinal flight.*
+
 ---
 
 ## The "Eureka" Moment
-There is a specific kind of satisfaction in seeing two lines on a graph overlap perfectly. We injected a **1-degree elevator step input** to trigger the aircraft's natural modes: the fast **Short Period** and the slow, oscillating **Phugoid**.
 
-When I overlaid the response of my **Non-Linear Simulink** model with the **Linear State-Space** model, the results were nearly identical for small perturbations.
+There’s a unique satisfaction in seeing two lines on a graph overlap perfectly after hours of debugging signal routings and unit conversions. To test the models, we injected a **1-degree elevator step input** to trigger the aircraft's natural modes: the fast **Short Period** and the slow **Phugoid**.
+
+When I overlaid the response of my **Non-Linear Simulink** model with the **Linear State-Space** model, the tracking was almost perfect for small perturbations.
 
 ![Comparison Results](/assets/images/Comparation_Models.png)
-*Figure 1: Transient response comparison. The blue line (Non-Linear) perfectly tracking the red dashed line (Linear).*
+*Figure 2: Transient response comparison. The blue line (Non-Linear) perfectly tracking the red dashed line (Linear).*
 
-**What this taught me:** It wasn't just about validating a classroom exercise. It was about building confidence in my tools. Seeing the linear model track the non-linear physics confirmed that these "simplifications" are actually powerful engineering surgical instruments—if you know how to calibrate them.
+**The Lesson Learned:** This project wasn't just a validation of a classroom exercise; it was a validation of the tools. It built my confidence in knowing when a simple linear model is a surgical instrument and when the full non-linear physics must take over.
 
 ---
 
 ## Technical Repository
-I have documented the entire process, including the adapted MATLAB scripts for trimming and the final Simulink `.slx` architecture.
+
+The complete toolchain—including the adapted MATLAB trim scripts and the Simulink `.slx` model—is available on GitHub.
 
 **Project Repo:** [Karyus-Labs / Cessna182 Non-Linear Flight Simulator](https://github.com/Karyus-Labs/cessna182-nonlinear-simulator)
 
 ---
 
-### Discuss this Project
-Are you interested in high-fidelity simulation or flight control? I'm always open to technical discussions on aircraft modeling.
+### Technical Discussion
+Are you working on flight control or high-fidelity simulation? Let's connect on LinkedIn.
 
 [**Discuss on LinkedIn**](https://www.linkedin.com/in/renato-filho-607b53207)
