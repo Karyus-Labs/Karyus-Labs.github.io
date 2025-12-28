@@ -6,6 +6,7 @@ categories: [Aerospace, Simulation]
 tags: [Flight Dynamics, MATLAB, Simulink, SAA0184, USP, Aircraft Modeling]
 image: /assets/images/Simulink_Cessna_Cover.png
 description: "How I built a non-linear 3-DOF simulator from first principles to validate the limits of linear flight stability theory."
+math: true
 ---
 
 In aerospace engineering, linearized models are the cornerstone of control design. However, they are approximations. To truly understand the limits of an aircraft, you must look at the non-linear physics that take over when the "small perturbation" assumption fails.
