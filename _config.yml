@@ -28,3 +28,10 @@ exclude:
   - Gemfile.lock
   - node_modules
   - vendor
+  
+kramdown:
+  math_engine: mathjax
+  math_engine_opts:
+    preview: false
+
+math: true
