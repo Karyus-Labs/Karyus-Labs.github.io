@@ -423,7 +423,7 @@ a {
   flex-direction: row;
   justify-content: center;
   align-items: center;      // Alinhamento vertical perfeito
-  gap: 1.5rem;              // Gap real e positivo (use 1.5rem ou 2rem para gosto pessoal)
+  gap: 0.5rem;              // Gap real e positivo (use 1.5rem ou 2rem para gosto pessoal)
   margin-bottom: 1rem;
   flex-wrap: nowrap;
   width: 100%;
@@ -439,7 +439,7 @@ a {
   // AJUSTE DE ALTURA:
   // Como essa nova logo é "full bleed" (ocupa tudo), 14rem ficaria GIGANTE.
   // 7.5rem a 8rem é a altura ideal para equilibrar com a fonte de 5.5rem.
-  height: 8rem;           
+  height: 12rem;           
   width: auto;              
   display: block;           
   
