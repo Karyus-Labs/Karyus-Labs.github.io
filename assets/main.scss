@@ -97,7 +97,7 @@ body {
   // A Nova Logo Estática (SVG)
   .karyus-brand-static { 
     width: 75%;            // Ocupa bem o espaço quando a barra está fechada
-    max-width: 150px;      // <--- O FREIO: Trava em 150px. Mesmo abrindo a barra, não passa disso.
+    max-width: 150px;      // O FREIO: Trava em 150px.
     height: auto;
     transition: var(--transition);
     opacity: 1;            
@@ -410,7 +410,7 @@ a {
   }
 }
 
-// 14. SISTEMA DE LOGOTIPO HÍBRIDO (Calibrado para 14rem)
+// 14. SISTEMA DE LOGOTIPO HÍBRIDO (Nova Logo Full-Block)
 
 @keyframes reactor-pulse {
   0% { filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.2)); transform: scale(1); }
@@ -422,57 +422,58 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;     
-  gap: 0px;                
+  align-items: center;      // Alinhamento vertical perfeito
+  gap: 1.5rem;              // Gap real e positivo (use 1.5rem ou 2rem para gosto pessoal)
   margin-bottom: 1rem;
   flex-wrap: nowrap;
   width: 100%;
   
-  // CORREÇÃO DE CENTRALIZAÇÃO ÓTICA (MACRO)
-  // Como o K é muito pesado na esquerda, empurramos tudo levemente 
-  // para a direita para equilibrar o visual na tela.
-  margin-left: 2rem; 
+  // CENTRALIZAÇÃO CORRETA:
+  // Como a logo agora preenche o espaço e não usamos hacks, 
+  // o justify-content: center (acima) cuida de tudo.
+  margin-left: 0; 
 }
 
-// O "K" (Logo SVG)
+// O "K" (Logo SVG - Versão Navigator Full)
 .inline-k-logo {
-  height: 14rem;           // <--- SEU VALOR DEFINIDO
-  width: auto;             
-  display: block;          
+  // AJUSTE DE ALTURA:
+  // Como essa nova logo é "full bleed" (ocupa tudo), 14rem ficaria GIGANTE.
+  // 7.5rem a 8rem é a altura ideal para equilibrar com a fonte de 5.5rem.
+  height: 8rem;           
+  width: auto;              
+  display: block;           
   
   animation: reactor-pulse 4s infinite ease-in-out; 
   
-  // Ajuste Vertical: Com 14rem, o K é enorme, então precisamos
-  // subir ele um pouco para alinhar o centro dele com o centro do texto
-  transform: translateY(-10px); 
+  // Ajuste fino vertical (Sobe levemente para compensar o peso visual do texto)
+  transform: translateY(-5px); 
 }
 
 // O Texto "ARYUS LABS"
 .text-remainder {
-  margin: 0 !important;      
-  padding: 0 !important;     
-  line-height: 1 !important; 
-  white-space: nowrap;       
+  margin: 0 !important;       // Margens zeradas (sem negativos!)
+  padding: 0 !important;      
+  line-height: 1 !important;  
+  white-space: nowrap;        
   
-  // CORREÇÃO DE ESPAÇAMENTO (GAP)
-  // Puxa o texto agressivamente para a esquerda para colar no K gigante
-  margin-left: -3.5rem !important; 
+  // Limpeza total de hacks de posicionamento
+  margin-left: 0 !important;
 
-  font-size: 5.5rem; 
+  font-size: 5.5rem;  
   font-family: var(--font-header);
   font-weight: 900;
   color: var(--karyus-earth);
-  letter-spacing: 8px;       
+  letter-spacing: 8px;        
   text-shadow: 0 0 20px rgba(227, 167, 80, 0.3);
 }
 
 // 15. RESPONSIVIDADE (Mobile)
 @media (max-width: 768px) {
-  // Reset dos ajustes agressivos de desktop para funcionar no celular
+  // Reset dos ajustes de desktop para funcionar no celular
   .karyus-logotype-wrapper {
     flex-direction: column; 
     gap: 10px; 
-    margin-left: 0; // Remove a compensação ótica no celular
+    margin-left: 0; 
   }
   
   .inline-k-logo {
@@ -482,6 +483,6 @@ a {
   
   .text-remainder {
     font-size: 2.8rem !important; 
-    margin-left: 0 !important; // Remove a margem negativa no celular
+    margin-left: 0 !important; 
   }
 }
