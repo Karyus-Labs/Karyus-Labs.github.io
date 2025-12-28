@@ -410,93 +410,83 @@ a {
   }
 }
 
-// 14. SISTEMA DE LOGOTIPO HÍBRIDO (Para o Hero)
+// 14. SISTEMA DE LOGOTIPO HÍBRIDO (Blindado)
 
-// Animação de "Respiração" (Reator Nuclear)
+// Animação de "Respiração" (Mantida)
 @keyframes reactor-pulse {
-  0% {
-    filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.2));
-    transform: scale(1);
-  }
-  50% {
-    filter: drop-shadow(0 0 40px rgba(0, 242, 255, 0.6)); // Brilho Azul Neon intenso
-    transform: scale(1.02); 
-  }
-  100% {
-    filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.2));
-    transform: scale(1);
-  }
+  0% { filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.2)); transform: scale(1); }
+  50% { filter: drop-shadow(0 0 40px rgba(0, 242, 255, 0.6)); transform: scale(1.02); }
+  100% { filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.2)); transform: scale(1); }
 }
 
 .karyus-logotype-wrapper {
   display: flex;
+  flex-direction: row;     // Força a direção linha (esquerda-direita)
   justify-content: center;
-  align-items: center; // Centraliza verticalmente o K com o texto
-  gap: 10px;           // Espaço sutil entre o Logo e o "ARYUS"
+  align-items: center;     // Alinhamento vertical centralizado
+  gap: 0px;                // <--- GAP ZERO (Ajuste aqui se quiser afastar: 5px, 10px)
   margin-bottom: 1rem;
-  flex-wrap: nowrap;   // Garante que não quebre a linha no desktop
+  flex-wrap: nowrap;       // <--- TRAVAMENTO: Proíbe quebrar linha
+  width: 100%;             // Garante que o container ocupe a largura
 }
 
 // O "K" (Logo SVG)
 .inline-k-logo {
-  height: 14rem;        // Altura compatível com o texto H1
-  width: auto;
+  height: 14rem;            // Altura calibrada
+  width: auto;             // Mantém proporção
+  display: block;          // Remove comportamentos estranhos de imagem inline
   
   // Efeito pulsante
   animation: reactor-pulse 4s infinite ease-in-out; 
   
-  // Ajuste fino de posição para alinhar com a fonte
-  transform: translateY(-5px); 
+  // Ajuste Fino Vertical:
+  // Se o K parecer "alto demais", aumente o número positivo (ex: 5px)
+  // Se o K parecer "baixo demais", coloque negativo (ex: -5px)
+  transform: translateY(-8px); 
 }
 
 // O Texto "ARYUS LABS"
 .text-remainder {
-  margin: 0 !important; // Remove margens padrão do H1
-  line-height: 1;       
+  margin: 0 !important;      // Remove qualquer margem externa
+  padding: 0 !important;     // Remove qualquer padding
+  line-height: 1 !important; // Altura de linha compacta
+  white-space: nowrap;       // <--- TRAVAMENTO: Impede que "LABS" caia para a linha de baixo
   
   font-size: 5.5rem;
   font-family: var(--font-header);
   font-weight: 900;
   color: var(--karyus-earth);
-  letter-spacing: 10px;
+  letter-spacing: 8px;       // Espaçamento entre letras levemente ajustado
   text-shadow: 0 0 20px rgba(227, 167, 80, 0.3);
 }
 
-// 15. RESPONSIVIDADE
+// 15. RESPONSIVIDADE (Mobile)
 @media (max-width: 768px) {
-  // Sidebar Mobile
   .sidebar { 
     width: 100%; height: auto; position: relative; 
     border-right: none; border-bottom: 1px solid var(--karyus-blue);
   }
   .sidebar-logo { height: auto; padding: 2rem 0; }
-  
-  .karyus-brand-static { 
-    width: 160px; 
-    max-width: none; // Solta o freio no mobile
-  }
+  .karyus-brand-static { width: 160px; max-width: none; }
 
-  // Conteúdo Mobile
   .main-content { margin-left: 0; width: 100%; padding: 2rem; }
   .glitch-text { font-size: 2.5rem !important; letter-spacing: 2px !important; }
-  
   .one-page-section { padding-top: 80px; padding-bottom: 80px; } 
   .project-hero-img { height: 250px; }
 
-  // Ajuste do Logotipo Híbrido no Mobile (Vira Totem)
+  // Ajuste Mobile (Volta a ser Totem um em cima do outro)
   .karyus-logotype-wrapper {
-    flex-direction: column; // Um em cima do outro
-    gap: 0;
+    flex-direction: column; 
+    gap: 10px; // Devolve o gap no celular para não grudar verticalmente
   }
   
   .inline-k-logo {
     height: 100px;        
     transform: translateY(0);
-    margin-bottom: 10px;
   }
   
   .text-remainder {
     font-size: 2.8rem !important; 
-    letter-spacing: 5px !important;
+    white-space: normal; // Permite quebra de linha no celular se precisar
   }
 }
