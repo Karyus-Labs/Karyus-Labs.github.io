@@ -27,21 +27,19 @@ CL_{trim} = \frac{mg}{\frac{1}{2} \rho U_{\infty}^2 S}
 $$
 
 ### 2. Implementation: First Principles
-The core of the simulation was built in **Simulink** using a "First Principles" approach. Instead of relying on black-box models, I constructed the 3-DOF longitudinal equations block-by-block using standard mathematical operators (Integrators, Gains, Sums).
-
-This manual implementation ensures full transparency of the physics, integrating the state vector over time:
+The core of the simulation was built in **Simulink** using a "First Principles" approach. Instead of relying on black-box models, I constructed the longitudinal equations of motion in **Body Axes**, capturing the non-linear inertial coupling:
 
 $$
 \begin{cases}
-\dot{V} = \frac{1}{m} (T \cos\alpha - D - mg \sin(\theta - \alpha)) \\
-\dot{\alpha} = \frac{q \cos\alpha - (L + T \sin\alpha - mg \cos(\theta - \alpha))}{mV} \\
-\dot{q} = \frac{M}{I_y}
+\dot{u} = \frac{X}{m} - g \sin\theta - qw \\
+\dot{w} = \frac{Z}{m} + g \cos\theta + qu \\
+\dot{q} = \frac{M}{I_{yy}}
 \end{cases}
 $$
 
 
 
-The resulting model outputs the complete state vector $x = [u, w, q, \theta, x_e, z_e]^T$, creating a high-fidelity "virtual aircraft" for our tests.
+These equations govern the accelerations, which are integrated to update the state vector $x = [u, w, q, \theta, x_e, z_e]^T$ at every time step.
 
 ![Simulink Architecture](/assets/images/Simulink.png)
 *Figure 1: The Simulink environment I assembled to integrate the non-linear dynamics.*
