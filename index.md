@@ -95,7 +95,7 @@ permalink: /
           LinkedIn
         </a>
 
-        <a href="{{ '/assets/files/CV_RenatoCMF_Ouvrier.pdf' | relative_url }}" target="_blank" class="futuristic-btn" style="color: var(--karyus-neon) !important; border-color: var(--karyus-neon);">
+        <a href="{{ '/assets/files/CV_Renato_MARTINS.pdf' | relative_url }}" target="_blank" class="futuristic-btn" style="color: var(--karyus-neon) !important; border-color: var(--karyus-neon);">
           <i class="fas fa-file-download" style="margin-right: 8px;"></i> CV
         </a>
 
