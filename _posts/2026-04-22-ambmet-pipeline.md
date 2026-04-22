@@ -46,7 +46,6 @@ The deployment of this automation suite at **Ambmet** yielded immediate operatio
 
 ---
 
-<div class="karyus-cta" style="border: 1px solid var(--karyus-neon); padding: 20px; border-radius: 8px; text-align: center;">
-  <p>Interested in automating complex engineering workflows? Let's discuss system architecture.</p>
-  <a href="https://www.linkedin.com/in/renato-cm-filho" class="btn" style="background: var(--karyus-neon); color: #000; padding: 10px 20px; border-radius: 4px; font-weight: bold; text-decoration: none;">Discuss this Project on LinkedIn</a>
-</div>
+### Discuss this Project
+
+Interested in automating complex engineering workflows? Let's discuss system architecture.
