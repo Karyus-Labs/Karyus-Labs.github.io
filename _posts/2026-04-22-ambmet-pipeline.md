@@ -36,7 +36,7 @@ The architecture relies on a **Decoupled Modular Approach** in Python. Each sour
 
 
 
-> **Technical Insight:** The reporting module uses a template-based injection method. The script identifies unique "Alt Text" or "Shape Names" within a `.pptx` master file and swaps them for the latest processed images or interactive links, maintaining design integrity without manual intervention.
+> **Technical Insight:** The reporting module uses a template-based injection method. Instead of building slides from scratch, the script identifies "placeholder" objects in a master file and injects the processed data, significantly reducing overhead and maintaining design integrity.
 
 ### <span style="color: var(--karyus-neon);">The Result:</span> From Hours to Seconds
 The deployment of this automation suite at **Ambmet** yielded immediate operational impact:
