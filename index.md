@@ -5,6 +5,8 @@ permalink: /
 ---
 
 {% assign cessna_post = site.posts | where_exp: "item", "item.path contains 'cessna182'" | first %}
+{% assign ambmet_post = site.posts | where_exp: "item", "item.path contains 'ambmet' or item.title contains 'Meteorological'" | first %}
+{% assign arbitrage_post = site.posts | where_exp: "item", "item.path contains 'arbitrage' or item.title contains 'Arbitrage'" | first %}
 
 <section id="home" class="one-page-section" style="text-align: center;">
   <div class="hero-manifesto">
@@ -65,16 +67,37 @@ permalink: /
 <section id="projects" class="one-page-section">
   <h2 class="section-title">Engineering Hangar</h2>
   <div class="project-showcase">
+    
     <div class="project-image-container" style="margin-bottom: 2rem;">
       <img src="{{ '/assets/images/cessna182-photo.png' | relative_url }}" alt="Cessna 182 Simulation" class="project-hero-img">
       
       <div class="project-overlay">
         <h3>Cessna 182: Nonlinear Flight Dynamics</h3>
         <p>High-fidelity simulator in Simulink implementing raw equations of motion. Validated against linearized state-space models.</p>
-        
         <a href="{{ cessna_post.url | default: '#projects' | relative_url }}" class="futuristic-btn">Read Case Study</a>
       </div>
     </div>
+
+    <div class="project-image-container" style="margin-bottom: 2rem;">
+      <img src="{{ '/assets/images/ambmet-pipeline.png' | relative_url }}" alt="Ambmet Data Pipeline" class="project-hero-img">
+      
+      <div class="project-overlay">
+        <h3>Automating Global Meteorological Pipelines</h3>
+        <p>Architected a proprietary modular ETL pipeline to transform raw API data (ECMWF, GFS, ONS) into automated executive reports in seconds.</p>
+        <a href="{{ ambmet_post.url | default: '#projects' | relative_url }}" class="futuristic-btn">Read Case Study</a>
+      </div>
+    </div>
+
+    <div class="project-image-container" style="margin-bottom: 2rem;">
+      <img src="{{ '/assets/images/arbitrage-monitor.png' | relative_url }}" alt="Market Monitor Architecture" class="project-hero-img">
+      
+      <div class="project-overlay">
+        <h3>Real-Time E-commerce Arbitrage</h3>
+        <p>Full-stack monitoring system utilizing Node.js, Puppeteer Stealth for anti-bot evasion, and MongoDB for high-speed data deduplication.</p>
+        <a href="{{ arbitrage_post.url | default: '#projects' | relative_url }}" class="futuristic-btn">Read Case Study</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
