@@ -7,7 +7,7 @@ tags: [Python, ETL, Meteorological Data, Business Intelligence, API Integration]
 ---
 
 ### The Challenge: The Manual Bottleneck in Weather Analytics
-[cite_start]In the energy and meteorological sectors, data is often fragmented across multiple global agencies—ECMWF (Europe), GFS (USA), and local operators like ONS in Brazil[cite: 4118]. [cite_start]For a specialized consultant, the manual task of downloading, parsing, and formatting these datasets into executive reports can consume up to **2 hours of high-value engineering time** every single day.
+In the energy and meteorological sectors, data is often fragmented across multiple global agencies—ECMWF (Europe), GFS (USA), and local operators like ONS in Brazil. For a specialized consultant, the manual task of downloading, parsing, and formatting these datasets into executive reports can consume up to **2 hours of high-value engineering time** every single day.
 
 The problem wasn't just the time spent, but the **risk of human error** during the data transposition from GRIB/CSV files into presentation-ready formats.
 
@@ -16,8 +16,8 @@ To solve this, I architected a proprietary automated pipeline within **Karyus La
 
 #### 1. Multi-Source Synchronization (Extraction)
 I developed specialized modules to interface with disparate APIs. The system handles:
-* [cite_start]**ECMWF/GFS Integration:** Managing authentication and asynchronous requests for global weather models[cite: 4118].
-* [cite_start]**ONS Data Scraping:** Automated retrieval of regional energy and reservoir data[cite: 4118].
+* **ECMWF/GFS Integration:** Managing authentication and asynchronous requests for global weather models.
+* **ONS Data Scraping:** Automated retrieval of regional energy and reservoir data.
 * **Error Resilience:** Implementation of retry logic and logging to ensure the pipeline remains stable despite API latencies or downtime.
 
 #### 2. The Logic Engine (Transformation)
@@ -35,8 +35,8 @@ While the core logic remains proprietary, the architecture relies on a **Modular
 > **Technical Insight:** The reporting module uses a template-based injection method. Instead of building slides from scratch, the script identifies "placeholder" objects in a master file and injects the processed data, significantly reducing overhead and maintaining design integrity.
 
 ### The Result: From Hours to Seconds
-[cite_start]The deployment of this automation suite at **Ambmet** yielded immediate ROI[cite: 4110, 4118]:
-* [cite_start]**Efficiency:** Reporting time reduced from **~120 minutes to < 10 seconds**.
+The deployment of this automation suite at **Ambmet** yielded immediate ROI:
+* **Efficiency:** Reporting time reduced from **~120 minutes to < 10 seconds**.
 * **Accuracy:** 100% elimination of manual data entry errors.
 * **Scalability:** The consultant can now monitor multiple regions simultaneously without increasing the administrative workload.
 
