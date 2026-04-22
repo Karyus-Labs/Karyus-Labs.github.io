@@ -24,7 +24,7 @@ I developed specialized modules to interface with disparate APIs. The system han
 Raw meteorological data is often "noisy." My solution includes a transformation layer that cleans, standardizes units, and performs the necessary statistical aggregations to align different data sources into a single, coherent timeframe.
 
 #### 3. Automated Executive Reporting (Loading)
-Instead of a simple dashboard, the system pushes data directly into **professional presentation formats** (PowerPoint). Using advanced manipulation of the `python-pptx` library, the tool:
+Instead of a simple dashboard, the system pushes data directly into **professional presentation formats** (PowerPoint). Using advanced manipulation of the <code style="color: var(--karyus-neon); background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px;">python-pptx</code> library, the tool:
 * Updates complex charts and tables in real-time.
 * Preserves corporate branding and layout consistency.
 * Generates "ready-to-present" decks in seconds.
