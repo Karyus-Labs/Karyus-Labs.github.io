@@ -5,8 +5,8 @@ permalink: /
 ---
 
 {% assign cessna_post = site.posts | where_exp: "item", "item.path contains 'cessna182'" | first %}
-{% assign ambmet_post = site.posts | where_exp: "item", "item.path contains 'ambmet' or item.title contains 'Meteorological'" | first %}
-{% assign arbitrage_post = site.posts | where_exp: "item", "item.path contains 'arbitrage' or item.title contains 'Arbitrage'" | first %}
+{% assign ambmet_post = site.posts | where_exp: "item", "item.path contains 'ambmet'" | first %}
+{% assign arbitrage_post = site.posts | where_exp: "item", "item.path contains 'arbitrage'" | first %}
 
 <section id="home" class="one-page-section" style="text-align: center;">
   <div class="hero-manifesto">
