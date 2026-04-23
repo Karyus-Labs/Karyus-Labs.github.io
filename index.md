@@ -134,11 +134,10 @@ permalink: /
 </section>
 
 <style>
-  /* PADRONIZAÇÃO DE LARGURA DO TEXTO: Aplicado em blocos de conteúdo e contato */
+  /* PADRONIZAÇÃO DE LARGURA DO TEXTO: Aplicado em blocos de conteúdo e contato alinhados à esquerda */
   .content-block, .contact-info {
-    max-width: 750px; /* Reduzido para centralizar e alinhar melhor com os cards */
+    max-width: 750px; 
     line-height: 1.6;
-    margin: 0 auto; /* Centraliza o bloco na seção, caso a div pai permita */
   }
 
   .contact-info {
