@@ -134,6 +134,12 @@ permalink: /
 </section>
 
 <style>
+  /* PADRONIZAÇÃO DE LARGURA DO TEXTO: Alinha com o tamanho aproximado de 2 cards no grid */
+  .content-block {
+    max-width: 850px; 
+    line-height: 1.6;
+  }
+
   /* Controlador do Grid: Mantém os cards com largura fixa, evitando esticar */
   .project-grid-compact {
     display: grid;
