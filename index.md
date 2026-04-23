@@ -13,7 +13,7 @@ permalink: /
     <h1 class="glitch-text">KARYUS LABS</h1>
     <p class="subtitle">Aerospace Engineering | Computational Physics | Data Strategy</p>
     
-    <div class="mission-statement" style="max-width: 800px; margin: 3rem auto; font-size: 1.2rem; font-style: italic; color: #fff; opacity: 0.9;">
+    <div class="mission-statement" style="max-width: 750px; margin: 3rem auto; font-size: 1.2rem; font-style: italic; color: #fff; opacity: 0.9;">
       "An independent engineering portfolio focused on high-fidelity simulation and data-driven analysis."
     </div>
 
@@ -114,7 +114,7 @@ permalink: /
 <section id="contact" class="one-page-section">
   <h2 class="section-title">Connect</h2>
   <div class="contact-grid">
-    <div class="contact-info" style="font-size: 1.1rem; line-height: 2;">
+    <div class="contact-info">
       <p style="margin-bottom: 1rem; color: #00D4FF;"><strong>Objective:</strong> <span style="color: #fff;">Seeking Internship Opportunities (Summer 2026)</span></p>
       <p>Available for discussions on Structural Analysis, Aerodynamics, and Software Engineering.</p>
       
@@ -134,10 +134,15 @@ permalink: /
 </section>
 
 <style>
-  /* PADRONIZAÇÃO DE LARGURA DO TEXTO: Alinha com o tamanho aproximado de 2 cards no grid */
-  .content-block {
-    max-width: 850px; 
+  /* PADRONIZAÇÃO DE LARGURA DO TEXTO: Aplicado em blocos de conteúdo e contato */
+  .content-block, .contact-info {
+    max-width: 750px; /* Reduzido para centralizar e alinhar melhor com os cards */
     line-height: 1.6;
+    margin: 0 auto; /* Centraliza o bloco na seção, caso a div pai permita */
+  }
+
+  .contact-info {
+    font-size: 1.1rem; 
   }
 
   /* Controlador do Grid: Mantém os cards com largura fixa, evitando esticar */
