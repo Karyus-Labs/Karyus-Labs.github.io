@@ -18,7 +18,7 @@ For the engineering team at **Ambmet**, the daily routine involved a grueling ma
 
 To solve this, I architected an automated pipeline within **Karyus-Labs**. The core philosophy was to decouple **Data Acquisition** (Extraction) from the **Reporting Engine** (Load/Visualization) to ensure system modularity.
 
-![Ambmet Weather Terminal Interface](/assets/images/terminal-interface-screenshot.jpg)
+![Ambmet Weather Terminal Interface](/assets/images/terminal-interface-screenshot.png)
 *The Ambmet Weather Terminal: A "Mission Control" interface developed with Streamlit for real-time monitoring.*
 
 ### <span style="color: #00D4FF;">1. Multi-Source Synchronization (Extraction)</span>
@@ -35,7 +35,7 @@ Using the <code style="color: #00D4FF; background: rgba(0,212,255,0.1); padding:
 * **Object-Level Injection:** Updating complex charts and maps via Shape Placeholder replacement.
 * **Layout Integrity:** Preserving corporate branding while generating "ready-to-present" decks in seconds.
 
-![Karyus Pipeline Architecture](/assets/images/architecture-diagram.jpg)
+![Karyus Pipeline Architecture](/assets/images/architecture-diagram.png)
 *Architectural Overview: From raw data packets to executive-ready insights.*
 
 ---
