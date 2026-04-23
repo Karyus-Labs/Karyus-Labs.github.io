@@ -66,11 +66,11 @@ permalink: /
   <h2 class="section-title">Engineering Hangar</h2>
   <p style="margin-bottom: 2rem; opacity: 0.7;">High-fidelity aerospace simulations and physical modeling.</p>
   
-  <div class="project-grid-compact" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px;">
+  <div class="project-grid-compact">
     
     <div class="project-card-mini">
       <div class="card-image">
-        <img src="{{ '/assets/images/Simulink_Cessna_Cover.png' | relative_url }}" alt="Cessna 182 Simulation">
+        <img src="{{ '/assets/images/cessna182-photo.png' | relative_url }}" alt="Cessna 182 Simulation">
       </div>
       <div class="card-content">
         <h3>Cessna 182: Nonlinear Dynamics</h3>
@@ -84,11 +84,11 @@ permalink: /
   <h2 class="section-title" style="margin-top: 5rem;">The Laboratory</h2>
   <p style="margin-bottom: 2rem; opacity: 0.7;">Systems automation, ETL pipelines, and data strategy.</p>
 
-  <div class="project-grid-compact" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px;">
+  <div class="project-grid-compact">
     
     <div class="project-card-mini">
       <div class="card-image">
-        <img src="{{ '/assets/images/karyus-ambmet-hero.jpg' | relative_url }}" alt="Ambmet Data Pipeline">
+        <img src="{{ '/assets/images/ambmet-pipeline.png' | relative_url }}" alt="Ambmet Data Pipeline">
       </div>
       <div class="card-content">
         <h3>Ambmet: Meteorological ETL</h3>
@@ -98,13 +98,13 @@ permalink: /
     </div>
 
     <div class="project-card-mini">
-      <div class="card-image">
-        <img src="{{ '/assets/images/coming-soon.jpg' | relative_url }}" alt="Market Monitor Architecture">
+      <div class="card-image coming-soon-box">
+        <span>[ DEPLOYMENT PENDING ]</span>
       </div>
       <div class="card-content">
         <h3>E-commerce Arbitrage Monitor</h3>
         <p>Full-stack monitoring system utilizing Puppeteer Stealth for anti-bot evasion and MongoDB for data deduplication.</p>
-        <a href="{{ arbitrage_post.url | default: '#projects' | relative_url }}" class="compact-link">Coming Soon →</a>
+        <a href="{{ arbitrage_post.url | default: '#projects' | relative_url }}" class="compact-link" style="opacity: 0.5; pointer-events: none;">Coming Soon →</a>
       </div>
     </div>
 
@@ -134,42 +134,92 @@ permalink: /
 </section>
 
 <style>
+  /* Controlador do Grid: Mantém os cards com largura fixa, evitando esticar */
+  .project-grid-compact {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 400px)); 
+    gap: 30px;
+    justify-content: start;
+  }
+
+  /* Estrutura do Card */
   .project-card-mini {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(0, 212, 255, 0.2);
-    border-radius: 4px;
+    border-radius: 6px;
     overflow: hidden;
-    transition: 0.3s;
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
+
   .project-card-mini:hover {
     border-color: #00D4FF;
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
   }
+
+  /* Área da Imagem */
   .card-image img {
     width: 100%;
-    height: 180px;
+    height: 220px;
     object-fit: cover;
     opacity: 0.8;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
   }
+
+  /* Placeholder em CSS para o projeto sem imagem */
+  .coming-soon-box {
+    width: 100%;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(0, 212, 255, 0.02),
+      rgba(0, 212, 255, 0.02) 10px,
+      rgba(0, 212, 255, 0.05) 10px,
+      rgba(0, 212, 255, 0.05) 20px
+    );
+    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+    color: rgba(0, 212, 255, 0.4);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+
+  /* Área do Texto */
   .card-content {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
   }
+
   .card-content h3 {
     color: #00D4FF;
     margin-bottom: 0.5rem;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
   }
+
   .card-content p {
     font-size: 0.9rem;
-    line-height: 1.4;
-    margin-bottom: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    color: #E0E0E0;
+    flex-grow: 1;
   }
+
   .compact-link {
     color: #00D4FF;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.85rem;
     text-transform: uppercase;
+    letter-spacing: 1px;
+    align-self: flex-start;
   }
 </style>
