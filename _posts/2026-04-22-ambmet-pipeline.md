@@ -52,14 +52,6 @@ At **Karyus-Labs**, we believe engineering is the art of translating technical c
 
 ---
 
-### <span style="color: #00D4FF;">Technical Assets</span>
-
-If you are interested in the architectural logic behind this automation:
-
-<a href="https://github.com/Karyus-Labs" class="btn btn--primary">Access Karyus GitHub</a>
-
----
-
 ### <span style="color: #00D4FF;">Discuss this Project</span>
 
 Interested in automating complex engineering workflows? Let's discuss how to turn manual bottlenecks into automated assets.
