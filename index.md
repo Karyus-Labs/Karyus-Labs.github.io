@@ -14,7 +14,7 @@ permalink: /
     <p class="subtitle">Aerospace Engineering | Computational Physics | Data Strategy</p>
     
     <div class="mission-statement" style="max-width: 800px; margin: 3rem auto; font-size: 1.2rem; font-style: italic; color: #fff; opacity: 0.9;">
-      "An independent engineering portfolio focused on high-fidelity simulation and data-driven analysis." [cite: 6]
+      "An independent engineering portfolio focused on high-fidelity simulation and data-driven analysis."
     </div>
 
     <div class="tech-grid" style="display: flex; gap: 20px; justify-content: center; margin-bottom: 4rem; flex-wrap: wrap;">
@@ -35,15 +35,15 @@ permalink: /
 <section id="about" class="one-page-section">
   <h2 class="section-title">The Engineer</h2>
   <div class="content-block">
-    <p class="highlight-text">Renato Martins Filho | Founder of Karyus Labs [cite: 3, 49]</p>
+    <p class="highlight-text">Renato Martins Filho | Founder of Karyus Labs</p>
     
     <h3>The Approach</h3>
-    <p><strong>Karyus Labs</strong> serves as my digital workshop. The goal is simple: to document the rigorous application of engineering principles to solve complex problems. Whether through Finite Element Analysis (FEA), Computational Fluid Dynamics (CFD), or Data Science, the focus remains on <strong>technical precision</strong> and reliability. [cite: 12, 77]</p>
+    <p><strong>Karyus Labs</strong> serves as my digital workshop. The goal is simple: to document the rigorous application of engineering principles to solve complex problems. Whether through Finite Element Analysis (FEA), Computational Fluid Dynamics (CFD), or Data Science, the focus remains on <strong>technical precision</strong> and reliability.</p>
 
     <h3>Core Toolkit</h3>
     <ul class="tech-list">
-      <li>Flight Dynamics & Control: Comprehensive stability analysis ranging from static sizing (XFLR5, AVL) to Nonlinear Dynamic Simulation and Control Law design using MATLAB & Simulink. [cite: 14, 16]</li>
-      <li>Simulation & Structure: Structural analysis and FEM simulation using Abaqus and ANSYS, integrated with parametric CAD modeling (SolidWorks/CATIA). [cite: 54, 56]</li>
+      <li>Flight Dynamics & Control: Comprehensive stability analysis ranging from static sizing (XFLR5, AVL) to Nonlinear Dynamic Simulation and Control Law design using MATLAB & Simulink.</li>
+      <li>Simulation & Structure: Structural analysis and FEM simulation using Abaqus and ANSYS, integrated with parametric CAD modeling (SolidWorks/CATIA).</li>
       <li>Computational Logic: Leveraging a background in Algorithm Theory (IMPA) to build optimized engineering automation scripts in Python and MATLAB.</li>
     </ul>
   </div>
@@ -64,7 +64,7 @@ permalink: /
 
 <section id="projects" class="one-page-section">
   <h2 class="section-title">Engineering Hangar</h2>
-  <p style="margin-bottom: 2rem; opacity: 0.7;">High-fidelity aerospace simulations and physical modeling. [cite: 14]</p>
+  <p style="margin-bottom: 2rem; opacity: 0.7;">High-fidelity aerospace simulations and physical modeling.</p>
   
   <div class="project-grid-compact" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px;">
     
@@ -74,12 +74,12 @@ permalink: /
       </div>
       <div class="card-content">
         <h3>Cessna 182: Nonlinear Dynamics</h3>
-        <p>High-fidelity simulator in Simulink implementing raw equations of motion. Validated against linearized state-space models. [cite: 14, 16]</p>
+        <p>High-fidelity simulator in Simulink implementing raw equations of motion. Validated against linearized state-space models.</p>
         <a href="{{ cessna_post.url | relative_url }}" class="compact-link">View Case Study →</a>
       </div>
     </div>
 
-    </div>
+  </div>
 
   <h2 class="section-title" style="margin-top: 5rem;">The Laboratory</h2>
   <p style="margin-bottom: 2rem; opacity: 0.7;">Systems automation, ETL pipelines, and data strategy.</p>
@@ -88,23 +88,23 @@ permalink: /
     
     <div class="project-card-mini">
       <div class="card-image">
-        <img src="{{ '/assets/images/karyus-ambmet-pipeline.jpg' | relative_url }}" alt="Ambmet Data Pipeline">
+        <img src="{{ '/assets/images/karyus-ambmet-hero.jpg' | relative_url }}" alt="Ambmet Data Pipeline">
       </div>
       <div class="card-content">
         <h3>Ambmet: Meteorological ETL</h3>
-        <p>Architected a proprietary modular pipeline to transform raw API data (ECMWF, GFS, ONS) into automated reports.</p>
+        <p>Architected a proprietary modular pipeline to transform raw API data (ECMWF, GFS, ONS) into automated reports in seconds.</p>
         <a href="{{ ambmet_post.url | relative_url }}" class="compact-link">View Case Study →</a>
       </div>
     </div>
 
     <div class="project-card-mini">
       <div class="card-image">
-        <img src="{{ '/assets/images/arbitrage-monitor.png' | relative_url }}" alt="Market Monitor Architecture">
+        <img src="{{ '/assets/images/coming-soon.jpg' | relative_url }}" alt="Market Monitor Architecture">
       </div>
       <div class="card-content">
         <h3>E-commerce Arbitrage Monitor</h3>
         <p>Full-stack monitoring system utilizing Puppeteer Stealth for anti-bot evasion and MongoDB for data deduplication.</p>
-        <a href="{{ arbitrage_post.url | relative_url }}" class="compact-link">View Case Study →</a>
+        <a href="{{ arbitrage_post.url | default: '#projects' | relative_url }}" class="compact-link">Coming Soon →</a>
       </div>
     </div>
 
@@ -134,7 +134,6 @@ permalink: /
 </section>
 
 <style>
-  /* Estilos para os novos blocos compactos */
   .project-card-mini {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(0, 212, 255, 0.2);
