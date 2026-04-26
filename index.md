@@ -98,13 +98,13 @@ permalink: /
     </div>
 
     <div class="project-card-mini">
-      <div class="card-image coming-soon-box">
-        <span>[ DEPLOYMENT PENDING ]</span>
+      <div class="card-image">
+        <img src="{{ '/assets/images/arbitrage-monitor.png' | relative_url }}" alt="E-commerce Arbitrage Monitor">
       </div>
       <div class="card-content">
         <h3>E-commerce Arbitrage Monitor</h3>
         <p>Full-stack monitoring system utilizing Puppeteer Stealth for anti-bot evasion and MongoDB for data deduplication.</p>
-        <a href="{{ arbitrage_post.url | default: '#projects' | relative_url }}" class="compact-link" style="opacity: 0.5; pointer-events: none;">Coming Soon →</a>
+        <a href="{{ arbitrage_post.url | relative_url }}" class="compact-link">View Case Study →</a>
       </div>
     </div>
 
