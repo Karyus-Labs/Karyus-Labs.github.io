@@ -21,6 +21,9 @@ Building a basic data extractor is trivial; building one that survives a high-tr
 1.  **Session Integrity:** Major e-commerce platforms use fingerprinting to manage automated traffic. Maintaining a stable connection requires mimicking human-like interaction patterns.
 2.  **Data Deduplication:** When monitoring thousands of listings every minute, identifying *new* opportunities without overloading the local database or sending redundant requests to the marketplace is critical for system performance.
 
+![Karyus Data Interface](/assets/images/karyus-data-interface.png)
+*The Karyus Data Interface: Real-time scan monitoring via Socket.io.*
+
 ---
 
 ## <span style="color: #00D4FF;">The Approach: Resilient Data Architecture</span>
@@ -39,7 +42,10 @@ Handling massive data flows requires an efficient indexing strategy. I utilized 
 ### <span style="color: #00D4FF;">3. Real-Time Alerting Engine (Loading)</span>
 Speed is irrelevant if the user isn't notified immediately. The system integrates directly with **Discord Webhooks**. As soon as a new gap is detected and validated by the database, a rich embed is pushed to the user, containing price data, direct links, and unique identifiers.
 
-![Market Monitor Architecture](/assets/images/architecture-diagram-arbitrage.jpg)
+![Discord Alert System](/assets/images/discord-notification.png)
+*Real-time intelligence: Instant Discord alerts with rich media and direct listing links.*
+
+![Market Monitor Architecture](/assets/images/architecture-diagram-arbitrage.png)
 *System Architecture: From Stealth Extraction to Real-Time Discord Notifications.*
 
 ---
