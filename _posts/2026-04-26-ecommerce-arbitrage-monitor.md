@@ -8,8 +8,6 @@ image: /assets/images/arbitrage-monitor.png
 description: "Building a resilient Full-Stack system to process e-commerce market gaps using stealth optimization and MongoDB."
 ---
 
-![Karyus Labs Arbitrage Hero](/assets/images/arbitrage-monitor.png)
-
 In the world of e-commerce arbitrage, information asymmetry is the critical factor. Opportunities for profit exist only for those who can process price gaps and stock updates in real-time. However, the barrier to entry isn't just speed—it's **system resilience**. Modern marketplaces employ sophisticated traffic management heuristics that can easily disrupt standard automated data pipelines.
 
 To tackle this, I architected a proprietary monitoring system within **Karyus-Labs** designed for high-frequency data extraction and zero-latency alerting, with a strict focus on session integrity and network efficiency.
@@ -69,5 +67,3 @@ As this is a proprietary Karyus Labs product, the full source code is private. H
 ### <span style="color: #00D4FF;">Discuss this Project</span>
 
 Are you interested in architecting resilient data pipelines or building automated market intelligence tools? Let's connect and discuss how to secure your data edge.
-
-**Renato Martins Filho** **Founder @ Karyus-Labs** 
