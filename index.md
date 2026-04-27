@@ -11,60 +11,71 @@ permalink: /
 <section id="home" class="one-page-section" style="text-align: center;">
   <div class="hero-manifesto">
     <h1 class="glitch-text">KARYUS LABS</h1>
-    <p class="subtitle">Aerospace Engineering | Computational Physics | Data Strategy</p>
+    <p class="subtitle">Aerospace Systems | Computational Physics | Data Architecture</p>
     
-    <div class="mission-statement" style="max-width: 750px; margin: 3rem auto; font-size: 1.2rem; font-style: italic; color: #fff; opacity: 0.9;">
-      "An independent engineering portfolio focused on high-fidelity simulation and data-driven analysis."
+    <div class="mission-statement" style="max-width: 750px; margin: 3rem auto; font-size: 1.2rem; font-style: italic; color: #fff; opacity: 0.9; line-height: 1.6;">
+      "Engineering is the bridge between raw mathematical theory and operational reality. At <strong>Karyus Labs</strong>, I develop high-fidelity simulations and automated data pipelines to solve complex aerospace and logistical challenges."
     </div>
 
     <div class="tech-grid" style="display: flex; gap: 20px; justify-content: center; margin-bottom: 4rem; flex-wrap: wrap;">
       <div class="tech-item">
-        <i class="fas fa-university"></i>
-        <span>Centrale Méditerranée & USP</span>
+        <i class="fas fa-microchip"></i>
+        <span>Systems Automation</span>
       </div>
       <div class="tech-item">
-        <i class="fas fa-layer-group"></i>
-        <span>Multidisciplinary Engineering</span>
+        <i class="fas fa-wind"></i>
+        <span>Flight Dynamics</span>
+      </div>
+      <div class="tech-item">
+        <i class="fas fa-database"></i>
+        <span>Data Strategy</span>
       </div>
     </div>
 
-    <a href="#projects" class="futuristic-btn">Deploy Hangar</a>
+    <a href="#projects" class="futuristic-btn">Access Engineering Hangar</a>
   </div>
 </section>
 
 <section id="about" class="one-page-section">
   <h2 class="section-title">The Engineer</h2>
   <div class="content-block">
-    <p class="highlight-text">Renato Martins Filho | Founder of Karyus Labs</p>
-    
-    <h3>The Approach</h3>
-    <p><strong>Karyus Labs</strong> serves as my digital workshop. The goal is simple: to document the rigorous application of engineering principles to solve complex problems. Whether through Finite Element Analysis (FEA), Computational Fluid Dynamics (CFD), or Data Science, the focus remains on <strong>technical precision</strong> and reliability.</p>
+    <p class="highlight-text">Renato Martins Filho | Founder & Lead Developer</p>
+    <p>Currently pursuing a <strong>Double Degree</strong> in Aerospace Engineering at <strong>EESC-USP</strong> and <strong>Centrale Méditerranée</strong>. My work focuses on the intersection of physical modeling and data-driven optimization.</p>
 
-    <h3>Core Toolkit</h3>
+    <h3 style="margin-top: 2rem;">Technical Arsenal</h3>
     <ul class="tech-list">
-      <li>Flight Dynamics & Control: Comprehensive stability analysis ranging from static sizing (XFLR5, AVL) to Nonlinear Dynamic Simulation and Control Law design using MATLAB & Simulink.</li>
-      <li>Simulation & Structure: Structural analysis and FEM simulation using Abaqus and ANSYS, integrated with parametric CAD modeling (SolidWorks/CATIA).</li>
-      <li>Computational Logic: Leveraging a background in Algorithm Theory (IMPA) to build optimized engineering automation scripts in Python and MATLAB.</li>
+      <li><strong>Aero & Flight Mechanics:</strong> High-fidelity simulation (6-DOF) and Non-linear dynamics implementation in MATLAB/Simulink. Stability & Control analysis via XFLR5 and AVL.</li>
+      <li><strong>Data & Software Engineering:</strong> Architecting resilient ETL pipelines, Web Scraping (Stealth/Puppeteer), and NoSQL database management (MongoDB).</li>
+      <li><strong>Computational Foundations:</strong> Algorithmic logic and Graph Theory background via PICME (IMPA/CNPq), providing the mathematical framework for engineering automation.</li>
     </ul>
   </div>
 </section>
 
-<section id="research" class="one-page-section">
+<section id="achievements" class="one-page-section">
   <h2 class="section-title">Research & Intelligence</h2>
   <div class="content-block">
-    <p style="margin-bottom: 2rem; opacity: 0.8;"><em>Theoretical foundations and data science projects.</em></p>
-
-    <h3>PICME - Algorithmic Logic (IMPA/CNPq)</h3>
-    <p>Scientific initiation focused on <strong>Graph Theory</strong> and the mathematical foundations of Computer Science. This background provides the logical framework used to structure complex engineering code and optimization routines.</p>
     
-    <h3>Automotive Market Intelligence (NLP)</h3>
-    <p>Developed a full-stack data platform processing <strong>140,000+ consumer reviews</strong>. Demonstrates the capability to handle large datasets and extract actionable insights using Natural Language Processing (Node.js/Python).</p>
+    <div style="margin-bottom: 2rem;">
+      <h3 style="color: #00D4FF; margin-bottom: 0.5rem;">ActinSpace 2026 (CNES/ESA) | 3rd Place Local (Toulon)</h3>
+      <p>Developed a space-data-driven solution for industrial monitoring under high-pressure hackathon conditions, competing within the French aerospace ecosystem.</p>
+    </div>
+
+    <div style="margin-bottom: 2rem;">
+      <h3 style="color: #00D4FF; margin-bottom: 0.5rem;">Winner - HackSEA Embraer (2023)</h3>
+      <p>Strategic solution for the aeronautical industry developed during the XXI Aeronautical Engineering Week (EESC-USP).</p>
+    </div>
+
+    <div style="margin-bottom: 2rem;">
+      <h3 style="color: #00D4FF; margin-bottom: 0.5rem;">Automotive Market Intelligence (NLP)</h3>
+      <p>Developed a full-stack data platform processing <strong>140,000+ consumer reviews</strong>. Demonstrates the capability to handle large datasets and extract actionable insights using Natural Language Processing (Node.js/Python).</p>
+    </div>
+
   </div>
 </section>
 
 <section id="projects" class="one-page-section">
   <h2 class="section-title">Engineering Hangar</h2>
-  <p style="margin-bottom: 2rem; opacity: 0.7;">High-fidelity aerospace simulations and physical modeling.</p>
+  <p style="margin-bottom: 2rem; opacity: 0.7;">High-fidelity aerospace simulations and automated data pipelines.</p>
   
   <div class="project-grid-compact">
     
@@ -73,27 +84,20 @@ permalink: /
         <img src="{{ '/assets/images/cessna182-photo.png' | relative_url }}" alt="Cessna 182 Simulation">
       </div>
       <div class="card-content">
-        <h3>Cessna 182: Nonlinear Dynamics</h3>
-        <p>High-fidelity simulator in Simulink implementing raw equations of motion. Validated against linearized state-space models.</p>
-        <a href="{{ cessna_post.url | relative_url }}" class="compact-link">View Case Study →</a>
+        <h3>Cessna 182: Nonlinear Simulator</h3>
+        <p>Implementation of 6-DOF nonlinear equations of motion in Simulink. Features a Newton-Raphson trimming routine and validation against state-space linear models (Longitudinal stability).</p>
+        <a href="{{ cessna_post.url | relative_url }}" class="compact-link">Technical Case Study →</a>
       </div>
     </div>
 
-  </div>
-
-  <h2 class="section-title" style="margin-top: 5rem;">The Laboratory</h2>
-  <p style="margin-bottom: 2rem; opacity: 0.7;">Systems automation, ETL pipelines, and data strategy.</p>
-
-  <div class="project-grid-compact">
-    
     <div class="project-card-mini">
       <div class="card-image">
         <img src="{{ '/assets/images/ambmet-pipeline.png' | relative_url }}" alt="Ambmet Data Pipeline">
       </div>
       <div class="card-content">
         <h3>Ambmet: Meteorological ETL</h3>
-        <p>Architected a proprietary modular pipeline to transform raw API data (ECMWF, GFS, ONS) into automated reports in seconds.</p>
-        <a href="{{ ambmet_post.url | relative_url }}" class="compact-link">View Case Study →</a>
+        <p>A modular Python pipeline that automates global API data extraction (ECMWF/GFS), reducing executive reporting time from 2 hours to under 10 seconds.</p>
+        <a href="{{ ambmet_post.url | relative_url }}" class="compact-link">Automation Logic →</a>
       </div>
     </div>
 
@@ -102,9 +106,9 @@ permalink: /
         <img src="{{ '/assets/images/arbitrage-monitor.png' | relative_url }}" alt="E-commerce Arbitrage Monitor">
       </div>
       <div class="card-content">
-        <h3>E-commerce Arbitrage Monitor</h3>
-        <p>Full-stack monitoring system utilizing Puppeteer Stealth for anti-bot evasion and MongoDB for data deduplication.</p>
-        <a href="{{ arbitrage_post.url | relative_url }}" class="compact-link">View Case Study →</a>
+        <h3>Scalable Arbitrage Monitor</h3>
+        <p>Full-stack monitoring system built with Node.js and MongoDB. Uses stealth optimization for anti-bot evasion and real-time Discord alerting.</p>
+        <a href="{{ arbitrage_post.url | relative_url }}" class="compact-link">System Architecture →</a>
       </div>
     </div>
 
@@ -116,7 +120,7 @@ permalink: /
   <div class="contact-grid">
     <div class="contact-info">
       <p style="margin-bottom: 1rem; color: #00D4FF;"><strong>Objective:</strong> <span style="color: #fff;">Seeking Internship Opportunities (Summer 2026)</span></p>
-      <p>Available for discussions on Structural Analysis, Aerodynamics, and Software Engineering.</p>
+      <p>Available for discussions on Flight Dynamics, Computational Physics, and Data Architecture.</p>
       
       <div style="margin-top: 2rem; display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
         <a href="mailto:renatocmf@usp.br" class="futuristic-btn" style="background: transparent; border: 1px solid #00D4FF;">
