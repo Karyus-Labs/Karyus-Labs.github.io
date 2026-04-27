@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "Scalable Arbitrage: Architecting a Real-Time E-commerce Monitor"
-date: 2026-04-26
+date: 2026-04-28
 categories: [Data Engineering, Automation]
-tags: [Node.js, Puppeteer, MongoDB, Webhooks, Scraping]
+tags: [Node.js, Puppeteer, MongoDB, Docker, Webhooks, Scraping]
 image: /assets/images/arbitrage-monitor.png
-description: "Building a resilient Full-Stack system to process e-commerce market gaps using stealth optimization and MongoDB."
+description: "Building a resilient Full-Stack system to process e-commerce market gaps using stealth optimization, Docker, and MongoDB."
 ---
 
 In the world of e-commerce arbitrage, information asymmetry is the critical factor. Opportunities for profit exist only for those who can process price gaps and stock updates in real-time. However, the barrier to entry isn't just speed—it's **system resilience**. Modern marketplaces employ sophisticated traffic management heuristics that can easily disrupt standard automated data pipelines.
@@ -16,10 +16,11 @@ To tackle this, I architected a proprietary monitoring system within **Karyus-La
 
 ## <span style="color: #00D4FF;">The Challenge: High-Frequency Data and Noise</span>
 
-Building a basic data extractor is trivial; building one that survives a high-traffic production environment without overloading the target servers is an engineering challenge. The project faced two primary bottlenecks:
+Building a basic data extractor is trivial; building one that survives a high-traffic production environment without overloading the target servers is an engineering challenge. The project faced three primary bottlenecks:
 
 1.  **Session Integrity:** Major e-commerce platforms use fingerprinting to manage automated traffic. Maintaining a stable connection requires mimicking human-like interaction patterns.
-2.  **Data Deduplication:** When monitoring thousands of listings every minute, identifying *new* opportunities without overloading the local database or sending redundant requests to the marketplace is critical for system performance.
+2.  **Data Deduplication:** When monitoring thousands of listings, identifying *new* opportunities without overloading the local database is critical for performance.
+3.  **Environment Stability:** Ensuring the scraper and database remain synchronized and operational 24/7 without configuration drift.
 
 ![Karyus Data Interface](/assets/images/karyus-data-interface.png)
 *The Karyus Data Interface: Real-time scan monitoring via Socket.io.*
@@ -34,19 +35,19 @@ The solution was built as a decoupled Full-Stack system using **Node.js**, lever
 To ensure continuous operation and respect rate-limits, I implemented **Puppeteer-Extra** with the **Stealth Plugin**. This allows the engine to maintain a stable session profile through custom viewports, randomized request delays, and persistent cookie injection.
 
 * **Network Resilience:** The extractor utilizes a "Retry-with-Delay" logic, ensuring that temporal connection failures don't crash the mission.
-* **Headless Synchronization:** By utilizing `networkidle0` states, the system only extracts data once the Javascript-heavy marketplace pages are fully rendered, reducing the need for repeated polling.
+* **Headless Synchronization:** By utilizing `networkidle0` states, the system only extracts data once the Javascript-heavy marketplace pages are fully rendered.
 
 ### <span style="color: #00D4FF;">2. Ethical Deduplication (Logic)</span>
 Handling massive data flows requires an efficient indexing strategy. I utilized **MongoDB** with a unique `adId` index to ensure that every listing is stored exactly once. This architectural decision prevents the system from triggering redundant alerts and significantly reduces the bandwidth footprint of the operation.
 
-### <span style="color: #00D4FF;">3. Real-Time Alerting Engine (Loading)</span>
+### <span style="color: #00D4FF;">3. Containerized Infrastructure (Reliability)</span>
+To ensure mission-critical stability, the entire environment is orchestrated via **Docker**. By containerizing both the **MongoDB** instance and the **Node.js** engine, I eliminated "it works on my machine" issues. This setup allows for rapid deployment and ensures that internal storage and extraction logic remain isolated and consistent across any host.
+
+### <span style="color: #00D4FF;">4. Real-Time Alerting Engine (Loading)</span>
 Speed is irrelevant if the user isn't notified immediately. The system integrates directly with **Discord Webhooks**. As soon as a new gap is detected and validated by the database, a rich embed is pushed to the user, containing price data, direct links, and unique identifiers.
 
 ![Discord Alert System](/assets/images/discord-notification.png)
 *Real-time intelligence: Instant Discord alerts with rich media and direct listing links.*
-
-![Market Monitor Architecture](/assets/images/architecture-diagram-arbitrage.png)
-*System Architecture: From Stealth Extraction to Real-Time Discord Notifications.*
 
 ---
 
@@ -54,8 +55,8 @@ Speed is irrelevant if the user isn't notified immediately. The system integrate
 
 By deploying this stack, the **Karyus-Labs** arbitrage engine achieved significant operational benchmarks:
 
-* **Precision Alerting:** <span style="color: #00D4FF;">Elimination of 100% of duplicate notifications</span> through MongoDB hashing.
-* **Operational Stability:** Continuous 24/7 monitoring maintaining strict session integrity.
+* **Precision Alerting:** Elimination of 100% of duplicate notifications through MongoDB unique indexing.
+* **Operational Stability:** Continuous 24/7 monitoring maintaining strict session integrity via Docker orchestration.
 * **Full-Stack Control:** A live dashboard developed with **Socket.io** allows for real-time progress monitoring and manual scan triggers.
 
 Engineering at this level is about building systems that are robust, efficient, and operationally mature.
