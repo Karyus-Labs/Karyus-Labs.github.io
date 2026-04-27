@@ -40,14 +40,14 @@ permalink: /
   <h2 class="section-title">The Engineer</h2>
   <div class="content-block">
     <p class="highlight-text">Renato Martins Filho | Founder & Lead Developer</p>
-    <p>Currently pursuing a <strong>Double Degree</strong> in Aerospace Engineering at <strong>EESC-USP</strong> and <strong>Centrale Méditerranée</strong>. My work focuses on the intersection of physical modeling, data-driven optimization, and complex systems management.</p>
+    <p>Currently pursuing a <strong>Double Degree</strong> in Aerospace Engineering at <strong>EESC-USP</strong> and <strong>Centrale Méditerranée</strong>. My work focuses on the intersection of physical modeling, data-driven optimization, and autonomous systems management.</p>
 
     <h3 style="margin-top: 2rem;">Technical & Operational Arsenal</h3>
     <ul class="tech-list">
       <li><strong>Aero & Flight Mechanics:</strong> High-fidelity simulation (6-DOF) and Non-linear dynamics implementation in MATLAB/Simulink. Stability & Control analysis via XFLR5 and AVL.</li>
-      <li><strong>Data Architecture:</strong> Architecting resilient ETL pipelines, Web Scraping (Stealth/Puppeteer), and NoSQL database management (MongoDB) for market intelligence.</li>
-      <li><strong>Computational Logic:</strong> Algorithmic logic and Graph Theory background via PICME (IMPA/CNPq), providing the mathematical framework for engineering optimization.</li>
-      <li><strong>Engineering Operations & Leadership:</strong> Experience in cross-functional coordination, managing logistics and technical relations (Speaker Curatorship) during the XXI Aeronautical Engineering Week (EESC-USP).</li>
+      <li><strong>Autonomous Systems:</strong> Development of real-time navigation algorithms, integration with Optitrack motion capture systems, and obstacle avoidance in Mixed Reality (AR) environments.</li>
+      <li><strong>Data Engineering:</strong> Specialist in Web Scraping (Stealth/Puppeteer), NLP for market intelligence, and architecting resilient ETL pipelines with NoSQL (MongoDB).</li>
+      <li><strong>Engineering Operations & B2B Negotiation:</strong> Managed a portfolio of 17 corporate partners and negotiated international contracts for the EESC-USP Aerodesign team. Expertise in stakeholder management and supply chain coordination.</li>
     </ul>
   </div>
 </section>
@@ -55,21 +55,26 @@ permalink: /
 <section id="research" class="one-page-section">
   <h2 class="section-title">Research & Intelligence</h2>
   <div class="content-block">
-    <p style="margin-bottom: 2rem; opacity: 0.8;"><em>Bridging theoretical mathematics, data science, and aerospace innovation.</em></p>
+    <p style="margin-bottom: 2rem; opacity: 0.8;"><em>Advancing autonomous navigation and data-driven engineering through mathematical rigor.</em></p>
     
-    <div style="margin-bottom: 2rem;">
+    <div style="margin-bottom: 2.5rem;">
+      <h3 style="color: #00D4FF; margin-bottom: 0.5rem;">Autonomous Navigation & Mixed Reality (Centrale Méditerranée)</h3>
+      <p>Developing a real-time autonomous piloting system for mobile robots within an Optitrack-equipped arena. Implementation of navigation algorithms capable of handling system latency and virtual obstacle avoidance via Augmented Reality. Focus on <strong>eVTOL</strong> and rescue drone applications.</p>
+    </div>
+
+    <div style="margin-bottom: 2.5rem;">
+      <h3 style="color: #00D4FF; margin-bottom: 0.5rem;">Data Intelligence & NLP (PICME / USP)</h3>
+      <p>Applied research focused on extracting actionable insights from large unstructured datasets. Developed a platform processing <strong>140,000+ consumer reviews</strong> using Natural Language Processing and automated Web Scraping to map industrial market trends.</p>
+    </div>
+
+    <div style="margin-bottom: 2.5rem;">
+      <h3 style="color: #00D4FF; margin-bottom: 0.5rem;">Algorithmic Logic & Graph Theory (PICME / IMPA)</h3>
+      <p>Scientific initiation at the <strong>Institute for Pure and Applied Mathematics (IMPA)</strong>. Deep dive into the mathematical foundations of Computer Science, focusing on graph-based optimization and algorithmic efficiency.</p>
+    </div>
+
+    <div style="margin-bottom: 2.5rem;">
       <h3 style="color: #00D4FF; margin-bottom: 0.5rem;">ActinSpace 2026 (CNES/ESA) | 3rd Place Local (Toulon)</h3>
       <p>Developed a space-data-driven solution for industrial monitoring under high-pressure hackathon conditions. Validated the ability to deploy innovative tech solutions within the strict timelines of the French aerospace ecosystem.</p>
-    </div>
-
-    <div style="margin-bottom: 2rem;">
-      <h3 style="color: #00D4FF; margin-bottom: 0.5rem;">Algorithmic Logic & Graph Theory (PICME / IMPA)</h3>
-      <p>Scientific initiation granted by the National Council for Scientific and Technological Development (CNPq). Focused on the pure mathematical foundations of Computer Science, serving as the logical bedrock for complex engineering scripts.</p>
-    </div>
-
-    <div style="margin-bottom: 2rem;">
-      <h3 style="color: #00D4FF; margin-bottom: 0.5rem;">Automotive Market Intelligence (NLP)</h3>
-      <p>Architected a full-stack platform capable of processing over <strong>140,000 consumer reviews</strong>. Applied Natural Language Processing (Node.js/Python) to extract actionable intelligence from unstructured data lakes.</p>
     </div>
 
   </div>
@@ -122,7 +127,7 @@ permalink: /
   <div class="contact-grid">
     <div class="contact-info">
       <p style="margin-bottom: 1rem; color: #00D4FF;"><strong>Objective:</strong> <span style="color: #fff;">Seeking Internship Opportunities (Summer 2026)</span></p>
-      <p>Available for discussions on Flight Dynamics, Computational Physics, and Data Architecture.</p>
+      <p>Available for discussions on Autonomous Systems, Flight Dynamics, and Data Architecture.</p>
       
       <div style="margin-top: 2rem; display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
         <a href="mailto:renatocmf@usp.br" class="futuristic-btn" style="background: transparent; border: 1px solid #00D4FF;">
@@ -140,6 +145,7 @@ permalink: /
 </section>
 
 <style>
+  /* PADRONIZAÇÃO DE LARGURA DO TEXTO */
   .content-block, .contact-info {
     max-width: 750px; 
     line-height: 1.6;
@@ -149,6 +155,7 @@ permalink: /
     font-size: 1.1rem; 
   }
 
+  /* Controlador do Grid */
   .project-grid-compact {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 400px)); 
@@ -156,6 +163,7 @@ permalink: /
     justify-content: start;
   }
 
+  /* Estrutura do Card */
   .project-card-mini {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(0, 212, 255, 0.2);
@@ -173,6 +181,7 @@ permalink: /
     box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
   }
 
+  /* Área da Imagem */
   .card-image img {
     width: 100%;
     height: 220px;
@@ -181,6 +190,7 @@ permalink: /
     border-bottom: 1px solid rgba(0, 212, 255, 0.1);
   }
 
+  /* Área do Texto */
   .card-content {
     padding: 1.5rem;
     display: flex;
