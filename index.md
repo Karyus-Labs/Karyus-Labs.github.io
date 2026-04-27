@@ -40,34 +40,36 @@ permalink: /
   <h2 class="section-title">The Engineer</h2>
   <div class="content-block">
     <p class="highlight-text">Renato Martins Filho | Founder & Lead Developer</p>
-    <p>Currently pursuing a <strong>Double Degree</strong> in Aerospace Engineering at <strong>EESC-USP</strong> and <strong>Centrale Méditerranée</strong>. My work focuses on the intersection of physical modeling and data-driven optimization.</p>
+    <p>Currently pursuing a <strong>Double Degree</strong> in Aerospace Engineering at <strong>EESC-USP</strong> and <strong>Centrale Méditerranée</strong>. My work focuses on the intersection of physical modeling, data-driven optimization, and complex systems management.</p>
 
-    <h3 style="margin-top: 2rem;">Technical Arsenal</h3>
+    <h3 style="margin-top: 2rem;">Technical & Operational Arsenal</h3>
     <ul class="tech-list">
       <li><strong>Aero & Flight Mechanics:</strong> High-fidelity simulation (6-DOF) and Non-linear dynamics implementation in MATLAB/Simulink. Stability & Control analysis via XFLR5 and AVL.</li>
-      <li><strong>Data & Software Engineering:</strong> Architecting resilient ETL pipelines, Web Scraping (Stealth/Puppeteer), and NoSQL database management (MongoDB).</li>
-      <li><strong>Computational Foundations:</strong> Algorithmic logic and Graph Theory background via PICME (IMPA/CNPq), providing the mathematical framework for engineering automation.</li>
+      <li><strong>Data Architecture:</strong> Architecting resilient ETL pipelines, Web Scraping (Stealth/Puppeteer), and NoSQL database management (MongoDB) for market intelligence.</li>
+      <li><strong>Computational Logic:</strong> Algorithmic logic and Graph Theory background via PICME (IMPA/CNPq), providing the mathematical framework for engineering optimization.</li>
+      <li><strong>Engineering Operations & Leadership:</strong> Experience in cross-functional coordination, managing logistics and technical relations (Speaker Curatorship) during the XXI Aeronautical Engineering Week (EESC-USP).</li>
     </ul>
   </div>
 </section>
 
-<section id="achievements" class="one-page-section">
+<section id="research" class="one-page-section">
   <h2 class="section-title">Research & Intelligence</h2>
   <div class="content-block">
+    <p style="margin-bottom: 2rem; opacity: 0.8;"><em>Bridging theoretical mathematics, data science, and aerospace innovation.</em></p>
     
     <div style="margin-bottom: 2rem;">
       <h3 style="color: #00D4FF; margin-bottom: 0.5rem;">ActinSpace 2026 (CNES/ESA) | 3rd Place Local (Toulon)</h3>
-      <p>Developed a space-data-driven solution for industrial monitoring under high-pressure hackathon conditions, competing within the French aerospace ecosystem.</p>
+      <p>Developed a space-data-driven solution for industrial monitoring under high-pressure hackathon conditions. Validated the ability to deploy innovative tech solutions within the strict timelines of the French aerospace ecosystem.</p>
     </div>
 
     <div style="margin-bottom: 2rem;">
-      <h3 style="color: #00D4FF; margin-bottom: 0.5rem;">Winner - HackSEA Embraer (2023)</h3>
-      <p>Strategic solution for the aeronautical industry developed during the XXI Aeronautical Engineering Week (EESC-USP).</p>
+      <h3 style="color: #00D4FF; margin-bottom: 0.5rem;">Algorithmic Logic & Graph Theory (PICME / IMPA)</h3>
+      <p>Scientific initiation granted by the National Council for Scientific and Technological Development (CNPq). Focused on the pure mathematical foundations of Computer Science, serving as the logical bedrock for complex engineering scripts.</p>
     </div>
 
     <div style="margin-bottom: 2rem;">
       <h3 style="color: #00D4FF; margin-bottom: 0.5rem;">Automotive Market Intelligence (NLP)</h3>
-      <p>Developed a full-stack data platform processing <strong>140,000+ consumer reviews</strong>. Demonstrates the capability to handle large datasets and extract actionable insights using Natural Language Processing (Node.js/Python).</p>
+      <p>Architected a full-stack platform capable of processing over <strong>140,000 consumer reviews</strong>. Applied Natural Language Processing (Node.js/Python) to extract actionable intelligence from unstructured data lakes.</p>
     </div>
 
   </div>
@@ -138,7 +140,6 @@ permalink: /
 </section>
 
 <style>
-  /* PADRONIZAÇÃO DE LARGURA DO TEXTO: Aplicado em blocos de conteúdo e contato alinhados à esquerda */
   .content-block, .contact-info {
     max-width: 750px; 
     line-height: 1.6;
@@ -148,7 +149,6 @@ permalink: /
     font-size: 1.1rem; 
   }
 
-  /* Controlador do Grid: Mantém os cards com largura fixa, evitando esticar */
   .project-grid-compact {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 400px)); 
@@ -156,7 +156,6 @@ permalink: /
     justify-content: start;
   }
 
-  /* Estrutura do Card */
   .project-card-mini {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(0, 212, 255, 0.2);
@@ -174,7 +173,6 @@ permalink: /
     box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
   }
 
-  /* Área da Imagem */
   .card-image img {
     width: 100%;
     height: 220px;
@@ -183,28 +181,6 @@ permalink: /
     border-bottom: 1px solid rgba(0, 212, 255, 0.1);
   }
 
-  /* Placeholder em CSS para o projeto sem imagem */
-  .coming-soon-box {
-    width: 100%;
-    height: 220px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: repeating-linear-gradient(
-      45deg,
-      rgba(0, 212, 255, 0.02),
-      rgba(0, 212, 255, 0.02) 10px,
-      rgba(0, 212, 255, 0.05) 10px,
-      rgba(0, 212, 255, 0.05) 20px
-    );
-    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-    color: rgba(0, 212, 255, 0.4);
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-  }
-
-  /* Área do Texto */
   .card-content {
     padding: 1.5rem;
     display: flex;
