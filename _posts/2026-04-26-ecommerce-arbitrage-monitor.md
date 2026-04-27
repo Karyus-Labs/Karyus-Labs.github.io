@@ -44,7 +44,7 @@ Handling massive data flows requires an efficient indexing strategy. I utilized 
 To ensure mission-critical stability, the entire environment is orchestrated via **Docker**. By containerizing both the **MongoDB** instance and the **Node.js** engine, I eliminated "it works on my machine" issues. This setup allows for rapid deployment and ensures that internal storage and extraction logic remain isolated and consistent across any host.
 
 ### <span style="color: #00D4FF;">4. Real-Time Alerting Engine (Loading)</span>
-Speed is irrelevant if the user isn't notified immediately. The system integrates directly with **Discord Webhooks**. As soon as a new gap is detected and validated by the database, a rich embed is pushed to the user, containing price data, direct links, and unique identifiers.
+Speed is irrelevant if the user isn't notified immediately. The system integrates directly with **Discord Webhooks**. As soon as a new gap is detected and validated by the database, a rich embed is pushed to the user, contaning price data, direct links, and unique identifiers.
 
 ![Discord Alert System](/assets/images/discord-notification.png)
 *Real-time intelligence: Instant Discord alerts with rich media and direct listing links.*
@@ -55,9 +55,12 @@ Speed is irrelevant if the user isn't notified immediately. The system integrate
 
 By deploying this stack, the **Karyus-Labs** arbitrage engine achieved significant operational benchmarks:
 
-* **Precision Alerting:** Elimination of 100% of duplicate notifications through MongoDB unique indexing.
-* **Operational Stability:** Continuous 24/7 monitoring maintaining strict session integrity via Docker orchestration.
-* **Full-Stack Control:** A live dashboard developed with **Socket.io** allows for real-time progress monitoring and manual scan triggers.
+* **Precision Alerting:** Elimination of 100% of duplicate notifications através de indexação única no MongoDB.
+* **Operational Stability:** Monitoramento contínuo 24/7 mantendo integridade de sessão via orquestração Docker.
+* **Full-Stack Control:** Um dashboard live desenvolvido com **Socket.io** permite o acompanhamento em tempo real do progresso da varredura.
+
+![Market Monitor Architecture](/assets/images/architecture-diagram-arbitrage.png)
+*System Architecture: From Stealth Extraction to Real-Time Discord Notifications.*
 
 Engineering at this level is about building systems that are robust, efficient, and operationally mature.
 
@@ -70,7 +73,6 @@ As this is a proprietary Karyus Labs product, the full source code is private. H
 <a href="https://github.com/Karyus-Labs" class="btn btn--primary">Visit Karyus Lab</a>
 
 ---
-
 ### <span style="color: #00D4FF;">Discuss this Project</span>
 
 Are you interested in architecting resilient data pipelines or building automated market intelligence tools? Let's connect and discuss how to secure your data edge.
