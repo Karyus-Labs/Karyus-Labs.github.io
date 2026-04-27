@@ -6,7 +6,7 @@ permalink: /
 
 {% assign cessna_post = site.posts | where_exp: "item", "item.path contains 'cessna182'" | first %}
 {% assign ambmet_post = site.posts | where_exp: "item", "item.path contains 'ambmet'" | first %}
-{% assign arbitrage_post = site.posts | where_exp: "item", "item.path contains 'arbitrage'" | first %}
+{% assign arbitrage_post = site.posts | where: "slug", "ecommerce-arbitrage-monitor" | first %}
 
 <section id="home" class="one-page-section" style="text-align: center;">
   <div class="hero-manifesto">
