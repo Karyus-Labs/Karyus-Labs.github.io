@@ -42,7 +42,7 @@ permalink: /
   <div class="engineer-container" style="display: flex; gap: 40px; align-items: center; flex-wrap: wrap; max-width: 950px;">
     
     <div class="engineer-photo" style="flex: 0 0 320px; margin: 0 auto;">
-      <img src="{{ '/assets/images/renato-aero.jpg' | relative_url }}" alt="Renato Martins Filho - Aerodesign" style="width: 100%; height: auto; object-fit: cover; border-radius: 8px; border: 2px solid rgba(0, 212, 255, 0.3); box-shadow: 0 0 20px rgba(0, 212, 255, 0.1); filter: grayscale(20%) contrast(110%);">
+      <img src="{{ '/assets/images/renato-aero.jpeg' | relative_url }}" alt="Renato Martins Filho - Aerodesign" style="width: 100%; height: auto; object-fit: cover; border-radius: 8px; border: 2px solid rgba(0, 212, 255, 0.3); box-shadow: 0 0 20px rgba(0, 212, 255, 0.1); filter: grayscale(20%) contrast(110%);">
     </div>
 
     <div style="flex: 1; min-width: 320px; line-height: 1.6; font-size: 1rem;">
