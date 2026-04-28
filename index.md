@@ -38,17 +38,25 @@ permalink: /
 
 <section id="about" class="one-page-section">
   <h2 class="section-title">The Engineer</h2>
-  <div class="content-block">
-    <p class="highlight-text">Renato Martins Filho | Founder & Lead Developer</p>
-    <p>Currently pursuing a <strong>Double Degree</strong> in Aerospace Engineering at <strong>EESC-USP</strong> and <strong>Centrale Méditerranée</strong>. My work focuses on the intersection of physical modeling, data-driven optimization, and autonomous systems management.</p>
+  
+  <div class="engineer-container" style="display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap;">
+    
+    <div class="engineer-photo" style="flex: 1; min-width: 280px; max-width: 350px; margin: 0 auto;">
+      <img src="{{ '/assets/images/renato-aero.jpg' | relative_url }}" alt="Renato Martins Filho - Aerodesign" style="width: 100%; border-radius: 8px; border: 2px solid rgba(0, 212, 255, 0.3); box-shadow: 0 0 20px rgba(0, 212, 255, 0.1); filter: grayscale(20%) contrast(110%);">
+    </div>
 
-    <h3 style="margin-top: 2rem;">Technical & Operational Arsenal</h3>
-    <ul class="tech-list">
-      <li><strong>Aero & Flight Mechanics:</strong> High-fidelity simulation (6-DOF) and Non-linear dynamics implementation in MATLAB/Simulink. Stability & Control analysis via XFLR5 and AVL.</li>
-      <li><strong>Autonomous Systems:</strong> Development of real-time navigation algorithms, integration with Optitrack motion capture systems, and obstacle avoidance in Mixed Reality (AR) environments.</li>
-      <li><strong>Data Engineering:</strong> Specialist in architecting resilient ETL pipelines for diverse data sources, Web Scraping (Stealth/Puppeteer), and managing NoSQL databases (MongoDB).</li>
-      <li><strong>Engineering Operations & B2B Negotiation:</strong> Managed a portfolio of 17 corporate partners and negotiated international contracts for the EESC-USP Aerodesign team. Expertise in stakeholder management and supply chain coordination.</li>
-    </ul>
+    <div class="content-block" style="flex: 2; min-width: 300px; max-width: 750px; margin-top: 0;">
+      <p class="highlight-text" style="margin-top: 0;">Renato Martins Filho | Founder & Lead Developer</p>
+      <p>Currently pursuing a <strong>Double Degree</strong> in Aerospace Engineering at <strong>EESC-USP</strong> and <strong>Centrale Méditerranée</strong>. My work focuses on the intersection of physical modeling, data-driven optimization, and autonomous systems management.</p>
+
+      <h3 style="margin-top: 2rem;">Technical & Operational Arsenal</h3>
+      <ul class="tech-list">
+        <li><strong>Aero & Flight Mechanics:</strong> High-fidelity simulation (6-DOF) and Non-linear dynamics implementation in MATLAB/Simulink. Stability & Control analysis via XFLR5 and AVL.</li>
+        <li><strong>Autonomous Systems:</strong> Development of real-time navigation algorithms, integration with Optitrack motion capture systems, and obstacle avoidance in Mixed Reality (AR) environments.</li>
+        <li><strong>Data Engineering:</strong> Specialist in architecting resilient ETL pipelines for diverse data sources, Web Scraping (Stealth/Puppeteer), and managing NoSQL databases (MongoDB).</li>
+        <li><strong>Engineering Operations & B2B Negotiation:</strong> Managed a portfolio of 17 corporate partners and negotiated international contracts for the EESC-USP Aerodesign team. Expertise in stakeholder management and supply chain coordination.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
