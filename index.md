@@ -46,7 +46,7 @@ permalink: /
     <ul class="tech-list">
       <li><strong>Aero & Flight Mechanics:</strong> High-fidelity simulation (6-DOF) and Non-linear dynamics implementation in MATLAB/Simulink. Stability & Control analysis via XFLR5 and AVL.</li>
       <li><strong>Autonomous Systems:</strong> Development of real-time navigation algorithms, integration with Optitrack motion capture systems, and obstacle avoidance in Mixed Reality (AR) environments.</li>
-      <li><strong>Data Engineering:</strong> Specialist in Web Scraping (Stealth/Puppeteer), NLP for market intelligence, and architecting resilient ETL pipelines with NoSQL (MongoDB).</li>
+      <li><strong>Data Engineering:</strong> Specialist in architecting resilient ETL pipelines for diverse data sources, Web Scraping (Stealth/Puppeteer), and managing NoSQL databases (MongoDB).</li>
       <li><strong>Engineering Operations & B2B Negotiation:</strong> Managed a portfolio of 17 corporate partners and negotiated international contracts for the EESC-USP Aerodesign team. Expertise in stakeholder management and supply chain coordination.</li>
     </ul>
   </div>
@@ -59,7 +59,7 @@ permalink: /
     
     <div style="margin-bottom: 2.5rem;">
       <h3 style="color: #00D4FF; margin-bottom: 0.5rem;">Autonomous Navigation & Mixed Reality (Centrale Méditerranée)</h3>
-      <p>Developing a real-time autonomous piloting system for mobile robots within an Optitrack-equipped arena. Implementation of navigation algorithms capable of handling system latency and virtual obstacle avoidance via Augmented Reality. Focus on <strong>eVTOL</strong> and rescue drone applications.</p>
+      <p>Developing a real-time autonomous piloting system for mobile robots within an Optitrack-equipped arena. Implementation of navigation algorithms capable of handling system latency and virtual obstacle avoidance via Augmented Reality. Targeted at advancing robust autonomy in complex aerial and ground environments.</p>
     </div>
 
     <div style="margin-bottom: 2.5rem;">
@@ -145,25 +145,19 @@ permalink: /
 </section>
 
 <style>
-  /* PADRONIZAÇÃO DE LARGURA DO TEXTO */
   .content-block, .contact-info {
     max-width: 750px; 
     line-height: 1.6;
   }
-
   .contact-info {
     font-size: 1.1rem; 
   }
-
-  /* Controlador do Grid */
   .project-grid-compact {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 400px)); 
     gap: 30px;
     justify-content: start;
   }
-
-  /* Estrutura do Card */
   .project-card-mini {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(0, 212, 255, 0.2);
@@ -174,14 +168,11 @@ permalink: /
     flex-direction: column;
     height: 100%;
   }
-
   .project-card-mini:hover {
     border-color: #00D4FF;
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
   }
-
-  /* Área da Imagem */
   .card-image img {
     width: 100%;
     height: 220px;
@@ -189,22 +180,18 @@ permalink: /
     opacity: 0.8;
     border-bottom: 1px solid rgba(0, 212, 255, 0.1);
   }
-
-  /* Área do Texto */
   .card-content {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
   }
-
   .card-content h3 {
     color: #00D4FF;
     margin-bottom: 0.5rem;
     font-size: 1.15rem;
     letter-spacing: 0.5px;
   }
-
   .card-content p {
     font-size: 0.9rem;
     line-height: 1.5;
@@ -212,7 +199,6 @@ permalink: /
     color: #E0E0E0;
     flex-grow: 1;
   }
-
   .compact-link {
     color: #00D4FF;
     text-decoration: none;
